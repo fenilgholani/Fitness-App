@@ -15,4 +15,4 @@ To push changes
 4) git push origin master
 
 To pull changes
-1) git pull 
+1) git pull origin master
