@@ -21,4 +21,15 @@
     <string name="welcome_thanks_for_joining">Welcome! Thanks for joining.</string>
     <string name="example_email">example@email.com</string>
     <string name="enter_password">Enter password</string>
+    <string name="no_results">No Results</string>
+
+
+    <!-- Strings used for search information of exercise    -->
+    <string-array name="exercise_array">
+        <item>Squats</item>
+        <item>Planks</item>
+        <item>Pull up</item>
+        <item>Push up</item>
+        <item>Sit up</item>
+    </string-array>
 </resources>
