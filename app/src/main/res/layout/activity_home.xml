@@ -38,6 +38,7 @@
                 android:layout_gravity="center"
                 android:layout_marginBottom="150dp"
                 android:background="@drawable/fitness_icon" />
+
         </LinearLayout>
 
 
@@ -60,6 +61,16 @@
             android:layout_marginBottom="16dp"
             android:text="@string/sign_up"
             android:textStyle="bold"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/dummy_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="36dp"
+            android:background="@drawable/custom_btn"
+            android:text="@string/search_exercise_dummy"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
 
     </LinearLayout>
 </ScrollView>

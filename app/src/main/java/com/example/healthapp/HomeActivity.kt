@@ -23,6 +23,17 @@ class HomeActivity : AppCompatActivity() {
         signUpButton!!.setOnClickListener {
             signUp()
         }
+
+        // dummy button to search bar
+
+        var dummy = findViewById<Button>(R.id.dummy_button)
+
+        dummy.setOnClickListener {
+            val intent = Intent(this@HomeActivity, InfoActivity::class.java)
+            startActivity(intent)
+        }
+
+
     }
 
     private fun signIn() {

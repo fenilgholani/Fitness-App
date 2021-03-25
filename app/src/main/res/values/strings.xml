@@ -22,6 +22,9 @@
     <string name="example_email">example@email.com</string>
     <string name="enter_password">Enter password</string>
     <string name="no_results">No Results</string>
+    <string name="search_exercise_dummy">Search Exercise dummy</string>
+    <string name="text">TEXT</string>
+    <string name="textview">TextView</string>
 
 
     <!-- Strings used for search information of exercise    -->
