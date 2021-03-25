@@ -35,10 +35,16 @@ class InfoActivity : AppCompatActivity() {
         listView.setOnItemClickListener { parent, view, position, id ->
             val element = parent.getItemAtPosition(position) as String// The item that was clicked
             val intent = Intent(this, ExerciseInfo::class.java)
+            intent.putExtra("exerciseName",element)
             startActivity(intent)
         }
     }
 }
+
+//create separate activities for now
+
+
+//  creating a class would help
 
 
 
