@@ -28,6 +28,7 @@ class HomeActivity : AppCompatActivity() {
         signUpButton!!.setOnClickListener {
             signUp()
         }
+
         calendarButton!!.setOnClickListener {
             signUp()
         }

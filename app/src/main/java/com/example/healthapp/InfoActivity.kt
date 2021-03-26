@@ -2,12 +2,9 @@ package com.example.healthapp
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.*
+import android.widget.ArrayAdapter
+import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.get
-import com.example.healthapp.R.array.exercise_array
-import java.util.*
-import kotlin.collections.ArrayList
 
 class InfoActivity : AppCompatActivity() {
 
