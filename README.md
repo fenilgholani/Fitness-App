@@ -1,3 +1,8 @@
+# Concerns
+- UMD colors arent used
+- Icon looks compressed
+- Button layout is inconsistent and things are hidden at a glance
+
 # CMSC434-Project
 
 Git flow
