@@ -24,11 +24,11 @@ class InfoActivity : AppCompatActivity() {
         adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, list)
 
         list.add("")
-        list.add("Squats")
         list.add("Planks")
         list.add("Pull up")
         list.add("Push up")
         list.add("Sit up")
+        list.add("Squats")
 
         listView.adapter = adapter
 
