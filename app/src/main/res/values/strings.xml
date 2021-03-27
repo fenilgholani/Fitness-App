@@ -35,6 +35,7 @@
     <string name="enter_weight">Enter Weight</string>
     <string name="enter_age">Enter Age</string>
     <string name="submit">Submit</string>
+    <string name="today_exercise_dummy">Today Exercise dummy</string>
 
 
     <!-- Strings used for search information of exercise    -->

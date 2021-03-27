@@ -8,9 +8,9 @@ import androidx.appcompat.app.AppCompatActivity
 
 class InfoActivity : AppCompatActivity() {
 
-    lateinit var listView: ListView
-    var list: ArrayList<String> = ArrayList()
-    lateinit var adapter: ArrayAdapter<String>
+    private lateinit var listView: ListView
+    private var list: ArrayList<String> = ArrayList()
+    private lateinit var adapter: ArrayAdapter<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,7 +20,6 @@ class InfoActivity : AppCompatActivity() {
 
         adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, list)
 
-        list.add("")
         list.add("Planks")
         list.add("Pull up")
         list.add("Push up")

@@ -72,6 +72,16 @@
             android:textColor="@color/white"
             android:textStyle="bold" />
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/dummyTodayExercise"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="36dp"
+            android:background="@drawable/custom_btn"
+            android:text="@string/today_exercise_dummy"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
         <Button
             android:id="@+id/calendar"
             android:layout_width="match_parent"

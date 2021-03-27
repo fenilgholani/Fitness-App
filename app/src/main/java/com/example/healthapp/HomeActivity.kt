@@ -9,8 +9,8 @@ class HomeActivity : AppCompatActivity() {
     private var signInButton: Button? = null
     private var signUpButton: Button? = null
     private var calendarButton: Button? = null
-    private var dummy: Button? = null
-
+    private var dummySearch: Button? = null
+    private var dummyTodayEx: Button? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,7 +19,9 @@ class HomeActivity : AppCompatActivity() {
         signInButton = findViewById(R.id.sign_in)
         signUpButton = findViewById(R.id.sign_up)
         calendarButton = findViewById(R.id.sign_up)
-        dummy = findViewById<Button>(R.id.dummy_button)
+        dummySearch = findViewById(R.id.dummy_button)
+        dummyTodayEx = findViewById(R.id.dummyTodayExercise)
+
 
         signInButton!!.setOnClickListener {
             signIn()
@@ -33,8 +35,12 @@ class HomeActivity : AppCompatActivity() {
             signUp()
         }
 
-        dummy!!.setOnClickListener {
+        dummySearch!!.setOnClickListener {
             search()
+        }
+
+        dummyTodayEx!!.setOnClickListener{
+            todayExercise()
         }
 
 
@@ -54,6 +60,12 @@ class HomeActivity : AppCompatActivity() {
         val intent = Intent(this@HomeActivity, InfoActivity::class.java)
         startActivity(intent)
     }
+
+    private fun todayExercise(){
+        val intent = Intent(this@HomeActivity, TodayExerciseActivity::class.java)
+        startActivity(intent)
+    }
+
     private fun calendar() {
         val intent = Intent(this@HomeActivity, CalendarActivity::class.java)
         startActivity(intent)
