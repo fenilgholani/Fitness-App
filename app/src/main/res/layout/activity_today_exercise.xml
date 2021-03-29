@@ -363,8 +363,7 @@
 
         <Space
             android:layout_width="293dp"
-            android:layout_height="148dp"
-            android:layout_weight="wrap_content" />
+            android:layout_height="148dp"/>
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation"
