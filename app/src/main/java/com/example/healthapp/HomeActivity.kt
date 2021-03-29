@@ -11,6 +11,7 @@ class HomeActivity : AppCompatActivity() {
     private var calendarButton: Button? = null
     private var dummySearch: Button? = null
     private var dummyTodayEx: Button? = null
+    private var timer: Button? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,6 +22,7 @@ class HomeActivity : AppCompatActivity() {
         calendarButton = findViewById(R.id.sign_up)
         dummySearch = findViewById(R.id.dummy_button)
         dummyTodayEx = findViewById(R.id.dummyTodayExercise)
+        timer = findViewById(R.id.timer)
 
 
         signInButton!!.setOnClickListener {
@@ -41,6 +43,10 @@ class HomeActivity : AppCompatActivity() {
 
         dummyTodayEx!!.setOnClickListener{
             todayExercise()
+        }
+
+        timer!!.setOnClickListener{
+            timer()
         }
 
 
@@ -68,6 +74,11 @@ class HomeActivity : AppCompatActivity() {
 
     private fun calendar() {
         val intent = Intent(this@HomeActivity, CalendarActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun timer() {
+        val intent = Intent(this@HomeActivity, TimerActivity2::class.java)
         startActivity(intent)
     }
 }
