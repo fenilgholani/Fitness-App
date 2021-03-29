@@ -19,7 +19,7 @@ class HomeActivity : AppCompatActivity() {
 
         signInButton = findViewById(R.id.sign_in)
         signUpButton = findViewById(R.id.sign_up)
-        calendarButton = findViewById(R.id.sign_up)
+        calendarButton = findViewById(R.id.calendar)
         dummySearch = findViewById(R.id.dummy_button)
         dummyTodayEx = findViewById(R.id.dummyTodayExercise)
         timer = findViewById(R.id.timer)
@@ -34,7 +34,7 @@ class HomeActivity : AppCompatActivity() {
         }
 
         calendarButton!!.setOnClickListener {
-            signUp()
+            calendar()
         }
 
         dummySearch!!.setOnClickListener {
