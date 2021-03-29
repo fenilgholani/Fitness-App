@@ -26,11 +26,12 @@
 
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.HealthApp.NoActionBar">
+            android:label="@string/app_name">
+<!--            android:theme="@style/Theme.HealthApp.NoActionBar">-->
         </activity>
 
         <activity android:name=".InfoActivity" ></activity>
+        <activity android:name=".RecordActivity" ></activity>
         <activity android:name=".ExerciseInfo" ></activity>
         <activity android:name=".TodayExerciseActivity"></activity>
     </application>

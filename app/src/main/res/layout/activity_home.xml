@@ -36,7 +36,7 @@
                 android:layout_width="105dp"
                 android:layout_height="91dp"
                 android:layout_gravity="center"
-                android:layout_marginBottom="150dp"
+                android:layout_marginBottom="160dp"
                 android:background="@drawable/fitness_icon" />
 
         </LinearLayout>
@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/custom_btn"
             android:textColor="@color/white"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="66dp"
             android:text="@string/sign_up"
             android:textStyle="bold"/>
 
@@ -82,11 +82,14 @@
             android:textColor="@color/white"
             android:textStyle="bold" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/calendar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="calendar" />
+            android:text="calendar"
+            android:background="@drawable/custom_btn"
+            android:textColor="@color/white"
+            android:textStyle="bold"/>
 
     </LinearLayout>
 </ScrollView>

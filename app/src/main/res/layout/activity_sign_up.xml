@@ -3,72 +3,100 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="36dp">
+    android:padding="16dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="vertical"
-        android:padding="16dp"
         tools:context=".SignUpActivity">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/sign_up"
+            android:textColor="@color/black"
             android:textSize="44dp"
-            android:textStyle="bold"
-            android:text="@string/sign_up"/>
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="24dp"
             android:layout_marginBottom="44dp"
-            android:textColor="@color/main_green"
-            android:text="@string/welcome_thanks_for_joining"/>
+            android:text="@string/welcome_thanks_for_joining"
+            android:textColor="@color/light_blue"
+            android:textSize="24dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:text="@string/email"/>
-
-        <EditText
-            android:id="@+id/email"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/example_email"
-            android:inputType="textEmailAddress"
-            android:layout_marginBottom="24dp"
-            android:importantForAutofill="no" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:text="@string/password"/>
-
-        <EditText
-            android:id="@+id/password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/enter_password"
-            android:inputType="textPassword"
             android:layout_marginBottom="64dp"
-            android:importantForAutofill="no" />
+            android:background="@drawable/custom_group"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/username"
+                android:textColor="@color/main_red"
+                android:textSize="24dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:hint="@string/example_username"
+                android:importantForAutofill="no"
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/email"
+                android:textColor="@color/main_red"
+                android:textSize="24dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:hint="@string/example_email"
+                android:importantForAutofill="no"
+                android:inputType="textEmailAddress" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/password"
+                android:textColor="@color/main_red"
+                android:textSize="24dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/enter_password"
+                android:importantForAutofill="no"
+                android:inputType="textPassword" />
+        </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/sign_up"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/custom_btn"
-            android:textColor="@color/white"
             android:layout_marginBottom="24dp"
+            android:background="@drawable/custom_btn"
             android:text="@string/sign_up"
-            android:textStyle="bold"/>
+            android:textColor="@color/white"
+            android:textStyle="bold" />
 
         <ProgressBar
             android:id="@+id/progressBar"

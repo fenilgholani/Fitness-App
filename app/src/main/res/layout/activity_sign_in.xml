@@ -3,20 +3,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="36dp">
+    android:padding="16dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="vertical"
-        android:padding="16dp"
         tools:context=".SignInActivity">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="44dp"
+            android:textColor="@color/black"
             android:textStyle="bold"
             android:text="@string/sign_in"/>
 
@@ -25,14 +25,24 @@
             android:layout_height="wrap_content"
             android:textSize="24dp"
             android:layout_marginBottom="44dp"
-            android:textColor="@color/main_green"
+            android:textColor="@color/light_blue"
             android:text="@string/hi_there"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="104dp"
+        android:background="@drawable/custom_group"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:padding="16dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:textColor="@color/black"
+            android:textColor="@color/main_red"
+            android:textSize="24dp"
             android:text="@string/email"/>
 
         <EditText
@@ -48,7 +58,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:textColor="@color/black"
+            android:textColor="@color/main_red"
+            android:textSize="24dp"
             android:text="@string/password"/>
 
         <EditText
@@ -57,8 +68,8 @@
             android:layout_height="wrap_content"
             android:hint="@string/enter_password"
             android:inputType="textPassword"
-            android:layout_marginBottom="64dp"
             android:importantForAutofill="no" />
+    </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/sign_in"

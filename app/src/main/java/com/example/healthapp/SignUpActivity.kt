@@ -17,6 +17,7 @@ class SignUpActivity : AppCompatActivity() {
     private var signUpButton: Button? = null
     private var mAuth: FirebaseAuth? = null
     private var progressBar: ProgressBar? = null
+    private var username : EditText? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +28,7 @@ class SignUpActivity : AppCompatActivity() {
         mPassword = findViewById(R.id.password)
         signUpButton = findViewById(R.id.sign_up)
         progressBar = findViewById(R.id.progressBar)
+        username = findViewById(R.id.username)
 
         signUpButton!!.setOnClickListener {
             signUpNewUser()
@@ -63,7 +65,7 @@ class SignUpActivity : AppCompatActivity() {
                 if (email == "test@umd.edu") {
                     Toast.makeText(applicationContext, "Sign up successful!", Toast.LENGTH_LONG)
                         .show()
-                    val intent = Intent(this@SignUpActivity, SignInActivity::class.java)
+                    val intent = Intent(this@SignUpActivity, RecordActivity::class.java)
                     startActivity(intent)
                 } else {
                     Toast.makeText(
