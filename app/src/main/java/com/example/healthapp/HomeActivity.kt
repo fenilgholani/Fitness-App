@@ -19,10 +19,10 @@ class HomeActivity : AppCompatActivity() {
 
         signInButton = findViewById(R.id.sign_in)
         signUpButton = findViewById(R.id.sign_up)
-        calendarButton = findViewById(R.id.calendar)
-        dummySearch = findViewById(R.id.dummy_button)
-        dummyTodayEx = findViewById(R.id.dummyTodayExercise)
-        timer = findViewById(R.id.timer)
+//        calendarButton = findViewById(R.id.calendar)
+//        dummySearch = findViewById(R.id.dummy_button)
+//        dummyTodayEx = findViewById(R.id.dummyTodayExercise)
+//        timer = findViewById(R.id.timer)
 
 
         signInButton!!.setOnClickListener {
@@ -33,21 +33,21 @@ class HomeActivity : AppCompatActivity() {
             signUp()
         }
 
-        calendarButton!!.setOnClickListener {
-            calendar()
-        }
-
-        dummySearch!!.setOnClickListener {
-            search()
-        }
-
-        dummyTodayEx!!.setOnClickListener{
-            todayExercise()
-        }
-
-        timer!!.setOnClickListener{
-            timer()
-        }
+//        calendarButton!!.setOnClickListener {
+//            calendar()
+//        }
+//
+//        dummySearch!!.setOnClickListener {
+//            search()
+//        }
+//
+//        dummyTodayEx!!.setOnClickListener{
+//            todayExercise()
+//        }
+//
+//        timer!!.setOnClickListener{
+//            timer()
+//        }
 
 
     }
@@ -78,7 +78,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun timer() {
-        val intent = Intent(this@HomeActivity, TimerActivity2::class.java)
+        val intent = Intent(this@HomeActivity, TimerActivity::class.java)
         startActivity(intent)
     }
 }

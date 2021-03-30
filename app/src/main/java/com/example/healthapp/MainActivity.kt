@@ -46,14 +46,14 @@ class MainActivity : AppCompatActivity() {
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { menuItem ->
         when (menuItem.itemId) {
             R.id.action_profile -> {
-//                val intent = Intent(this@MainActivity, SignInActivity::class.java)
-//                startActivity(intent)
-                return@OnNavigationItemSelectedListener true
+                val intent = Intent(this@MainActivity, MainActivity::class.java)
+                startActivity(intent)
+//                return@OnNavigationItemSelectedListener true
             }
             R.id.action_history -> {
-//                val intent = Intent(this@MainActivity, SignInActivity::class.java)
-//                startActivity(intent)
-                return@OnNavigationItemSelectedListener true
+                val intent = Intent(this@MainActivity, CalendarActivity::class.java)
+                startActivity(intent)
+//                return@OnNavigationItemSelectedListener true
             }
             R.id.action_workout -> {
                 val intent = Intent(this@MainActivity, TodayExerciseActivity::class.java)

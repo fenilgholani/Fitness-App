@@ -29,12 +29,16 @@
                 android:layout_gravity="center"
                 android:text="@string/health_app"
                 android:textColor="@color/white"
-                android:textSize="46dp"
+                android:textSize="66dp"
+                android:shadowColor="@color/black"
+                android:shadowRadius="30"
+                android:shadowDx="1"
+                android:shadowDy="1"
                 android:textStyle="bold" />
 
             <TextView
-                android:layout_width="105dp"
-                android:layout_height="91dp"
+                android:layout_width="145dp"
+                android:layout_height="131dp"
                 android:layout_gravity="center"
                 android:layout_marginBottom="160dp"
                 android:background="@drawable/fitness_icon" />
@@ -62,44 +66,44 @@
             android:text="@string/sign_up"
             android:textStyle="bold"/>
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/dummy_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="36dp"
-            android:background="@drawable/custom_btn"
-            android:text="@string/search_exercise_dummy"
-            android:textColor="@color/white"
-            android:textStyle="bold" />
+<!--        <androidx.appcompat.widget.AppCompatButton-->
+<!--            android:id="@+id/dummy_button"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginBottom="36dp"-->
+<!--            android:background="@drawable/custom_btn"-->
+<!--            android:text="@string/search_exercise_dummy"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textStyle="bold" />-->
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/dummyTodayExercise"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="36dp"
-            android:background="@drawable/custom_btn"
-            android:text="@string/today_exercise_dummy"
-            android:textColor="@color/white"
-            android:textStyle="bold" />
+<!--        <androidx.appcompat.widget.AppCompatButton-->
+<!--            android:id="@+id/dummyTodayExercise"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginBottom="36dp"-->
+<!--            android:background="@drawable/custom_btn"-->
+<!--            android:text="@string/today_exercise_dummy"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textStyle="bold" />-->
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/calendar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Calendar"
-            android:background="@drawable/custom_btn"
-            android:textColor="@color/white"
-            android:layout_marginBottom="36dp"
-            android:textStyle="bold"/>
+<!--        <androidx.appcompat.widget.AppCompatButton-->
+<!--            android:id="@+id/calendar"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Calendar"-->
+<!--            android:background="@drawable/custom_btn"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:layout_marginBottom="36dp"-->
+<!--            android:textStyle="bold"/>-->
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/timer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Timer"
-            android:background="@drawable/custom_btn"
-            android:textColor="@color/white"
-            android:textStyle="bold"/>
+<!--        <androidx.appcompat.widget.AppCompatButton-->
+<!--            android:id="@+id/timer"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Timer"-->
+<!--            android:background="@drawable/custom_btn"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textStyle="bold"/>-->
 
     </LinearLayout>
 </ScrollView>

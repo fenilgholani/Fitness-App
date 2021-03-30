@@ -9,7 +9,7 @@ import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 
-class TimerActivity2 : AppCompatActivity() {
+class TimerActivity : AppCompatActivity() {
     var chronometer: Chronometer? = null
     var btStart: ImageButton? = null
     var btStop: ImageButton? = null
@@ -86,7 +86,7 @@ class TimerActivity2 : AppCompatActivity() {
             tUpdate = tBuff + tMillisec
             sec = (tUpdate / 1000).toInt()
             min = sec / 60
-            sec = sec % 60
+            sec %= 60
             milliSec = (tUpdate % 100).toInt()
             chronometer!!.text =
                 String.format("%02d", min) + ":" + String.format(

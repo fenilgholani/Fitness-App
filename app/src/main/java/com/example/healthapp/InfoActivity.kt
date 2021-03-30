@@ -5,12 +5,14 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class InfoActivity : AppCompatActivity() {
 
     private lateinit var listView: ListView
     private var list: ArrayList<String> = ArrayList()
     private lateinit var adapter: ArrayAdapter<String>
+    var bottomNavigationView : BottomNavigationView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +36,36 @@ class InfoActivity : AppCompatActivity() {
             intent.putExtra("exerciseName",element)
             startActivity(intent)
         }
+
+        bottomNavigationView = findViewById(R.id.bottom_navigation)
+        bottomNavigationView!!.selectedItemId = R.id.action_information
+        bottomNavigationView!!.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+    }
+
+    private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { menuItem ->
+        when (menuItem.itemId) {
+            R.id.action_profile -> {
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+//                return@OnNavigationItemSelectedListener true
+            }
+            R.id.action_history -> {
+                val intent = Intent(this, CalendarActivity::class.java)
+                startActivity(intent)
+//                return@OnNavigationItemSelectedListener true
+            }
+            R.id.action_workout -> {
+                val intent = Intent(this, TodayExerciseActivity::class.java)
+                startActivity(intent)
+//                return@OnNavigationItemSelectedListener true
+            }
+            R.id.action_information -> {
+                val intent = Intent(this, InfoActivity::class.java)
+                startActivity(intent)
+//                return@OnNavigationItemSelectedListener true
+            }
+        }
+        false
     }
 }
 

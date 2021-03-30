@@ -51,6 +51,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="24dp"
                 android:hint="@string/example_username"
+                android:text="egolub123"
                 android:importantForAutofill="no"
                 android:inputType="text" />
 
@@ -68,6 +69,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="24dp"
                 android:hint="@string/example_email"
+                android:text="egolub@umd.edu"
                 android:importantForAutofill="no"
                 android:inputType="textEmailAddress" />
 
@@ -84,6 +86,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/enter_password"
+                android:text="abc123"
                 android:importantForAutofill="no"
                 android:inputType="textPassword" />
         </LinearLayout>

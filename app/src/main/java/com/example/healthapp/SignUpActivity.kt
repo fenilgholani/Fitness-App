@@ -62,7 +62,7 @@ class SignUpActivity : AppCompatActivity() {
 //        mAuth!!.createUserWithEmailAndPassword(email, password)
 //            .addOnCompleteListener(this) { task ->
 //                if (task.isSuccessful) {
-                if (email == "test@umd.edu") {
+                if (email == "egolub@umd.edu") {
                     Toast.makeText(applicationContext, "Sign up successful!", Toast.LENGTH_LONG)
                         .show()
                     val intent = Intent(this@SignUpActivity, RecordActivity::class.java)
