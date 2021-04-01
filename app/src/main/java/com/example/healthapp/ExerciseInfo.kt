@@ -3,20 +3,29 @@ package com.example.healthapp
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
-class ExerciseInfo : AppCompatActivity() {
+class ExerciseInfo: AppCompatActivity() {
 
+    private var exerciseName: String?=null
     private var bigTextView: TextView? = null
     private var titleTextView: TextView? = null
     private var infotextView: TextView? = null
     private var imgView: ImageView?=null
 
+//    init{
+//        this.exerciseName = exerciseName
+//        Toast.makeText(this, "You clicked on $exerciseName", Toast.LENGTH_SHORT).show()
+//
+//    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_exercise_info)
 
-        var intent = getIntent()
+
+        var intent = intent
         var exerciseName = intent.getStringExtra("exerciseName")
 
         bigTextView = findViewById(R.id.exerciseName)
