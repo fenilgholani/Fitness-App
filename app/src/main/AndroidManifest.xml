@@ -37,6 +37,7 @@
         <activity android:name=".TodayExerciseActivity"></activity>
         <activity android:name=".TimerActivity"></activity>
         <activity android:name=".CalendarActivity"></activity>
+        <activity android:name=".BetterEx"></activity>
     </application>
 
 </manifest>

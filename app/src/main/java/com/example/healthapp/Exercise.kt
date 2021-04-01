@@ -33,5 +33,4 @@ class Exercise(exerciseName: String, exerciseCal: Double, exerciseInfo: String, 
 
 
 
-
 }
