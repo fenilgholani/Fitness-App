@@ -1,22 +1,24 @@
 package com.example.healthapp
 
 import android.content.Intent
-import android.service.quicksettings.Tile
-import android.telecom.Call
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
-import androidx.core.content.ContextCompat.startActivity
+import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
-import com.example.healthapp.R
 
-class ItemAdapter(private var titles: List<String>, private var details: List<String>, private var images:List<Int>) :
+
+class ItemAdapter(
+    private var titles: List<String>,
+    private var details: List<String>,
+    private var images: List<Int>
+) :
 
 
     RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
+
+    private var list_exercise = ArrayList<String>()
 
 
         inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
@@ -24,12 +26,18 @@ class ItemAdapter(private var titles: List<String>, private var details: List<St
             val itemTitle: TextView = itemView.findViewById(R.id.ex_title)
             val itemDetail: TextView = itemView.findViewById(R.id.ex_description)
             val itemImg: ImageView = itemView.findViewById(R.id.ex_pic)
+            val itemCheckBox: CheckBox = itemView.findViewById(R.id.ex_checkbox)
+
 
             init{
 
                 itemView.setOnClickListener{
                     val pos: Int = adapterPosition
-                    Toast.makeText(itemView.context, "You clicked on item ${pos+1}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        itemView.context,
+                        "You clicked on item ${pos + 1}",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
 
             }
@@ -52,24 +60,42 @@ class ItemAdapter(private var titles: List<String>, private var details: List<St
 //    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val v: View = LayoutInflater.from(parent.context).inflate(R.layout.row_exercise, parent, false)
+        val v: View = LayoutInflater.from(parent.context).inflate(
+            R.layout.row_exercise,
+            parent,
+            false
+        )
         return  ViewHolder(v)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
+
         holder.itemTitle.text = titles[position]
         holder.itemDetail.text = details[position]
         holder.itemImg.setImageResource(images[position])
+
 
         holder.itemView.setOnClickListener {
 
             var context = holder.itemTitle.context
             var intent = Intent(context, ExerciseInfo::class.java)
-            intent.putExtra("exerciseName", "Planks")
+            intent.putExtra("exerciseName", holder.itemTitle.text)
             context.startActivity(intent)
 
         }
+
+        holder.itemCheckBox.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                list_exercise.add(holder.itemTitle.text.toString())
+
+            }
+            else{
+                list_exercise!!.remove(holder.itemTitle.text.toString())
+            }
+
+        }
+
 //        context = holder.itemDetail.context
 //        intent = Intent( context, InfoActivity::class.java)
 //        intent.putExtra("exerciseName","Plank")
@@ -82,6 +108,11 @@ class ItemAdapter(private var titles: List<String>, private var details: List<St
     }
 
 
+    fun getExerciseList(): ArrayList<String> {
+        return list_exercise
+    }
+
 
 
 }
+
