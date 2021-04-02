@@ -1,3 +1,50 @@
+# TODO
+## homepage
+- icon looks strange
+- text larger on buttons
+- color scheme match top with 
+- update home splash to be less distracting (or could do minimal)
+
+## singin
+- he mentioned in a lecture about how to format a window, we should review the slides to see how to make it
+- include signin button in gray block
+
+## signup
+- same thing with colors, include singup button in gray section
+- make signup and signin 
+
+
+- Add decision to choose male or female gifs
+
+- Add preferences settings window where you would pick that
+
+## calories burned
+- source calorie estimation
+
+## calendar 
+- activity for that day, is a color when you did something on that day
+
+## dummy button (as adding exercise button)
+- button inconsistent size
+- no search bar
+- whenever you select workout, should see gif video and desciritpon
+
+## workouts
+- add auto save on entry
+- add individual exercise pages for custom weight reps in one long page
+- Model the strong app
+
+
+- docker blue above
+- by default 
+- remove info tab
+
+- profile todays exercise history
+
+## timer
+add timer since we only have stopwatch
+
+
 # Concerns
 - UMD colors arent used
 - Icon looks compressed
