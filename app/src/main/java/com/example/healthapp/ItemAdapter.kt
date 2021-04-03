@@ -1,12 +1,18 @@
 package com.example.healthapp
 
-import android.content.Intent
+import android.app.Dialog
+import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebView
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
+import com.afollestad.materialdialogs.MaterialDialog
+import com.afollestad.materialdialogs.customview.customView
+import com.bumptech.glide.Glide
+import java.util.zip.Inflater
 
 
 class ItemAdapter(
@@ -41,23 +47,8 @@ class ItemAdapter(
                 }
 
             }
-
-//            override fun onClick(v: View?) {
-//                val position = adapterPosition
-//                if (position != RecyclerView.NO_POSITION) {
-//                    listener.onItemClick(position)
-//                }
-//            }
-
-
-
-
         }
 
-
-//    interface OnItemClickListener {
-//        fun onItemClick(position: Int)
-//    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v: View = LayoutInflater.from(parent.context).inflate(
@@ -79,9 +70,26 @@ class ItemAdapter(
         holder.itemView.setOnClickListener {
 
             var context = holder.itemTitle.context
-            var intent = Intent(context, ExerciseInfo::class.java)
-            intent.putExtra("exerciseName", holder.itemTitle.text)
-            context.startActivity(intent)
+            val l = LayoutInflater.from(context).inflate(R.layout.activity_dialog, null);
+
+            Log.i("Fenil",l.findViewById(R.id.ex_gif))
+
+            var gif: ImageView = l.findViewById(R.id.ex_gif)
+            gif.setImageResource(R.drawable.pushup)
+
+
+            val dialog = MaterialDialog(context)
+                .customView(R.layout.activity_dialog)
+
+
+
+            dialog.show()
+
+
+
+//            var intent = Intent(context, ExerciseInfo::class.java)
+//            intent.putExtra("exerciseName", holder.itemTitle.text)
+//            context.startActivity(intent)
 
         }
 

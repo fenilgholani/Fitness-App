@@ -95,7 +95,7 @@ class ExerciseInfo: AppCompatActivity() {
 
             titleTextView!!.text =  "How to Do the Basic Squat"
 
-            imgView!!.setImageResource(R.drawable.sqaut)
+            imgView!!.setImageResource(R.drawable.squat)
 
             infotextView!!.text =
                 "1. Place a chair behind you and begin standing facing away from the chair, with both feet planted on the floor hip-width apart.\n" +
