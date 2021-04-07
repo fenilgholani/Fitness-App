@@ -16,7 +16,7 @@ class ItemAdapter(
     private var images: List<Int>
 ) :
 
-
+//Hello
     RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
 
     private var list_exercise = ArrayList<String>()
