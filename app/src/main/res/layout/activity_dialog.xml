@@ -9,10 +9,19 @@
 
 
     <pl.droidsonroids.gif.GifImageView
-        android:id="@+id/ex_gif"
+        android:id="@+id/ex_plank"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/plank"
+        android:background="@color/main_blue"/>
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/ex_pullup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:src="@drawable/pullup"
         android:background="@color/main_blue"/>
+
+
 
 </LinearLayout>

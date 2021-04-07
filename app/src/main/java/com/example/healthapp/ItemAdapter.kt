@@ -1,20 +1,13 @@
 package com.example.healthapp
 
-import android.app.Dialog
-import android.content.Context
-import android.media.Image
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.webkit.WebView
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.customview.customView
-import com.bumptech.glide.Glide
 import pl.droidsonroids.gif.GifImageView
-import java.util.zip.Inflater
 
 
 class ItemAdapter(
@@ -72,11 +65,23 @@ class ItemAdapter(
         holder.itemView.setOnClickListener {
 
             var context = holder.itemTitle.context
-            val l = LayoutInflater.from(holder.itemView.context).inflate(R.layout.activity_dialog, null);
+            val l = LayoutInflater.from(holder.itemView.context).inflate(
+                R.layout.activity_dialog,
+                null
+            );
             
-            var gif: ImageView = l.findViewById(R.id.ex_gif)
+//            var gif: ImageView = l.findViewById(R.id.ex_gif)
 
-            gif.setImageResource(R.drawable.plank)
+
+            var gif : GifImageView? = null
+
+            when(holder.itemTitle.text){
+                "Pull up"-> gif = l.findViewById(R.id.ex_pullup)
+                "Planks"-> gif = l.findViewById(R.id.ex_plank)
+            }
+
+
+//            gif.setImageResource(R.drawable.plank)
 //            Glide.with(l).asGif().load(R.drawable.pullup).into(gif)
 
             val dialog = MaterialDialog(context)
