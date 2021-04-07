@@ -21,6 +21,13 @@ class TodayExerciseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_today_exercise)
 
+        var intent = intent
+        var exerciseName = intent.getStringArrayExtra("exerciseName")
+
+
+
+
+
         add = findViewById(R.id.add)
         save = findViewById(R.id.save)
 
