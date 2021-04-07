@@ -1,5 +1,6 @@
 package com.example.healthapp
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -159,6 +160,8 @@ class ItemAdapter(
             else{
                 list_exercise!!.remove(holder.itemTitle.text.toString())
             }
+
+
 
         }
 
