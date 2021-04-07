@@ -7,7 +7,7 @@
 <!--    android:padding="16dp"-->
 <!--    android:textAlignment="center">-->
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
@@ -17,354 +17,360 @@
         android:padding="16dp"
         tools:context=".TodayExerciseActivity">
 
-
-        <SearchView
-            android:id="@+id/searchView"
-            android:layout_width="271dp"
-            android:layout_height="32dp"
-            android:background="@drawable/custom_background" />
-
-        <LinearLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/today_recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="20sp">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/row_todaysrow">
 
-            <TextView
-                android:layout_width="93dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30sp"
-                android:layout_marginRight="30sp"
-                android:layout_marginBottom="15sp"
-                android:text="Plank"
-                android:textColor="@color/black"
-                android:textStyle="bold" />
+        </androidx.recyclerview.widget.RecyclerView>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_marginTop="20sp">-->
 
-                <TextView
-                    android:layout_width="128dp"
-                    android:layout_height="wrap_content"
-                    android:text="Time"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textStyle="bold" />
+<!--            <TextView-->
+<!--                android:layout_width="93dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="30sp"-->
+<!--                android:layout_marginRight="30sp"-->
+<!--                android:layout_marginBottom="15sp"-->
+<!--                android:text="Plank"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textStyle="bold" />-->
 
-                <EditText
-                    android:layout_width="135dp"
-                    android:layout_height="58dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:importantForAutofill="no"
-                    android:inputType="time"
-                    android:textAlignment="center" />
-            </LinearLayout>
-        </LinearLayout>
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="vertical">-->
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10sp">
+<!--                <TextView-->
+<!--                    android:layout_width="128dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Time"-->
+<!--                    android:textAlignment="center"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textStyle="bold" />-->
 
-            <TextView
-                android:layout_width="92dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30sp"
-                android:layout_marginRight="30sp"
-                android:layout_marginBottom="15sp"
-                android:text="Pull-up"
-                android:textColor="@color/black"
-                android:textStyle="bold" />
+<!--                <EditText-->
+<!--                    android:layout_width="135dp"-->
+<!--                    android:layout_height="58dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:ems="10"-->
+<!--                    android:importantForAutofill="no"-->
+<!--                    android:inputType="time"-->
+<!--                    android:textAlignment="center" />-->
+<!--            </LinearLayout>-->
+<!--        </LinearLayout>-->
 
-            <LinearLayout
-                android:layout_width="82dp"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_marginTop="10sp">-->
 
-                <TextView
-                    android:layout_width="66dp"
-                    android:layout_height="wrap_content"
-                    android:text="KG"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textStyle="bold" />
+<!--            <TextView-->
+<!--                android:layout_width="92dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="30sp"-->
+<!--                android:layout_marginRight="30sp"-->
+<!--                android:layout_marginBottom="15sp"-->
+<!--                android:text="Pull-up"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textStyle="bold" />-->
 
-                <EditText
-                    android:layout_width="66dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="30sp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="numberSigned"
-                    android:textAlignment="center" />
-            </LinearLayout>
+<!--            <LinearLayout-->
+<!--                android:layout_width="82dp"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="vertical">-->
 
-            <LinearLayout
-                android:layout_width="82dp"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+<!--                <TextView-->
+<!--                    android:layout_width="66dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="KG"-->
+<!--                    android:textAlignment="center"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textStyle="bold" />-->
 
-                <TextView
-                    android:layout_width="66dp"
-                    android:layout_height="wrap_content"
-                    android:text="REPS"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textStyle="bold" />
+<!--                <EditText-->
+<!--                    android:layout_width="66dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginRight="30sp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:ems="10"-->
+<!--                    android:inputType="numberSigned"-->
+<!--                    android:textAlignment="center" />-->
+<!--            </LinearLayout>-->
 
-                <EditText
-                    android:layout_width="66dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="30sp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="numberSigned"
-                    android:textAlignment="center" />
-            </LinearLayout>
-        </LinearLayout>
+<!--            <LinearLayout-->
+<!--                android:layout_width="82dp"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="vertical">-->
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10sp">
+<!--                <TextView-->
+<!--                    android:layout_width="66dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="REPS"-->
+<!--                    android:textAlignment="center"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textStyle="bold" />-->
 
-            <TextView
-                android:layout_width="93dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30sp"
-                android:layout_marginRight="30sp"
-                android:layout_marginBottom="15sp"
-                android:text="Push-up"
-                android:textColor="@color/black"
-                android:textStyle="bold" />
+<!--                <EditText-->
+<!--                    android:layout_width="66dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginRight="30sp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:ems="10"-->
+<!--                    android:inputType="numberSigned"-->
+<!--                    android:textAlignment="center" />-->
+<!--            </LinearLayout>-->
+<!--        </LinearLayout>-->
 
-            <LinearLayout
-                android:layout_width="82dp"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_marginTop="10sp">-->
 
-                <TextView
-                    android:layout_width="66dp"
-                    android:layout_height="wrap_content"
-                    android:text="KG"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textStyle="bold" />
+<!--            <TextView-->
+<!--                android:layout_width="93dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="30sp"-->
+<!--                android:layout_marginRight="30sp"-->
+<!--                android:layout_marginBottom="15sp"-->
+<!--                android:text="Push-up"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textStyle="bold" />-->
 
-                <EditText
-                    android:layout_width="66dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="30sp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="numberSigned"
-                    android:textAlignment="center" />
-            </LinearLayout>
+<!--            <LinearLayout-->
+<!--                android:layout_width="82dp"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="vertical">-->
 
-            <LinearLayout
-                android:layout_width="82dp"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+<!--                <TextView-->
+<!--                    android:layout_width="66dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="KG"-->
+<!--                    android:textAlignment="center"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textStyle="bold" />-->
 
-                <TextView
-                    android:layout_width="66dp"
-                    android:layout_height="wrap_content"
-                    android:text="REPS"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textStyle="bold" />
+<!--                <EditText-->
+<!--                    android:layout_width="66dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginRight="30sp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:ems="10"-->
+<!--                    android:inputType="numberSigned"-->
+<!--                    android:textAlignment="center" />-->
+<!--            </LinearLayout>-->
 
-                <EditText
-                    android:layout_width="66dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="30sp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="numberSigned"
-                    android:textAlignment="center" />
-            </LinearLayout>
-        </LinearLayout>
+<!--            <LinearLayout-->
+<!--                android:layout_width="82dp"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="vertical">-->
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10sp">
+<!--                <TextView-->
+<!--                    android:layout_width="66dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="REPS"-->
+<!--                    android:textAlignment="center"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textStyle="bold" />-->
 
-            <TextView
-                android:layout_width="93dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30sp"
-                android:layout_marginRight="30sp"
-                android:layout_marginBottom="15sp"
-                android:text="Sit-up"
-                android:textColor="@color/black"
-                android:textStyle="bold" />
+<!--                <EditText-->
+<!--                    android:layout_width="66dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginRight="30sp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:ems="10"-->
+<!--                    android:inputType="numberSigned"-->
+<!--                    android:textAlignment="center" />-->
+<!--            </LinearLayout>-->
+<!--        </LinearLayout>-->
 
-            <LinearLayout
-                android:layout_width="82dp"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_marginTop="10sp">-->
 
-                <TextView
-                    android:layout_width="66dp"
-                    android:layout_height="wrap_content"
-                    android:text="KG"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textStyle="bold" />
+<!--            <TextView-->
+<!--                android:layout_width="93dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="30sp"-->
+<!--                android:layout_marginRight="30sp"-->
+<!--                android:layout_marginBottom="15sp"-->
+<!--                android:text="Sit-up"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textStyle="bold" />-->
 
-                <EditText
-                    android:layout_width="66dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="30sp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="numberSigned"
-                    android:textAlignment="center" />
-            </LinearLayout>
+<!--            <LinearLayout-->
+<!--                android:layout_width="82dp"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="vertical">-->
 
-            <LinearLayout
-                android:layout_width="82dp"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+<!--                <TextView-->
+<!--                    android:layout_width="66dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="KG"-->
+<!--                    android:textAlignment="center"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textStyle="bold" />-->
 
-                <TextView
-                    android:layout_width="66dp"
-                    android:layout_height="wrap_content"
-                    android:text="REPS"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textStyle="bold" />
+<!--                <EditText-->
+<!--                    android:layout_width="66dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginRight="30sp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:ems="10"-->
+<!--                    android:inputType="numberSigned"-->
+<!--                    android:textAlignment="center" />-->
+<!--            </LinearLayout>-->
 
-                <EditText
-                    android:layout_width="66dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="30sp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="numberSigned"
-                    android:textAlignment="center" />
-            </LinearLayout>
-        </LinearLayout>
+<!--            <LinearLayout-->
+<!--                android:layout_width="82dp"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="vertical">-->
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10sp">
+<!--                <TextView-->
+<!--                    android:layout_width="66dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="REPS"-->
+<!--                    android:textAlignment="center"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textStyle="bold" />-->
 
-            <TextView
-                android:layout_width="93dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30sp"
-                android:layout_marginRight="30sp"
-                android:layout_marginBottom="15sp"
-                android:text="Squats"
-                android:textColor="@color/black"
-                android:textStyle="bold" />
+<!--                <EditText-->
+<!--                    android:layout_width="66dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginRight="30sp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:ems="10"-->
+<!--                    android:inputType="numberSigned"-->
+<!--                    android:textAlignment="center" />-->
+<!--            </LinearLayout>-->
+<!--        </LinearLayout>-->
 
-            <LinearLayout
-                android:layout_width="82dp"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_marginTop="10sp">-->
 
-                <TextView
-                    android:layout_width="66dp"
-                    android:layout_height="wrap_content"
-                    android:text="KG"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textStyle="bold" />
+<!--            <TextView-->
+<!--                android:layout_width="93dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="30sp"-->
+<!--                android:layout_marginRight="30sp"-->
+<!--                android:layout_marginBottom="15sp"-->
+<!--                android:text="Squats"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textStyle="bold" />-->
 
-                <EditText
-                    android:layout_width="66dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="30sp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="numberSigned" />
-            </LinearLayout>
+<!--            <LinearLayout-->
+<!--                android:layout_width="82dp"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="vertical">-->
 
-            <LinearLayout
-                android:layout_width="82dp"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+<!--                <TextView-->
+<!--                    android:layout_width="66dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="KG"-->
+<!--                    android:textAlignment="center"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textStyle="bold" />-->
 
-                <TextView
-                    android:layout_width="66dp"
-                    android:layout_height="wrap_content"
-                    android:text="REPS"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textStyle="bold" />
+<!--                <EditText-->
+<!--                    android:layout_width="66dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginRight="30sp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:ems="10"-->
+<!--                    android:inputType="numberSigned" />-->
+<!--            </LinearLayout>-->
 
-                <EditText
-                    android:layout_width="66dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="30sp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="numberSigned"
-                    android:textAlignment="center" />
-            </LinearLayout>
-        </LinearLayout>
+<!--            <LinearLayout-->
+<!--                android:layout_width="82dp"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="vertical">-->
 
-        <ProgressBar
-            android:id="@+id/progressBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone" />
+<!--                <TextView-->
+<!--                    android:layout_width="66dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="REPS"-->
+<!--                    android:textAlignment="center"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textStyle="bold" />-->
+
+<!--                <EditText-->
+<!--                    android:layout_width="66dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginRight="30sp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:ems="10"-->
+<!--                    android:inputType="numberSigned"-->
+<!--                    android:textAlignment="center" />-->
+<!--            </LinearLayout>-->
+<!--        </LinearLayout>-->
+
+<!--        <ProgressBar-->
+<!--            android:id="@+id/progressBar"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:visibility="gone" />-->
 
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+<!--        <RelativeLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="horizontal">-->
 
-            <Button
-                android:id="@+id/add"
-                android:layout_width="100sp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="1dp"
-                android:layout_marginTop="30sp"
-                android:background="@drawable/custom_btn"
-                android:text="Add"
-                android:textColor="@color/white"
-                android:textStyle="bold" />
+<!--            <Button-->
+<!--                android:id="@+id/add"-->
+<!--                android:layout_width="100sp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_alignParentStart="true"-->
+<!--                android:layout_marginStart="1dp"-->
+<!--                android:layout_marginTop="30sp"-->
+<!--                android:background="@drawable/custom_btn"-->
+<!--                android:text="Add"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textStyle="bold" />-->
 
-            <Button
-                android:id="@+id/save"
-                android:layout_width="100sp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="30sp"
-                android:layout_marginEnd="2dp"
-                android:background="@drawable/custom_btn"
-                android:text="Save"
-                android:textColor="@color/white"
-                android:textStyle="bold" />
+<!--            <Button-->
+<!--                android:id="@+id/save"-->
+<!--                android:layout_width="100sp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_alignParentEnd="true"-->
+<!--                android:layout_marginTop="30sp"-->
+<!--                android:layout_marginEnd="2dp"-->
+<!--                android:background="@drawable/custom_btn"-->
+<!--                android:text="Save"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textStyle="bold" />-->
 
-        </RelativeLayout>
+<!--        </RelativeLayout>-->
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+<!--        <RelativeLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content">-->
 
-            <com.google.android.material.bottomnavigation.BottomNavigationView
-                android:id="@+id/bottom_navigation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                app:menu="@menu/menu_bottom_navigation" />
+<!--            <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--                android:id="@+id/bottom_navigation"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_alignParentBottom="true"-->
+<!--                app:menu="@menu/menu_bottom_navigation" />-->
 
-        </RelativeLayout>
+<!--        </RelativeLayout>-->
 
 <!--        <Space-->
 <!--            android:layout_width="293dp"-->
 <!--            android:layout_height="148dp"/>-->
 
-    </LinearLayout>
+
+
+    </RelativeLayout>
 
 <!--</ScrollView>-->
