@@ -1,0 +1,68 @@
+<resources>
+    <string name="app_name">Fit4U</string>
+
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <!--  Home/Sign In/Sign Up Activity Strings  -->
+    <string name="health_app">F I T 4 U</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="username">Username</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="hi_there">Hi there! Nice to see you again.</string>
+    <string name="welcome_thanks_for_joining">Welcome! Thanks for joining.</string>
+    <string name="example_username">egolub123</string>
+    <string name="example_email">example@email.com</string>
+    <string name="enter_password">Enter password</string>
+    <string name="no_results">No Results</string>
+    <string name="search_exercise_dummy">Search Exercise</string>
+    <string name="text">TEXT</string>
+    <string name="textview">TextView</string>
+    <string name="today_exercise_dummy">Todays Exercise</string>
+
+    <!--  Record Activity Strings  -->
+    <string name="record">Record Personal Information</string>
+    <string name="height">Height</string>
+    <string name="feet">Feet</string>
+    <string name="inches">Inches</string>
+    <string name="weight">Weight</string>
+    <string name="lbs">LBS</string>
+    <string name="kg">KG</string>
+    <string name="age">Age</string>
+    <string name="enter_height_feet">5</string>
+    <string name="enter_height_inches">8</string>
+    <string name="enter_weight">180</string>
+    <string name="enter_age">Enter Age</string>
+    <string name="submit">Submit</string>
+
+    <!--  Menu Navigation Strings  -->
+    <string name="profile">Profile</string>
+    <string name="history">History</string>
+    <string name="workouts">Workouts</string>
+    <string name="information">Information</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_timer">Timer</string>
+
+    <!--  Profile Strings  -->
+    <string name="calories">Calories Burned</string>
+
+    <!--  Calendar Strings  -->
+    <string name="workout_title">Workout Calendar</string>
+
+    <!-- Strings used for search information of exercise    -->
+    <string-array name="exercise_array">
+        <item>Squats</item>
+        <item>Planks</item>
+        <item>Pull up</item>
+        <item>Push up</item>
+        <item>Sit up</item>
+    </string-array>
+</resources>
