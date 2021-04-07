@@ -65,31 +65,83 @@ class ItemAdapter(
         holder.itemView.setOnClickListener {
 
             var context = holder.itemTitle.context
-            val l = LayoutInflater.from(holder.itemView.context).inflate(
-                R.layout.activity_dialog,
-                null
-            );
-            
+            var l: View?=null
+            var gif : GifImageView? = null
+
+            if(holder.itemTitle.text == "Planks") {
+                l = LayoutInflater.from(holder.itemView.context).inflate(
+                    R.layout.ex_activity_plank,
+                    null
+                );
+                gif = l.findViewById(R.id.ex_id)
+                val dialog = MaterialDialog(context)
+                    .customView(R.layout.ex_activity_plank)
+
+                dialog.show()
+            }
+            if(holder.itemTitle.text == "Pull up") {
+                l = LayoutInflater.from(holder.itemView.context).inflate(
+                    R.layout.ex_activity_pullup,
+                    null
+                );
+                gif = l.findViewById(R.id.ex_id)
+                val dialog = MaterialDialog(context)
+                    .customView(R.layout.ex_activity_pullup)
+
+                dialog.show()
+            }
+            if(holder.itemTitle.text == "Push up") {
+                l = LayoutInflater.from(holder.itemView.context).inflate(
+                    R.layout.ex_activity_pushup,
+                    null
+                );
+                gif = l.findViewById(R.id.ex_id)
+                val dialog = MaterialDialog(context)
+                    .customView(R.layout.ex_activity_pushup)
+
+                dialog.show()
+            }
+            if(holder.itemTitle.text == "Sit up") {
+                l = LayoutInflater.from(holder.itemView.context).inflate(
+                    R.layout.ex_activity_plank,
+                    null
+                );
+                gif = l.findViewById(R.id.ex_id)
+                val dialog = MaterialDialog(context)
+                    .customView(R.layout.ex_activity_situp)
+
+                dialog.show()
+            }
+            if(holder.itemTitle.text == "Squats") {
+                l = LayoutInflater.from(holder.itemView.context).inflate(
+                    R.layout.ex_activity_plank,
+                    null
+                );
+                gif = l.findViewById(R.id.ex_id)
+                val dialog = MaterialDialog(context)
+                    .customView(R.layout.ex_activity_squat)
+
+                dialog.show()
+            }
+
+
+
+
+
 //            var gif: ImageView = l.findViewById(R.id.ex_gif)
 
 
-            var gif : GifImageView? = null
-
-            when(holder.itemTitle.text){
-                "Pull up"-> gif = l.findViewById(R.id.ex_pullup)
-                "Planks"-> gif = l.findViewById(R.id.ex_plank)
-            }
+//
+//            when(holder.itemTitle.text){
+//                "Pull up"-> gif = l.findViewById(R.id.ex_pullup)
+//                "Planks"-> gif = l.findViewById(R.id.ex_plank)
+//            }
 
 
 //            gif.setImageResource(R.drawable.plank)
 //            Glide.with(l).asGif().load(R.drawable.pullup).into(gif)
 
-            val dialog = MaterialDialog(context)
-                .customView(R.layout.activity_dialog)
 
-
-
-            dialog.show()
 
 
 
