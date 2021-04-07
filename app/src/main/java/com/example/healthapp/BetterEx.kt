@@ -41,6 +41,7 @@ class BetterEx : AppCompatActivity()  {
             intent.putExtra("exerciseName", listSelectedEx)
             startActivity(intent)
 
+            Log.i("Fenil", listSelectedEx.toString())
         }
 
 
