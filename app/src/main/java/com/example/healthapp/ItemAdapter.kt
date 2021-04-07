@@ -2,6 +2,7 @@ package com.example.healthapp
 
 import android.app.Dialog
 import android.content.Context
+import android.media.Image
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.customview.customView
 import com.bumptech.glide.Glide
+import pl.droidsonroids.gif.GifImageView
 import java.util.zip.Inflater
 
 
@@ -70,13 +72,12 @@ class ItemAdapter(
         holder.itemView.setOnClickListener {
 
             var context = holder.itemTitle.context
-            val l = LayoutInflater.from(context).inflate(R.layout.activity_dialog, null);
-
-            Log.i("Fenil",l.findViewById(R.id.ex_gif))
-
+            val l = LayoutInflater.from(holder.itemView.context).inflate(R.layout.activity_dialog, null);
+            
             var gif: ImageView = l.findViewById(R.id.ex_gif)
-            gif.setImageResource(R.drawable.pushup)
 
+            gif.setImageResource(R.drawable.plank)
+//            Glide.with(l).asGif().load(R.drawable.pullup).into(gif)
 
             val dialog = MaterialDialog(context)
                 .customView(R.layout.activity_dialog)
