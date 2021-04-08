@@ -58,5 +58,7 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
     //added for graphs
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    //added for stopwatch
+    implementation 'me.zhanghai.android.materialprogressbar:library:1.4.2'
 }
 

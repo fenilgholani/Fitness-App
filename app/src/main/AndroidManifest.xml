@@ -39,6 +39,7 @@
         <activity android:name=".TimerActivity"></activity>
         <activity android:name=".CalendarActivity"></activity>
         <activity android:name=".BetterEx"></activity>
+        <activity android:name=".SettingActivity"></activity>
     </application>
 
 </manifest>

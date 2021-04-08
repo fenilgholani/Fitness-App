@@ -7,6 +7,7 @@ import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Button
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.data.Entry
@@ -27,6 +28,17 @@ class MainActivity : AppCompatActivity() {
 //            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 //                    .setAction("Action", null).show()
 //        }
+
+//        // Settings
+//        val settings: Button = findViewById(R.id.action_setting)
+//
+//        settings.setOnClickListener{
+//            SettingActivity()
+//        }
+
+
+
+
 
         var lineChart = findViewById<LineChart>(R.id.lineChart)
 
@@ -90,12 +102,17 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
+//    Need help from Tytan
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
-            R.id.action_settings -> true
+            R.id.action_setting -> {
+                val intent = Intent(this@MainActivity, SettingActivity::class.java)
+                startActivity(intent)
+                return true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -113,7 +130,7 @@ class MainActivity : AppCompatActivity() {
 //                return@OnNavigationItemSelectedListener true
             }
             R.id.action_workout -> {
-                val intent = Intent(this@MainActivity, TodayExerciseActivity::class.java)
+                val intent = Intent(this@MainActivity, BetterEx::class.java)
                 startActivity(intent)
 //                return@OnNavigationItemSelectedListener true
             }
