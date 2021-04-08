@@ -7,6 +7,11 @@ import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import com.github.mikephil.charting.animation.Easing
+import com.github.mikephil.charting.charts.LineChart
+import com.github.mikephil.charting.data.Entry
+import com.github.mikephil.charting.data.LineData
+import com.github.mikephil.charting.data.LineDataSet
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -22,6 +27,58 @@ class MainActivity : AppCompatActivity() {
 //            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 //                    .setAction("Action", null).show()
 //        }
+
+        var lineChart = findViewById<LineChart>(R.id.lineChart)
+
+        //Part1
+        val entries = ArrayList<Entry>()
+
+        //Part2
+        entries.add(Entry(1f, 10f))
+        entries.add(Entry(2f, 2f))
+        entries.add(Entry(3f, 7f))
+        entries.add(Entry(4f, 20f))
+        entries.add(Entry(5f, 16f))
+
+        //Part3
+        val vl = LineDataSet(entries, "My Type")
+
+        //Part4
+        vl.setDrawValues(false)
+        vl.setDrawFilled(true)
+        vl.lineWidth = 3f
+        vl.fillColor = R.color.light_blue
+        vl.fillAlpha = R.color.main_blue
+
+        //Part5
+        lineChart.xAxis.labelRotationAngle = 0f
+
+
+        //Part6
+        lineChart.data = LineData(vl)
+
+        //Part7
+        lineChart.axisRight.isEnabled = false
+//        lineChart.xAxis.axisMaximum = 0.1f
+
+        //Part8
+        lineChart.setTouchEnabled(true)
+        lineChart.setPinchZoom(true)
+
+        //Part9
+        lineChart.description.text = "Days"
+        lineChart.setNoDataText("No forex yet!")
+
+        //Part10
+        lineChart.animateX(1800, Easing.EaseInExpo)
+
+        //Part11
+//        val markerView = CustomMarker(this@ShowForexActivity, R.layout.marker_view)
+//        lineChart.marker = markerView
+
+
+
+
         bottomNavigationView = findViewById(R.id.bottom_navigation)
         bottomNavigationView!!.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
 

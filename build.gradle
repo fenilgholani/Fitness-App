@@ -6,6 +6,7 @@ buildscript {
         jcenter()
         //added for GIF generation
         mavenCentral()
+
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:4.1.3'
@@ -22,6 +23,8 @@ allprojects {
         jcenter()
         //added for GIF generation
         mavenCentral()
+        // added for graphs
+        maven { url 'https://jitpack.io' }
     }
 }
 
