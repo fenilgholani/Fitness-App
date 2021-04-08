@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class TodayExerciseActivity : AppCompatActivity() {
-
+    // today is a new day 
     private var save: Button? = null
     private var add: Button? = null
     var bottomNavigationView : BottomNavigationView? = null
