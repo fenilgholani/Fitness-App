@@ -68,18 +68,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/row_recyclerView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:listitem="@layout/row_set">
         </androidx.recyclerview.widget.RecyclerView>
     </LinearLayout>
-
-    <!--  Container for sets  -->
-    <LinearLayout
-        android:id="@+id/set_container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/add_set"
