@@ -1,5 +1,6 @@
 package com.example.healthapp
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +14,9 @@ class ExerciseAdapter(
 ) :
 
 RecyclerView.Adapter<ExerciseAdapter.ViewHolder>() {
+
+    private var exerciseHash = HashMap<String, HashMap<Int, ArrayList<Int>>>()
+
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val itemTitle: TextView = itemView.findViewById(R.id.today_exercise_name)
     }
@@ -35,10 +39,23 @@ RecyclerView.Adapter<ExerciseAdapter.ViewHolder>() {
         var adapter = RowAdapter(default)
         rowRecyclerView!!.adapter = adapter
 
+
         val add = v.findViewById<Button>(R.id.add_set)
+        val completed = v.findViewById<Button>(R.id.completed)
+        val exerciseData = v.findViewById<TextView>(R.id.today_exercise_name)
+
+
         add.setOnClickListener {
             default.add(0)
             adapter.notifyDataSetChanged()
+        }
+
+        completed.setOnClickListener {
+
+            exerciseHash[exerciseData.text.toString()] = adapter.getSets()
+
+            Log.i("Fenil", exerciseHash.toString())
+
         }
 
         return  ViewHolder(v)
@@ -50,6 +67,11 @@ RecyclerView.Adapter<ExerciseAdapter.ViewHolder>() {
 
     override fun getItemCount(): Int {
         return exerciseNames.size
+    }
+
+
+    fun getexerciseData(): HashMap<String, HashMap<Int, ArrayList<Int>>> {
+        return exerciseHash
     }
 
 

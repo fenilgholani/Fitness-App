@@ -84,6 +84,15 @@
         android:text="Add Set"
         android:textStyle="bold"
         android:background="@drawable/custom_btn"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/completed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:layout_marginTop="25dp"
+        android:text="Completed"
+        android:textStyle="bold"
+        android:background="@drawable/custom_btn"/>
 
 
 </LinearLayout>

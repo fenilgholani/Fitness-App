@@ -1,5 +1,6 @@
 package com.example.healthapp
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -27,11 +28,23 @@ class TodayExerciseActivity : AppCompatActivity() {
 
         var intent = intent
         var exerciseNames = intent.getStringArrayListExtra("exerciseName")
+        var dummy_finish = findViewById<Button>(R.id.dummy_finish)
+
+        var in1 = Intent(this, CalendarActivity::class.java)
 
         today_recyclerView = findViewById(R.id.today_recyclerView)
         today_recyclerView!!.layoutManager = LinearLayoutManager(this)
         var adapter = exerciseNames?.let { ExerciseAdapter(it) }
         today_recyclerView!!.adapter = adapter
+
+        dummy_finish.setOnClickListener{
+            adapter!!.notifyDataSetChanged()
+            Exercise.setExerciseData(adapter.getexerciseData())
+
+//            in1.putExtra("exerciseData", adapter.getexerciseData())
+            //startActivity(in1)
+        }
+
 
 //        add = findViewById(R.id.add)
 //        save = findViewById(R.id.save)

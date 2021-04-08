@@ -1,9 +1,11 @@
 package com.example.healthapp
 
+import android.app.Activity
 import android.content.Intent
 import android.icu.util.Calendar
 import android.icu.util.ULocale
 import android.os.Bundle
+import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -26,10 +28,26 @@ class CalendarActivity  : AppCompatActivity(){
         calendar = findViewById(R.id.calendarView)
         dateView = findViewById(R.id.textView)
 
+
+//        var intent = intent
+        var exerciseData = Exercise.getExerciseData()
+//
+        Log.i("Fenil", exerciseData.toString())
+
+
         bottomNavigationView = findViewById(R.id.bottom_navigation)
         bottomNavigationView!!.selectedItemId = R.id.action_history
         bottomNavigationView!!.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
     }
+
+//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+//        super.onActivityResult(requestCode, resultCode, data)
+//
+//        if(requestCode==1 && resultCode == Activity.RESULT_OK ){
+//            var exerciseData = data!!.getSerializableExtra("exerciseData")
+//            Log.i("Fenil", exerciseData.toString())
+//        }
+//    }
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { menuItem ->
         when (menuItem.itemId) {
