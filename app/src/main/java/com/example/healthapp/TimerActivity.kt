@@ -4,12 +4,16 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.SystemClock
 import android.view.View
+import android.widget.Button
 import android.widget.Chronometer
 import android.widget.ImageButton
+import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 
 class TimerActivity : AppCompatActivity() {
+
     var chronometer: Chronometer? = null
     var btStart: ImageButton? = null
     var btStop: ImageButton? = null
@@ -27,57 +31,68 @@ class TimerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_timer)
 
-        chronometer = findViewById(R.id.chronometer)
-        btStart = findViewById(R.id.bt_start)
-        btStop = findViewById(R.id.bt_stop)
-        handler = Handler()
 
-        btStart!!.setOnClickListener {
-            if (!isResume) {
-                tStart = SystemClock.uptimeMillis()
-                handler!!.postDelayed(runnable, 0)
-                chronometer!!.start()
-                isResume = true
-                btStop!!.visibility = View.GONE
-                btStart!!.setImageDrawable(
-                    ContextCompat.getDrawable(
-                        applicationContext, // Context
-                        R.drawable.ic_pause // Drawable
+        findViewById<Button>(R.id.stopwatch).setOnClickListener {
+
+            findViewById<LinearLayout>(R.id.stopwatch_layout).isVisible = true
+            chronometer = findViewById(R.id.chronometer)
+            btStart = findViewById(R.id.bt_start)
+            btStop = findViewById(R.id.bt_stop)
+            handler = Handler()
+
+            btStart!!.setOnClickListener {
+                if (!isResume) {
+                    tStart = SystemClock.uptimeMillis()
+                    handler!!.postDelayed(runnable, 0)
+                    chronometer!!.start()
+                    isResume = true
+                    btStop!!.visibility = View.GONE
+                    btStart!!.setImageDrawable(
+                        ContextCompat.getDrawable(
+                            applicationContext, // Context
+                            R.drawable.ic_pause // Drawable
+                        )
                     )
-                )
-            } else {
-                tBuff += tMillisec
-                handler!!.removeCallbacks(runnable)
-                chronometer!!.stop()
-                isResume = false
-                btStop!!.visibility = View.VISIBLE
-                btStart!!.setImageDrawable(
-                    ContextCompat.getDrawable(
-                        applicationContext, // Context
-                        R.drawable.ic_play // Drawable
+                } else {
+                    tBuff += tMillisec
+                    handler!!.removeCallbacks(runnable)
+                    chronometer!!.stop()
+                    isResume = false
+                    btStop!!.visibility = View.VISIBLE
+                    btStart!!.setImageDrawable(
+                        ContextCompat.getDrawable(
+                            applicationContext, // Context
+                            R.drawable.ic_play // Drawable
+                        )
                     )
-                )
+                }
+            }
+
+            btStop!!.setOnClickListener {
+                if (!isResume) {
+                    btStart!!.setImageDrawable(
+                        ContextCompat.getDrawable(
+                            applicationContext, // Context
+                            R.drawable.ic_play // Drawable
+                        )
+                    )
+                    tMillisec = 0L
+                    tStart = 0L
+                    tBuff = 0L
+                    tUpdate = 0L
+                    sec = 0
+                    min = 0
+                    milliSec = 0
+                    chronometer!!.text = "00:00:00"
+                }
             }
         }
 
-        btStop!!.setOnClickListener {
-            if (!isResume) {
-                btStart!!.setImageDrawable(
-                    ContextCompat.getDrawable(
-                        applicationContext, // Context
-                        R.drawable.ic_play // Drawable
-                    )
-                )
-                tMillisec = 0L
-                tStart = 0L
-                tBuff = 0L
-                tUpdate = 0L
-                sec = 0
-                min = 0
-                milliSec = 0
-                chronometer!!.text = "00:00:00"
-            }
+        findViewById<Button>(R.id.timer).setOnClickListener {
+
+            findViewById<LinearLayout>(R.id.stopwatch_layout).isVisible = true
         }
+
     }
 
     val runnable: Runnable = object : Runnable {
@@ -96,4 +111,5 @@ class TimerActivity : AppCompatActivity() {
             handler!!.postDelayed(this, 60)
         }
     }
+
 }
