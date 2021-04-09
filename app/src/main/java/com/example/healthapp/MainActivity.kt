@@ -133,11 +133,11 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
 //                return@OnNavigationItemSelectedListener true
             }
-            R.id.action_information -> {
-                val intent = Intent(this@MainActivity, InfoActivity::class.java)
-                startActivity(intent)
-//                return@OnNavigationItemSelectedListener true
-            }
+//            R.id.action_information -> {
+//                val intent = Intent(this@MainActivity, InfoActivity::class.java)
+//                startActivity(intent)
+////                return@OnNavigationItemSelectedListener true
+//            }
         }
         false
     }

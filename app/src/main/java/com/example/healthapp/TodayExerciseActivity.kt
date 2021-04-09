@@ -67,9 +67,9 @@ class TodayExerciseActivity : AppCompatActivity() {
 //            Toast.makeText(applicationContext, "Exercise Saved", Toast.LENGTH_SHORT).show()
 //        }
 
-//        bottomNavigationView = findViewById(R.id.bottom_navigation)
-//        bottomNavigationView!!.selectedItemId = R.id.action_workout
-//        bottomNavigationView!!.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+        bottomNavigationView = findViewById(R.id.bottom_navigation)
+        bottomNavigationView!!.selectedItemId = R.id.action_workout
+        bottomNavigationView!!.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -102,15 +102,15 @@ class TodayExerciseActivity : AppCompatActivity() {
 //                return@OnNavigationItemSelectedListener true
             }
             R.id.action_workout -> {
-                val intent = Intent(this, TodayExerciseActivity::class.java)
+                val intent = Intent(this, BetterEx::class.java)
                 startActivity(intent)
 //                return@OnNavigationItemSelectedListener true
             }
-            R.id.action_information -> {
-                val intent = Intent(this, InfoActivity::class.java)
-                startActivity(intent)
-//                return@OnNavigationItemSelectedListener true
-            }
+//            R.id.action_information -> {
+//                val intent = Intent(this, InfoActivity::class.java)
+//                startActivity(intent)
+////                return@OnNavigationItemSelectedListener true
+//            }
         }
         false
     }

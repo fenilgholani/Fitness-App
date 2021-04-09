@@ -37,9 +37,10 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:layout_width="145dp"
-                android:layout_height="131dp"
+                android:layout_width="236dp"
+                android:layout_height="169dp"
                 android:layout_gravity="center"
+                android:gravity="center"
                 android:layout_marginBottom="160dp"
                 android:background="@drawable/fitness_icon" />
 
@@ -66,15 +67,15 @@
             android:text="@string/sign_up"
             android:textStyle="bold"/>
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/dummy"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="66dp"
-            android:background="@drawable/custom_btn"
-            android:text="dummy"
-            android:textColor="@color/white"
-            android:textStyle="bold" />
+<!--        <androidx.appcompat.widget.AppCompatButton-->
+<!--            android:id="@+id/dummy"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginBottom="66dp"-->
+<!--            android:background="@drawable/custom_btn"-->
+<!--            android:text="dummy"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textStyle="bold" />-->
 
         <!--        <androidx.appcompat.widget.AppCompatButton-->
 <!--            android:id="@+id/dummy_button"-->

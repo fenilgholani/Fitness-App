@@ -38,7 +38,7 @@ class InfoActivity : AppCompatActivity() {
         }
 
         bottomNavigationView = findViewById(R.id.bottom_navigation)
-        bottomNavigationView!!.selectedItemId = R.id.action_information
+//        bottomNavigationView!!.selectedItemId = R.id.action_information
         bottomNavigationView!!.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
     }
 
@@ -59,11 +59,11 @@ class InfoActivity : AppCompatActivity() {
                 startActivity(intent)
 //                return@OnNavigationItemSelectedListener true
             }
-            R.id.action_information -> {
-                val intent = Intent(this, InfoActivity::class.java)
-                startActivity(intent)
-//                return@OnNavigationItemSelectedListener true
-            }
+//            R.id.action_information -> {
+//                val intent = Intent(this, InfoActivity::class.java)
+//                startActivity(intent)
+////                return@OnNavigationItemSelectedListener true
+//            }
         }
         false
     }

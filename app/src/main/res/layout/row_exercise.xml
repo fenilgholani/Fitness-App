@@ -36,6 +36,7 @@
                 android:id="@+id/ex_title"
                 android:layout_width="250dp"
                 android:layout_height="29dp"
+                android:textColor="@color/black"
                 android:text="TextView"
                 android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -61,6 +62,7 @@
             android:layout_weight="1"
             android:button="@null"
             android:background="@drawable/custom_checkbox"
+            android:backgroundTint="@color/main_red"
             android:scaleX="0.4"
             android:scaleY="0.4"
             />

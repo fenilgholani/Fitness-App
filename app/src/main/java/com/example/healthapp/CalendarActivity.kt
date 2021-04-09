@@ -62,15 +62,15 @@ class CalendarActivity  : AppCompatActivity(){
 //                return@OnNavigationItemSelectedListener true
             }
             R.id.action_workout -> {
-                val intent = Intent(this, TodayExerciseActivity::class.java)
+                val intent = Intent(this, BetterEx::class.java)
                 startActivity(intent)
 //                return@OnNavigationItemSelectedListener true
             }
-            R.id.action_information -> {
-                val intent = Intent(this, InfoActivity::class.java)
-                startActivity(intent)
-//                return@OnNavigationItemSelectedListener true
-            }
+//            R.id.action_information -> {
+//                val intent = Intent(this, InfoActivity::class.java)
+//                startActivity(intent)
+////                return@OnNavigationItemSelectedListener true
+//            }
         }
         false
     }
