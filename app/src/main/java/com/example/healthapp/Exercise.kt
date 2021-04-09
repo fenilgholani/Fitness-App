@@ -1,12 +1,34 @@
 package com.example.healthapp
 
+import android.util.Log
+import java.sql.Timestamp
+import java.util.*
+import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
+
+
+//{ Date => { ExerciseName => { Set => [Weight, Reps]   } }}
+
+//HashMap<String date, HashMap<String, HashMap<Int, ArrayList<Int>>>>
+
+
 class Exercise {
 
     companion object{
-         private var exerciseData = HashMap<String, HashMap<Int, ArrayList<Int>>>()
+        private var exerciseData = HashMap<String, HashMap<Int, ArrayList<Int>>>()
+        private var timestamp: String ?= null
 
-        fun setExerciseData(exerciseData: HashMap<String, HashMap<Int, ArrayList<Int>>>){
-            this.exerciseData = exerciseData
+
+        fun setExerciseData(exerciseData: HashMap<String, HashMap<Int, ArrayList<Int>>>, timestamp: String){
+
+            if(this.timestamp == null || timestamp.compareTo(this.timestamp!!) != 0) {
+                this.timestamp = timestamp
+                this.exerciseData = exerciseData
+            }
+            else if(timestamp.compareTo(this.timestamp!!) == 0)
+                this.exerciseData.putAll(exerciseData)
+
+            Log.i("Timestamp",timestamp)
         }
 
         fun getExerciseData(): HashMap<String, HashMap<Int, ArrayList<Int>>>{

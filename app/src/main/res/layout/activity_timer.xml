@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app ="http://schemas.android.com/apk/res-auto"
     xmlns:tools ="http://schemas.android.com/tools"
@@ -12,31 +12,75 @@
     android:layout_gravity="center"
     tools:context = ".MainActivity">
 
-    <Chronometer
-        android:id="@+id/chronometer"
-        android:layout_width = "wrap_content"
-        android:layout_height = "wrap_content"
-        android:format="00:00:00"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        android:textColor="@android:color/white"/>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
-
-        <ImageButton
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/bt_start"
-            android:background="@android:color/transparent"
-            android:src="@drawable/ic_play"/>
-        <ImageButton
+            android:orientation="vertical"
+            android:visibility="invisible">
+            <Chronometer
+                android:id="@+id/chronometer"
+                android:layout_width = "wrap_content"
+                android:layout_height = "wrap_content"
+                android:format="00:00:00"
+                android:textSize="40sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/bt_start"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_play"/>
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/bt_stop"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_stop"/>
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/bt_stop"
-            android:background="@android:color/transparent"
-            android:src="@drawable/ic_stop"/>
+            android:orientation="vertical"
+            android:visibility="invisible">
+            <Chronometer
+                android:id="@+id/chronometer1"
+                android:layout_width = "wrap_content"
+                android:layout_height = "wrap_content"
+                android:format="00:00:00"
+                android:textSize="40sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/bt_start1"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_play"/>
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/bt_stop1"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_stop"/>
+            </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+
+</RelativeLayout>

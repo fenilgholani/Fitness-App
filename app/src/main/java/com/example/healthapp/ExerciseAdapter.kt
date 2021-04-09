@@ -16,6 +16,7 @@ class ExerciseAdapter(
 RecyclerView.Adapter<ExerciseAdapter.ViewHolder>() {
 
     private var exerciseHash = HashMap<String, HashMap<Int, ArrayList<Int>>>()
+    private var completeButtonSend = ArrayList<Button>()
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val itemTitle: TextView = itemView.findViewById(R.id.today_exercise_name)
@@ -55,7 +56,6 @@ RecyclerView.Adapter<ExerciseAdapter.ViewHolder>() {
             exerciseHash[exerciseData.text.toString()] = adapter.getSets()
 
             Log.i("Fenil", exerciseHash.toString())
-
         }
 
         return  ViewHolder(v)
@@ -63,6 +63,9 @@ RecyclerView.Adapter<ExerciseAdapter.ViewHolder>() {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.itemTitle.text = exerciseNames[position]
+
+        setCompleteButton(holder.itemView.findViewById<Button>(R.id.completed))
+
     }
 
     override fun getItemCount(): Int {
@@ -74,6 +77,16 @@ RecyclerView.Adapter<ExerciseAdapter.ViewHolder>() {
         return exerciseHash
     }
 
+    fun getCompleteButton(): ArrayList<Button>? {
+
+        return this.completeButtonSend
+    }
+
+    private fun setCompleteButton( b: Button){
+
+        if(!this.completeButtonSend.contains(b))
+            this.completeButtonSend!!.add(b)
+    }
 
 }
 

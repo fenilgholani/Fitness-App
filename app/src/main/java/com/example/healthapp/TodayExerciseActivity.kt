@@ -14,9 +14,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import java.util.*
 
 class TodayExerciseActivity : AppCompatActivity() {
-    // today is a new day 
+
     private var save: Button? = null
     private var add: Button? = null
     var bottomNavigationView : BottomNavigationView? = null
@@ -31,6 +32,10 @@ class TodayExerciseActivity : AppCompatActivity() {
         var dummy_finish = findViewById<Button>(R.id.dummy_finish)
 
         var in1 = Intent(this, CalendarActivity::class.java)
+        val c = Calendar.getInstance()
+        val year = c.get(Calendar.YEAR)
+        val month = c.get(Calendar.MONTH)
+        val day = c.get(Calendar.DAY_OF_MONTH)
 
         today_recyclerView = findViewById(R.id.today_recyclerView)
         today_recyclerView!!.layoutManager = LinearLayoutManager(this)
@@ -39,7 +44,11 @@ class TodayExerciseActivity : AppCompatActivity() {
 
         dummy_finish.setOnClickListener{
             adapter!!.notifyDataSetChanged()
-            Exercise.setExerciseData(adapter.getexerciseData())
+
+            for(b in adapter.getCompleteButton()!!.iterator()){
+                b.performClick()
+            }
+            Exercise.setExerciseData(adapter.getexerciseData(),"${month+1}.$day.$year")
 
 //            in1.putExtra("exerciseData", adapter.getexerciseData())
             //startActivity(in1)
