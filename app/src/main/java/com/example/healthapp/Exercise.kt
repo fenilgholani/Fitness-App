@@ -28,7 +28,6 @@ class Exercise {
             else if(timestamp.compareTo(this.timestamp!!) == 0)
                 this.exerciseData.putAll(exerciseData)
 
-            Log.i("Timestamp",timestamp)
         }
 
         fun getExerciseData(): HashMap<String, HashMap<Int, ArrayList<Int>>>{

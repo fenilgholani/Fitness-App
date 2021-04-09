@@ -48,14 +48,13 @@ RecyclerView.Adapter<ExerciseAdapter.ViewHolder>() {
 
         add.setOnClickListener {
             default.add(0)
-            adapter.notifyDataSetChanged()
+            adapter.notifyItemInserted(default.size+1)
         }
 
         completed.setOnClickListener {
 
             exerciseHash[exerciseData.text.toString()] = adapter.getSets()
 
-            Log.i("Fenil", exerciseHash.toString())
         }
 
         return  ViewHolder(v)

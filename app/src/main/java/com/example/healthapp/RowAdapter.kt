@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.core.view.children
 import androidx.recyclerview.widget.RecyclerView
+import java.lang.reflect.TypeVariable
 
 
 class RowAdapter(
@@ -17,10 +18,11 @@ class RowAdapter(
 
     RecyclerView.Adapter<RowAdapter.ViewHolder>() {
 
-    private val exerciseRep: HashMap<Int, Int> = HashMap()
-    private val exerciseWeight: HashMap<Int, Int> = HashMap()
-    private var isOnTextChanged: Boolean = false
-    private val pos: Int = 0
+    private var exerciseRep: HashMap<Int, Int> = HashMap()
+    private var exerciseWeight: HashMap<Int, Int> = HashMap()
+    private var isOnTextChangedR: Boolean = false
+    private var isOnTextChangedW: Boolean = false
+    private var indexingChange: Boolean = false
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
 
@@ -29,32 +31,6 @@ class RowAdapter(
         val itemReps: TextView = itemView.findViewById(R.id.reps_done)
         val itemClose: Button = itemView.findViewById(R.id.close_set)
 
-        init{
-            itemClose.setOnClickListener {
-
-                if(defaultRows.size !=1) {
-
-//                    exerciseWeight.remove(adapterPosition+1)
-//                    exerciseRep.remove(adapterPosition+1)
-//
-//                    for(i in adapterPosition..(itemCount + 1)){
-//                        exerciseRep[i-1] = exerciseRep[i]
-//                        exerciseRep[i-1] = exerciseRep[i]
-//
-//                    }
-
-                    defaultRows.removeAt(adapterPosition)
-                    notifyDataSetChanged()
-                } else {
-                    Toast.makeText(
-                        itemView.context,
-                        "This exercise must have at least 1 set!",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-            }
-
-        }
     }
 
 
@@ -70,14 +46,77 @@ class RowAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.itemTitle.text = "${position + 1}"
-//        holder.itemWeight.text = ""
-//        holder.itemReps.text = ""
+
+
+
+        //change the positioning of data when closed
+        holder.itemClose.setOnClickListener{
+
+
+            Log.i("Before", "Weight:$exerciseWeight Rep:$exerciseRep")
+
+            if(defaultRows.size !=1) {
+
+                exerciseWeight.remove(holder.adapterPosition + 1)
+                exerciseRep.remove(holder.adapterPosition + 1)
+
+                defaultRows.removeAt(holder.adapterPosition)
+                notifyItemRemoved(holder.adapterPosition)
+//                notifyDataSetChanged()
+
+            }
+            else {
+                Toast.makeText(
+                    holder.itemView.context,
+                    "This exercise must have at least 1 set!",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+
+            var flag = false
+
+            for( i in 1..(exerciseRep.size)){
+
+                if(!exerciseRep.containsKey(i)){
+                    exerciseRep.put(i, exerciseRep[i+1]!!)
+                    exerciseWeight.put(i, exerciseWeight[i+1]!!)
+                    flag = true
+                    continue
+                }
+
+                else if(flag && exerciseRep[i+1] != null){
+                    exerciseRep.put(i, exerciseRep[i+1]!!)
+                    exerciseWeight.put(i, exerciseWeight[i+1]!!)
+                }
+            }
+
+            exerciseRep.remove(exerciseRep.size)
+            exerciseWeight.remove(exerciseWeight.size)
+
+            indexingChange = true
+//
+            Log.i("after", "Weight:$exerciseWeight Rep:$exerciseRep")
+//
+//            if(indexingChange){
+//                for(i in 1..itemCount)
+//                    notifyItemChanged(i)
+//                indexingChange = false
+//            }
+
+            holder.itemReps.text = ""
+            holder.itemWeight.text = ""
+
+        }
+
+
+
+
 
         holder.itemReps.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
 
-                if(isOnTextChanged){
-                    isOnTextChanged = false
+                if(isOnTextChangedR){
+                    isOnTextChangedR = false
 
                     try{
                             exerciseRep[position+1] = s.toString().toInt()
@@ -94,7 +133,7 @@ class RowAdapter(
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                isOnTextChanged = true
+                isOnTextChangedR = true
             }
         })
 
@@ -102,8 +141,8 @@ class RowAdapter(
         holder.itemWeight.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
 
-                if(isOnTextChanged){
-                    isOnTextChanged = false
+                if(isOnTextChangedW){
+                    isOnTextChangedW = false
 
                     try{
                         exerciseWeight[position+1] = s.toString().toInt()
@@ -120,7 +159,7 @@ class RowAdapter(
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                isOnTextChanged = true
+                isOnTextChangedW = true
             }
         })
 
