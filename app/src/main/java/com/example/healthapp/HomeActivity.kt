@@ -17,7 +17,7 @@ class HomeActivity : AppCompatActivity() {
 
         signInButton = findViewById(R.id.sign_in)
         signUpButton = findViewById(R.id.sign_up)
-//        dummy = findViewById(R.id.dummy)
+        dummy = findViewById(R.id.dummy)
 
 
         signInButton!!.setOnClickListener {
@@ -28,9 +28,9 @@ class HomeActivity : AppCompatActivity() {
             signUp()
         }
 
-//        dummy!!.setOnClickListener {
-//            Better()
-//        }
+        dummy!!.setOnClickListener {
+            Better()
+        }
 
     }
 
@@ -45,7 +45,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun Better() {
-        val intent = Intent(this@HomeActivity, BetterEx::class.java)
+        val intent = Intent(this@HomeActivity, TimerActivity::class.java)
         startActivity(intent)
     }
 }

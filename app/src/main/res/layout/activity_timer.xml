@@ -6,9 +6,11 @@
     xmlns:app ="http://schemas.android.com/apk/res-auto"
     xmlns:tools ="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
 
     <RelativeLayout
+        android:id="@+id/stopwatch_layout"
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:layout_alignParentTop="true"
@@ -22,14 +24,14 @@
         android:background="@drawable/bg_ground"
         android:gravity="center"
         android:orientation="vertical"
-        tools:context=".MainActivity">
+        android:visibility="invisible">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+
+            android:layout_width="188dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:id="@+id/stopwatch_layout"
-            android:visibility="invisible">
+            android:visibility="visible">
 
             <Chronometer
                 android:id="@+id/chronometer"
@@ -38,6 +40,7 @@
                 android:format="00:00:00"
                 android:textColor="@android:color/white"
                 android:textSize="40sp"
+                android:layout_gravity="center"
                 android:textStyle="bold" />
 
             <LinearLayout
@@ -63,22 +66,81 @@
         </LinearLayout>
 
 
-        <LinearLayout
-            android:id="@+id/timer_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:visibility="visible">
+    </RelativeLayout>
 
-            <TextView
-                android:id="@+id/text_view_countdown"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:text="00:00"
-                android:textColor="@android:color/black"
-                android:textSize="60sp" />
+    <RelativeLayout
+        android:id="@+id/timer_layout"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="170dp"
+        android:layout_marginEnd="51dp"
+        android:layout_marginBottom="260dp"
+        android:background="@drawable/bg_ground1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="188dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/hour"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="40sp"
+                    android:textColor="@color/white"
+                    android:inputType="number"
+                    android:hint="00"
+                    android:textAlignment="center"
+                    android:textColorHint="@color/white"
+                    >
+                </EditText>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=":"
+                    android:textSize="40sp"
+                    android:textColor="@color/white"/>
+
+                <EditText
+                    android:id="@+id/mins"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:textSize="40sp"
+                    android:textColor="@color/white"
+                    android:hint="00"
+                    android:textAlignment="center"
+                    android:textColorHint="@color/white"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=":"
+                    android:textSize="40sp"
+                    android:textColor="@color/white"/>
+                <EditText
+                    android:id="@+id/second"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:hint="00"
+                    android:textAlignment="center"
+                    android:textSize="40sp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white">
+                </EditText>
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -87,20 +149,21 @@
                 android:layout_marginTop="10dp">
 
                 <ImageButton
+                    android:id="@+id/timer_start"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
                     android:src="@drawable/ic_play" />
 
                 <ImageButton
+                    android:id="@id/timer_stopped"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
                     android:background="@android:color/transparent"
                     android:src="@drawable/ic_stop" />
             </LinearLayout>
-
         </LinearLayout>
+
 
     </RelativeLayout>
 

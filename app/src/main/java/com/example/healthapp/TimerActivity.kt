@@ -1,19 +1,20 @@
 package com.example.healthapp
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.os.Handler
 import android.os.SystemClock
+import android.util.Log
 import android.view.View
-import android.widget.Button
-import android.widget.Chronometer
-import android.widget.ImageButton
-import android.widget.LinearLayout
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 
 class TimerActivity : AppCompatActivity() {
 
+    var timer: TextView ?= null
     var chronometer: Chronometer? = null
     var btStart: ImageButton? = null
     var btStop: ImageButton? = null
@@ -27,6 +28,7 @@ class TimerActivity : AppCompatActivity() {
     var min = 0
     var milliSec = 0
 
+    @SuppressLint("WrongViewCast")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_timer)
@@ -35,6 +37,8 @@ class TimerActivity : AppCompatActivity() {
         findViewById<Button>(R.id.stopwatch).setOnClickListener {
 
             findViewById<LinearLayout>(R.id.stopwatch_layout).isVisible = true
+            findViewById<LinearLayout>(R.id.timer_layout).isVisible = false
+
             chronometer = findViewById(R.id.chronometer)
             btStart = findViewById(R.id.bt_start)
             btStop = findViewById(R.id.bt_stop)
@@ -90,7 +94,62 @@ class TimerActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.timer).setOnClickListener {
 
-            findViewById<LinearLayout>(R.id.stopwatch_layout).isVisible = true
+            findViewById<LinearLayout>(R.id.timer_layout).isVisible = true
+            findViewById<LinearLayout>(R.id.stopwatch_layout).isVisible = false
+
+            timer = findViewById(R.id.textView);
+
+            var start: ImageButton = findViewById(R.id.timer_start)
+
+            start.setOnClickListener {
+
+                var hour:EditText = findViewById(R.id.hour)
+                var min:EditText = findViewById(R.id.mins)
+                var second:EditText = findViewById(R.id.second)
+
+
+                var hour_cal: Int = 0
+                var min_cal: Int = 0
+                var sec_cal: Int = 0
+
+                if (!hour.text.toString().equals("")){
+                    hour_cal = hour.text.toString().toInt()
+                }
+                if ( !min.text.toString().equals("")){
+                    min_cal = min.text.toString().toInt()
+                }
+                if (!second.text.toString().equals("")){
+                    sec_cal = second.text.toString().toInt()
+                }
+
+
+//                Log.i("Fenil",(hour_cal * 3600 + min_cal * 60 + sec_cal).toLong().toString())
+
+                var countdown = object : CountDownTimer(((hour_cal * 3600 + min_cal * 60 + sec_cal)*1000).toLong(),
+                    1000) {
+
+                    override fun onTick(millisUntilFinished: Long) {
+
+                        hour.setText("${(millisUntilFinished / (1000*60*60)) % 24}")
+                        min.setText("${((millisUntilFinished / (1000*60)) % 60)}")
+                        second.setText("${((millisUntilFinished/1000)% 60)}")
+
+                        Log.i("Fenil",millisUntilFinished.toString())
+
+                    }
+
+                    override fun onFinish() {
+                        Log.i("Hello", "Finished")
+                    }
+
+
+                }
+
+                countdown.start()
+
+            }
+
+
         }
 
     }
