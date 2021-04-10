@@ -79,7 +79,7 @@
             app:compactCalendarCurrentDayBackgroundColor="@color/main_red"
             app:compactCalendarMultiEventIndicatorColor="#fff"/>
 
-            <!--  TODO place workout history scrollview/recyclerview   -->
+            <!--  TODO place workout history recyclerview   -->
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation_calendar"
