@@ -72,7 +72,7 @@
             android:layout_width="match_parent"
             android:layout_height="250dp"
             app:compactCalendarTargetHeight="250dp"
-            app:compactCalendarTextSize="12sp"
+            app:compactCalendarTextSize="20dp"
             app:compactCalendarBackgroundColor="@color/main_blue"
             app:compactCalendarTextColor="#fff"
             app:compactCalendarCurrentSelectedDayBackgroundColor="@color/light_blue"
@@ -81,7 +81,19 @@
 
             <!--  TODO place workout history recyclerview   -->
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="395dp"
+        android:layout_height="200dp"
+        android:layout_below="@+id/calendarView"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        tools:listitem="@layout/row_calender"
+        android:layout_marginBottom="18dp">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation_calendar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
