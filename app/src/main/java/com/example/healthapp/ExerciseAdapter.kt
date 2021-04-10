@@ -51,6 +51,7 @@ RecyclerView.Adapter<ExerciseAdapter.ViewHolder>() {
         add.setOnClickListener {
             default.add(0)
             adapter.notifyItemInserted(default.size+1)
+            notifyItemChanged(default.size+1)
         }
 
         completed.setOnClickListener {
