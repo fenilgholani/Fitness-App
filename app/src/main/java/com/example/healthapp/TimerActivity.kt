@@ -33,6 +33,8 @@ class TimerActivity : AppCompatActivity() {
         setContentView(R.layout.activity_timer)
 
 
+        timer_starting()
+
         findViewById<Button>(R.id.stopwatch).setOnClickListener {
 
             findViewById<LinearLayout>(R.id.stopwatch_layout).isVisible = true
@@ -93,60 +95,7 @@ class TimerActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.timer).setOnClickListener {
 
-            findViewById<LinearLayout>(R.id.timer_layout).isVisible = true
-            findViewById<LinearLayout>(R.id.stopwatch_layout).isVisible = false
-
-            timer = findViewById(R.id.textView);
-
-            var start: ImageButton = findViewById(R.id.timer_start)
-
-            start.setOnClickListener {
-
-                var hour:EditText = findViewById(R.id.hour)
-                var min:EditText = findViewById(R.id.mins)
-                var second:EditText = findViewById(R.id.second)
-
-
-                var hour_cal: Int = 0
-                var min_cal: Int = 0
-                var sec_cal: Int = 0
-
-                if (!hour.text.toString().equals("")){
-                    hour_cal = hour.text.toString().toInt()
-                }
-                if ( !min.text.toString().equals("")){
-                    min_cal = min.text.toString().toInt()
-                }
-                if (!second.text.toString().equals("")){
-                    sec_cal = second.text.toString().toInt()
-                }
-
-
-//                Log.i("Fenil",(hour_cal * 3600 + min_cal * 60 + sec_cal).toLong().toString())
-
-                var countdown = object : CountDownTimer(((hour_cal * 3600 + min_cal * 60 + sec_cal)*1000).toLong(),
-                    1000) {
-
-                    override fun onTick(millisUntilFinished: Long) {
-
-                        hour.setText(String.format("%02d", ((millisUntilFinished / (1000*60*60)) % 24).toInt()))
-                        min.setText(String.format("%02d", ((millisUntilFinished / (1000*60)) % 60).toInt()))
-                        second.setText(String.format("%02d", ((millisUntilFinished/1000)% 60).toInt()))
-
-                        Log.i("Fenil",millisUntilFinished.toString())
-
-                    }
-
-                    override fun onFinish() {
-                        Log.i("Hello", "Finished")
-                    }
-
-
-                }
-
-                countdown.start()
-
-            }
+            timer_starting()
 
 
         }
@@ -170,4 +119,62 @@ class TimerActivity : AppCompatActivity() {
         }
     }
 
-}
+    fun timer_starting(){
+
+        findViewById<LinearLayout>(R.id.timer_layout).isVisible = true
+        findViewById<LinearLayout>(R.id.stopwatch_layout).isVisible = false
+
+        timer = findViewById(R.id.textView);
+
+        var start: ImageButton = findViewById(R.id.timer_start)
+
+        start.setOnClickListener {
+
+            var hour:EditText = findViewById(R.id.hour)
+            var min:EditText = findViewById(R.id.mins)
+            var second:EditText = findViewById(R.id.second)
+
+
+            var hour_cal: Int = 0
+            var min_cal: Int = 0
+            var sec_cal: Int = 0
+
+            if (!hour.text.toString().equals("")){
+                hour_cal = hour.text.toString().toInt()
+            }
+            if ( !min.text.toString().equals("")){
+                min_cal = min.text.toString().toInt()
+            }
+            if (!second.text.toString().equals("")){
+                sec_cal = second.text.toString().toInt()
+            }
+
+
+//                Log.i("Fenil",(hour_cal * 3600 + min_cal * 60 + sec_cal).toLong().toString())
+
+            var countdown = object : CountDownTimer(((hour_cal * 3600 + min_cal * 60 + sec_cal)*1000).toLong(),
+                1000) {
+
+                override fun onTick(millisUntilFinished: Long) {
+
+                    hour.setText(String.format("%02d", ((millisUntilFinished / (1000*60*60)) % 24).toInt()))
+                    min.setText(String.format("%02d", ((millisUntilFinished / (1000*60)) % 60).toInt()))
+                    second.setText(String.format("%02d", ((millisUntilFinished/1000)% 60).toInt()))
+
+                    Log.i("Fenil",millisUntilFinished.toString())
+
+                }
+
+                override fun onFinish() {
+                    Log.i("Hello", "Finished")
+                }
+
+
+            }
+
+            countdown.start()
+
+        }
+        }
+    }
+
