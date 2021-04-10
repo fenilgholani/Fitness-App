@@ -2,15 +2,17 @@ package com.example.healthapp
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.charts.LineChart
+import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import com.google.android.material.bottomnavigation.BottomNavigationView
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -33,10 +35,13 @@ class MainActivity : AppCompatActivity() {
 //            SettingActivity()
 //        }
 
-        var lineChart = findViewById<LineChart>(R.id.lineChart)
+        var lineChart: LineChart = findViewById(R.id.lineChart)
+
 
         //Part1
         val entries = ArrayList<Entry>()
+        val xLabel: ArrayList<String> = ArrayList()
+
 
         //Part2
         entries.add(Entry(1f, 10f))
@@ -44,6 +49,20 @@ class MainActivity : AppCompatActivity() {
         entries.add(Entry(3f, 7f))
         entries.add(Entry(4f, 20f))
         entries.add(Entry(5f, 16f))
+        entries.add(Entry(6f, 12f))
+        entries.add(Entry(7f, 16f))
+
+        // Label in the Xaxis
+        xLabel.add("7")
+        xLabel.add("14")
+        xLabel.add("21")
+        xLabel.add("28")
+        xLabel.add("35")
+
+        val xAxis: XAxis = lineChart.xAxis
+        xAxis.position = XAxis.XAxisPosition.BOTTOM
+        xAxis.labelCount = 7
+
 
         //Part3
         val vl = LineDataSet(entries, "My Type")
@@ -51,12 +70,14 @@ class MainActivity : AppCompatActivity() {
         //Part4
         vl.setDrawValues(false)
         vl.setDrawFilled(true)
-        vl.lineWidth = 3f
-        vl.fillColor = R.color.light_blue
-        vl.fillAlpha = R.color.main_blue
+        vl.lineWidth = 7f
+        vl.fillColor = R.color.main_blue
+        vl.circleRadius = 9f
 
         //Part5
-        lineChart.xAxis.labelRotationAngle = 0f
+        lineChart.backgroundTintBlendMode
+
+//        lineChart.xAxis.labelRotationAngle = 0f
 
 
         //Part6
@@ -64,6 +85,9 @@ class MainActivity : AppCompatActivity() {
 
         //Part7
         lineChart.axisRight.isEnabled = false
+        lineChart.xAxis.setDrawGridLines(false)
+        lineChart.axisLeft.setDrawGridLines(false)
+        lineChart.axisRight.setDrawGridLines(false)
 //        lineChart.xAxis.axisMaximum = 0.1f
 
         //Part8
@@ -71,11 +95,11 @@ class MainActivity : AppCompatActivity() {
         lineChart.setPinchZoom(true)
 
         //Part9
-        lineChart.description.text = "Days"
+        lineChart.description.text = "Week"
         lineChart.setNoDataText("No forex yet!")
 
         //Part10
-        lineChart.animateX(1800, Easing.EaseInExpo)
+        lineChart.animateX(1500, Easing.EaseInExpo)
 
         //Part11
 //        val markerView = CustomMarker(this@ShowForexActivity, R.layout.marker_view)
