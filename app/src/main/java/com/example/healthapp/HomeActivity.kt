@@ -45,7 +45,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun Better() {
-        val intent = Intent(this@HomeActivity, CalendarActivity::class.java)
+        val intent = Intent(this@HomeActivity, BetterEx::class.java)
         startActivity(intent)
     }
 }
