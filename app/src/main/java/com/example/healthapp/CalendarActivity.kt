@@ -1,18 +1,15 @@
 package com.example.healthapp
 
-import android.app.Activity
 import android.content.Intent
-import java.util.Calendar
-import android.icu.util.ULocale
 import android.os.Bundle
 import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import com.applandeo.materialcalendarview.CalendarView
-import com.applandeo.materialcalendarview.EventDay
+import com.github.sundeepk.compactcalendarview.CompactCalendarView
+import com.github.sundeepk.compactcalendarview.CompactCalendarView.CompactCalendarViewListener
+import com.github.sundeepk.compactcalendarview.domain.Event
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.util.*
-import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 
 
@@ -22,7 +19,7 @@ class CalendarActivity  : AppCompatActivity(){
 //https://www.youtube.com/watch?v=hHjFIG0TtA0
     // Define the variable of CalendarView type
     // and TextView type;
-    var calendar: CalendarView? = null
+    var calendar: CompactCalendarView? = null
     var dateView: TextView? = null
     var bottomNavigationView : BottomNavigationView? = null
 
@@ -43,17 +40,22 @@ class CalendarActivity  : AppCompatActivity(){
         val month = c.get(Calendar.MONTH)
         val day = c.get(Calendar.DAY_OF_MONTH)
 
-//        var todayDate = ArrayList<EventDay>()
-//        todayDate.add(c)
-//        calendar!!.selectedDates = todayDate
-//        c.add(Calendar.DAY_OF_MONTH, -5)
-//        Log.d("DATE", "${c.get(Calendar.MONTH)} ${c.get(Calendar.DAY_OF_MONTH)} ${c.get(Calendar.YEAR)}")
+        dateExercise["${month + 1}.$day.$year"] = exerciseData
 
-        var todayDate = Calendar.getInstance()
-        todayDate.set(2021, 3, 4)
-        calendar!!.setDate(todayDate)
+        var event = Event(R.color.main_blue, 1617499276000L,"New event on this day!")
+        calendar!!.setFirstDayOfWeek(Calendar.SUNDAY)
+        calendar!!.addEvent(event)
 
-        dateExercise["${month+1}.$day.$year"] = exerciseData
+        calendar!!.setListener(object : CompactCalendarViewListener {
+            override fun onDayClick(dateClicked: Date) {
+                val events: List<Event> = calendar!!.getEvents(dateClicked)
+                Log.d("EVENT","Day was clicked: $dateClicked with events $events")
+            }
+
+            override fun onMonthScroll(firstDayOfNewMonth: Date) {
+                Log.d("MONTH", "Month was scrolled to: $firstDayOfNewMonth")
+            }
+        })
 
         Log.i("Fenil", exerciseData.toString())
 
