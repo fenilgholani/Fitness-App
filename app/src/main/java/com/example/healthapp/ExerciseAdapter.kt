@@ -38,7 +38,7 @@ RecyclerView.Adapter<ExerciseAdapter.ViewHolder>() {
         var rowRecyclerView = v.findViewById<RecyclerView>(R.id.row_recyclerView)
         rowRecyclerView!!.layoutManager = LinearLayoutManager(v.context)
         var adapter = RowAdapter(default)
-        rowRecyclerView!!.adapter = adapter
+        rowRecyclerView.adapter = adapter
 
 
         val add = v.findViewById<Button>(R.id.add_set)
@@ -84,7 +84,7 @@ RecyclerView.Adapter<ExerciseAdapter.ViewHolder>() {
     private fun setCompleteButton( b: Button){
 
         if(!this.completeButtonSend.contains(b))
-            this.completeButtonSend!!.add(b)
+            this.completeButtonSend.add(b)
     }
 
 }

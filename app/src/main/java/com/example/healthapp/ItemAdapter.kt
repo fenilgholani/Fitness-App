@@ -1,6 +1,5 @@
 package com.example.healthapp
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,7 +19,7 @@ class ItemAdapter(
 //Hello
     RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
 
-    private var list_exercise = ArrayList<String>()
+    private var exerciseList = ArrayList<String>()
 
 
         inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
@@ -66,73 +65,40 @@ class ItemAdapter(
         holder.itemView.setOnClickListener {
 
             var context = holder.itemTitle.context
-            var l: View?=null
-            var gif : GifImageView? = null
 
             if(holder.itemTitle.text == "Planks") {
-                l = LayoutInflater.from(holder.itemView.context).inflate(
-                    R.layout.ex_activity_plank,
-                    null
-                );
-                gif = l.findViewById(R.id.ex_id)
                 val dialog = MaterialDialog(context)
                     .customView(R.layout.ex_activity_plank)
 
                 dialog.show()
             }
             if(holder.itemTitle.text == "Pull up") {
-                l = LayoutInflater.from(holder.itemView.context).inflate(
-                    R.layout.ex_activity_pullup,
-                    null
-                );
-                gif = l.findViewById(R.id.ex_id)
                 val dialog = MaterialDialog(context)
                     .customView(R.layout.ex_activity_pullup)
 
                 dialog.show()
             }
             if(holder.itemTitle.text == "Push up") {
-                l = LayoutInflater.from(holder.itemView.context).inflate(
-                    R.layout.ex_activity_pushup,
-                    null
-                );
-                gif = l.findViewById(R.id.ex_id)
                 val dialog = MaterialDialog(context)
                     .customView(R.layout.ex_activity_pushup)
 
                 dialog.show()
             }
             if(holder.itemTitle.text == "Sit up") {
-                l = LayoutInflater.from(holder.itemView.context).inflate(
-                    R.layout.ex_activity_plank,
-                    null
-                );
-                gif = l.findViewById(R.id.ex_id)
                 val dialog = MaterialDialog(context)
                     .customView(R.layout.ex_activity_situp)
 
                 dialog.show()
             }
             if(holder.itemTitle.text == "Squats") {
-                l = LayoutInflater.from(holder.itemView.context).inflate(
-                    R.layout.ex_activity_plank,
-                    null
-                );
-                gif = l.findViewById(R.id.ex_id)
                 val dialog = MaterialDialog(context)
                     .customView(R.layout.ex_activity_squat)
 
                 dialog.show()
             }
 
-
-
-
-
 //            var gif: ImageView = l.findViewById(R.id.ex_gif)
 
-
-//
 //            when(holder.itemTitle.text){
 //                "Pull up"-> gif = l.findViewById(R.id.ex_pullup)
 //                "Planks"-> gif = l.findViewById(R.id.ex_plank)
@@ -142,23 +108,18 @@ class ItemAdapter(
 //            gif.setImageResource(R.drawable.plank)
 //            Glide.with(l).asGif().load(R.drawable.pullup).into(gif)
 
-
-
-
-
 //            var intent = Intent(context, ExerciseInfo::class.java)
 //            intent.putExtra("exerciseName", holder.itemTitle.text)
 //            context.startActivity(intent)
 
         }
 
-        holder.itemCheckBox.setOnCheckedChangeListener { buttonView, isChecked ->
+        holder.itemCheckBox.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-                list_exercise.add(holder.itemTitle.text.toString())
-
+                exerciseList.add(holder.itemTitle.text.toString())
             }
-            else{
-                list_exercise!!.remove(holder.itemTitle.text.toString())
+            else {
+                exerciseList.remove(holder.itemTitle.text.toString())
             }
 
 
@@ -178,7 +139,7 @@ class ItemAdapter(
 
 
     fun getExerciseList(): ArrayList<String> {
-        return list_exercise
+        return exerciseList
     }
 
 

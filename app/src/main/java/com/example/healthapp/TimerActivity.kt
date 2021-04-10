@@ -28,7 +28,6 @@ class TimerActivity : AppCompatActivity() {
     var min = 0
     var milliSec = 0
 
-    @SuppressLint("WrongViewCast")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_timer)

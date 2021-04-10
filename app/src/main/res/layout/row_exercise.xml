@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:clickable="true"
-    android:focusable="true"
-    >
+    android:focusable="true">
 
 <!--<androidx.cardview.widget.CardView-->
 <!--    android:layout_width="match_parent"-->
@@ -41,10 +40,8 @@
                 android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.309"
                 app:layout_constraintStart_toEndOf="@+id/imageView2"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.47" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/ex_description"
@@ -63,9 +60,8 @@
             android:button="@null"
             android:background="@drawable/custom_checkbox"
             android:backgroundTint="@color/main_red"
-            android:scaleX="0.4"
-            android:scaleY="0.4"
-            />
+            android:scaleX="0.6"
+            android:scaleY="0.6"/>
 
 
 

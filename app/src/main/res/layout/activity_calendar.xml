@@ -22,32 +22,67 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textSize="24dp"
+            android:textSize="44dp"
+            android:layout_marginBottom="22dp"
             android:textColor="@color/main_red"
             android:textStyle="bold"
             android:text="@string/workout_title" />
 
-<!--        <CalendarView-->
-<!--            android:id="@+id/calendarView"-->
-<!--            android:layout_below="@id/textView"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"/>-->
+        <RelativeLayout
+            android:id="@+id/months"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textView"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/back_arrow"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="12dp"
+                android:src="@drawable/arrow_back"/>
+
+            <TextView
+                android:id="@+id/month_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="30dp"
+                android:textColor="@color/black"
+                android:layout_centerHorizontal="true"
+                android:text="April"/>
+
+            <ImageView
+                android:id="@+id/next_arrow"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="12dp"
+                android:rotationY="180"
+                android:src="@drawable/arrow_back"/>
+
+
+        </RelativeLayout>
 
         <com.github.sundeepk.compactcalendarview.CompactCalendarView
             android:id="@+id/calendarView"
-            android:layout_below="@id/textView"
+            android:layout_below="@id/months"
             android:layout_width="match_parent"
             android:layout_height="250dp"
             app:compactCalendarTargetHeight="250dp"
             app:compactCalendarTextSize="12sp"
-            app:compactCalendarBackgroundColor="#ffe95451"
+            app:compactCalendarBackgroundColor="@color/main_blue"
             app:compactCalendarTextColor="#fff"
-            app:compactCalendarCurrentSelectedDayBackgroundColor="#E57373"
-            app:compactCalendarCurrentDayBackgroundColor="#B71C1C"
+            app:compactCalendarCurrentSelectedDayBackgroundColor="@color/light_blue"
+            app:compactCalendarCurrentDayBackgroundColor="@color/main_red"
             app:compactCalendarMultiEventIndicatorColor="#fff"/>
 
+            <!--  TODO place workout history scrollview/recyclerview   -->
+
         <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottom_navigation"
+            android:id="@+id/bottom_navigation_calendar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"

@@ -30,14 +30,14 @@ class InfoActivity : AppCompatActivity() {
 
         listView.adapter = adapter
 
-        listView.setOnItemClickListener { parent, view, position, id ->
-            val element = parent.getItemAtPosition(position) as String// The item that was clicked
+        listView.setOnItemClickListener { parent, _, position, _ ->
+            val element = parent.getItemAtPosition(position) as String // The item that was clicked
             val intent = Intent(this, ExerciseInfo::class.java)
             intent.putExtra("exerciseName",element)
             startActivity(intent)
         }
 
-        bottomNavigationView = findViewById(R.id.bottom_navigation)
+        bottomNavigationView = findViewById(R.id.bottom_navigation_info)
 //        bottomNavigationView!!.selectedItemId = R.id.action_information
         bottomNavigationView!!.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
     }
@@ -49,7 +49,7 @@ class InfoActivity : AppCompatActivity() {
                 startActivity(intent)
 //                return@OnNavigationItemSelectedListener true
             }
-            R.id.action_history -> {
+            R.id.action_calendar -> {
                 val intent = Intent(this, CalendarActivity::class.java)
                 startActivity(intent)
 //                return@OnNavigationItemSelectedListener true

@@ -1,25 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app ="http://schemas.android.com/apk/res-auto"
-    xmlns:tools ="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:padding="16dp">
 
     <RelativeLayout
         android:id="@+id/stopwatch_layout"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_gravity="center"
+        android:layout_centerVertical="true"
         android:layout_marginTop="170dp"
-        android:layout_marginEnd="51dp"
         android:layout_marginBottom="260dp"
         android:background="@drawable/bg_ground"
         android:gravity="center"
@@ -37,10 +31,10 @@
                 android:id="@+id/chronometer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:format="00:00:00"
                 android:textColor="@android:color/white"
                 android:textSize="40sp"
-                android:layout_gravity="center"
                 android:textStyle="bold" />
 
             <LinearLayout
@@ -72,13 +66,9 @@
         android:id="@+id/timer_layout"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_gravity="center"
+        android:layout_centerVertical="true"
         android:layout_marginTop="170dp"
-        android:layout_marginEnd="51dp"
         android:layout_marginBottom="260dp"
         android:background="@drawable/bg_ground1"
         android:gravity="center"
@@ -93,59 +83,59 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <EditText
                     android:id="@+id/hour"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="40sp"
-                    android:textColor="@color/white"
-                    android:inputType="number"
                     android:hint="00"
-                    android:textStyle="bold"
+                    android:inputType="number"
                     android:maxLength="2"
                     android:textAlignment="center"
+                    android:textColor="@color/white"
                     android:textColorHint="@color/white"
-                    >
-                </EditText>
+                    android:textSize="40sp"
+                    android:textStyle="bold"></EditText>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text=":"
-                    android:textSize="40sp"
-                    android:textColor="@color/white"/>
+                    android:textColor="@color/white"
+                    android:textSize="40sp" />
 
                 <EditText
                     android:id="@+id/mins"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:inputType="number"
-                    android:textSize="40sp"
-                    android:textColor="@color/white"
                     android:hint="00"
-                    android:textStyle="bold"
+                    android:inputType="number"
                     android:maxLength="2"
                     android:textAlignment="center"
+                    android:textColor="@color/white"
                     android:textColorHint="@color/white"
-                    />
+                    android:textSize="40sp"
+                    android:textStyle="bold" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text=":"
-                    android:textSize="40sp"
-                    android:textColor="@color/white"/>
+                    android:textColor="@color/white"
+                    android:textSize="40sp" />
+
                 <EditText
                     android:id="@+id/second"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:inputType="number"
                     android:hint="00"
-                    android:textStyle="bold"
+                    android:inputType="number"
                     android:maxLength="2"
                     android:textAlignment="center"
-                    android:textSize="40sp"
                     android:textColor="@color/white"
-                    android:textColorHint="@color/white">
-                </EditText>
+                    android:textColorHint="@color/white"
+                    android:textSize="40sp"
+                    android:textStyle="bold"></EditText>
             </LinearLayout>
 
             <LinearLayout
@@ -173,18 +163,26 @@
 
     </RelativeLayout>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/stopwatch"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/custom_btn"
         android:text="Stopwatch"
-        />
+        android:textColor="@color/white"
+        android:textStyle="bold" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/timer"
-        android:layout_width="117dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:text="Timer" />
+        android:layout_marginTop="16dp"
+        android:background="@drawable/custom_btn"
+        android:backgroundTint="@color/main_red"
+        android:text="Timer"
+        android:textColor="@color/white"
+        android:textStyle="bold" />
 </RelativeLayout>

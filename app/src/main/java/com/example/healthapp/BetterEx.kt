@@ -34,16 +34,20 @@ class BetterEx : AppCompatActivity()  {
 
         listSelectedEx = adapter.getExerciseList()
 
-
         toTodayExercise!!.setOnClickListener{
-
-            var intent = Intent(this, TodayExerciseActivity::class.java)
-            intent.putExtra("exerciseName", listSelectedEx)
-            startActivity(intent)
+            if(listSelectedEx!!.isNotEmpty()) {
+                var intent = Intent(this, TodayExerciseActivity::class.java)
+                intent.putExtra("exerciseName", listSelectedEx)
+                startActivity(intent)
+            } else {
+                Toast.makeText(
+                    this,
+                    "Please select at least one exercise!",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
 
         }
-
-
 
     }
 

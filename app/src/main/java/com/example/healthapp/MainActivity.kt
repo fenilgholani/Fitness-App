@@ -2,12 +2,9 @@ package com.example.healthapp
 
 import android.content.Intent
 import android.os.Bundle
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Button
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.data.Entry
@@ -35,10 +32,6 @@ class MainActivity : AppCompatActivity() {
 //        settings.setOnClickListener{
 //            SettingActivity()
 //        }
-
-
-
-
 
         var lineChart = findViewById<LineChart>(R.id.lineChart)
 
@@ -89,9 +82,9 @@ class MainActivity : AppCompatActivity() {
 //        lineChart.marker = markerView
 
 
-
-
-        bottomNavigationView = findViewById(R.id.bottom_navigation)
+        bottomNavigationView = findViewById(R.id.bottom_navigation_main)
+        bottomNavigationView!!.selectedItemId = R.id.action_profile
+        bottomNavigationView!!.menu.findItem(R.id.action_profile).isEnabled = false
         bottomNavigationView!!.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
 
     }
@@ -118,26 +111,14 @@ class MainActivity : AppCompatActivity() {
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { menuItem ->
         when (menuItem.itemId) {
-            R.id.action_profile -> {
-                val intent = Intent(this@MainActivity, MainActivity::class.java)
-                startActivity(intent)
-//                return@OnNavigationItemSelectedListener true
-            }
-            R.id.action_history -> {
+            R.id.action_calendar -> {
                 val intent = Intent(this@MainActivity, CalendarActivity::class.java)
                 startActivity(intent)
-//                return@OnNavigationItemSelectedListener true
             }
             R.id.action_workout -> {
                 val intent = Intent(this@MainActivity, BetterEx::class.java)
                 startActivity(intent)
-//                return@OnNavigationItemSelectedListener true
             }
-//            R.id.action_information -> {
-//                val intent = Intent(this@MainActivity, InfoActivity::class.java)
-//                startActivity(intent)
-////                return@OnNavigationItemSelectedListener true
-//            }
         }
         false
     }

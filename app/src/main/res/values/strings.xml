@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Fit4U</string>
+    <string name="app_name">FIT4U</string>
 
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
@@ -45,7 +45,7 @@
 
     <!--  Menu Navigation Strings  -->
     <string name="profile">Profile</string>
-    <string name="history">History</string>
+    <string name="calendar">Calendar</string>
     <string name="workouts">Workouts</string>
     <string name="information">Information</string>
     <string name="action_settings">Settings</string>
