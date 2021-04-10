@@ -31,9 +31,9 @@ RecyclerView.Adapter<ExerciseAdapter.ViewHolder>() {
         )
 
         var default = ArrayList<Int>()
-        //for(i in 0..3) {
+        for(i in 0..3) {
             default.add(0)
-        //}
+        }
         var exerciseRep: HashMap<Int, Int> = HashMap()
         var exerciseWeight: HashMap<Int, Int> = HashMap()
 

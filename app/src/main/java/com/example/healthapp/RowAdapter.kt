@@ -25,10 +25,9 @@ class RowAdapter(
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
 
         val itemSet: TextView = itemView.findViewById(R.id.set_num)
-        val itemWeight: TextView = itemView.findViewById(R.id.weight_done)
-        val itemReps: TextView = itemView.findViewById(R.id.reps_done)
+        val itemWeight: EditText = itemView.findViewById(R.id.weight_done)
+        val itemReps: EditText = itemView.findViewById(R.id.reps_done)
         val itemClose: Button = itemView.findViewById(R.id.close_set)
-
     }
 
 
@@ -44,12 +43,19 @@ class RowAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.itemSet.text = "${position + 1}"
+        holder.itemWeight.setText("")
+        holder.itemReps.setText("")
+
+
+        if(exerciseRep.containsKey(position+1))
+            holder.itemReps.setText(exerciseRep[position+1].toString())
+
+        if(exerciseWeight.containsKey(position+1))
+            holder.itemWeight.setText(exerciseWeight[position+1].toString())
 
 
         //change the positioning of data when closed
         holder.itemClose.setOnClickListener{
-
-
             Log.i("Before", "Weight:$exerciseWeight Rep:$exerciseRep")
 
             if(itemCount == 1 ) {
@@ -60,15 +66,14 @@ class RowAdapter(
                     Toast.LENGTH_SHORT
                 ).show()
             } else {
-                exerciseWeight.remove(position + 1)
-                exerciseRep.remove(position + 1)
+                exerciseWeight.remove(holder.adapterPosition + 1)
+                exerciseRep.remove(holder.adapterPosition + 1)
 
-                defaultRows.removeAt(position)
-                notifyItemRemoved(position)
-//                notifyDataSetChanged()
+                defaultRows.removeAt(holder.adapterPosition)
+                this.notifyItemRemoved(holder.adapterPosition)
+                notifyItemRangeChanged(position, defaultRows.size)
 
-
-                var flag = false
+               var flag = false
 
                 for( i in (position+1)..(exerciseRep.size)){
 //                if(exerciseRep[i+1] != null) {
@@ -103,8 +108,12 @@ class RowAdapter(
 //                indexingChange = false
 //            }
 
-                holder.itemReps.text = ""
-                holder.itemWeight.text = ""
+//                holder.itemReps.text = ""
+//                holder.itemWeight.text = ""
+                holder.itemWeight.setText("")
+                holder.itemReps.setText("")
+//                for(i in 1..itemCount)
+//                    notifyItemChanged(i)
             }
 
         }
