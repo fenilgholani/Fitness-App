@@ -13,13 +13,14 @@ import java.lang.reflect.TypeVariable
 
 
 class RowAdapter(
-    private var defaultRows: ArrayList<Int> // list of selected exercises for the day
+    private var defaultRows: ArrayList<Int>, // list of selected exercises for the day
+    private var exerciseRep: HashMap<Int, Int>,
+    private var exerciseWeight: HashMap<Int, Int>
 ) :
 
     RecyclerView.Adapter<RowAdapter.ViewHolder>() {
 
-    private var exerciseRep: HashMap<Int, Int> = HashMap()
-    private var exerciseWeight: HashMap<Int, Int> = HashMap()
+
     private var isOnTextChangedR: Boolean = false
     private var isOnTextChangedW: Boolean = false
     private var indexingChange: Boolean = false
@@ -46,8 +47,14 @@ class RowAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.itemTitle.text = "${position + 1}"
+        holder.itemReps.text = ""
+        holder.itemWeight.text = ""
 
+        if(exerciseRep.containsKey(position+1))
+            holder.itemReps.text = exerciseRep[position+1].toString()
 
+        if(exerciseWeight.containsKey(position+1))
+            holder.itemWeight.text = exerciseWeight[position+1].toString()
 
         //change the positioning of data when closed
         holder.itemClose.setOnClickListener{
@@ -61,8 +68,10 @@ class RowAdapter(
                 exerciseRep.remove(holder.adapterPosition + 1)
 
                 defaultRows.removeAt(holder.adapterPosition)
+
+
                 notifyItemRemoved(holder.adapterPosition)
-//                notifyDataSetChanged()
+
 
             }
             else {
@@ -78,15 +87,15 @@ class RowAdapter(
             for( i in 1..(exerciseRep.size)){
 
                 if(!exerciseRep.containsKey(i)){
-                    exerciseRep.put(i, exerciseRep[i+1]!!)
-                    exerciseWeight.put(i, exerciseWeight[i+1]!!)
+                    exerciseRep[i] = exerciseRep[i+1]!!
+                    exerciseWeight[i] = exerciseWeight[i+1]!!
                     flag = true
                     continue
                 }
 
-                else if(flag && exerciseRep[i+1] != null){
-                    exerciseRep.put(i, exerciseRep[i+1]!!)
-                    exerciseWeight.put(i, exerciseWeight[i+1]!!)
+                else if(flag){
+                    exerciseRep[i] = exerciseRep[i+1]!!
+                    exerciseWeight[i] = exerciseWeight[i+1]!!
                 }
             }
 
@@ -103,8 +112,16 @@ class RowAdapter(
 //                indexingChange = false
 //            }
 
+
+
             holder.itemReps.text = ""
             holder.itemWeight.text = ""
+
+            for(i in holder.adapterPosition..(exerciseRep.size -1))
+                notifyItemChanged(i)
+
+
+
 
         }
 

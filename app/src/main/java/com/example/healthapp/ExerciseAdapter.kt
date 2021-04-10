@@ -34,10 +34,12 @@ RecyclerView.Adapter<ExerciseAdapter.ViewHolder>() {
         for(i in 0..3) {
             default.add(0)
         }
+        var exerciseRep: HashMap<Int, Int> = HashMap()
+        var exerciseWeight: HashMap<Int, Int> = HashMap()
 
         var rowRecyclerView = v.findViewById<RecyclerView>(R.id.row_recyclerView)
         rowRecyclerView!!.layoutManager = LinearLayoutManager(v.context)
-        var adapter = RowAdapter(default)
+        var adapter = RowAdapter(default, exerciseRep, exerciseWeight)
         rowRecyclerView.adapter = adapter
 
 
