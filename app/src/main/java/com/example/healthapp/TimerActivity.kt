@@ -130,9 +130,9 @@ class TimerActivity : AppCompatActivity() {
 
                     override fun onTick(millisUntilFinished: Long) {
 
-                        hour.setText("${(millisUntilFinished / (1000*60*60)) % 24}")
-                        min.setText("${((millisUntilFinished / (1000*60)) % 60)}")
-                        second.setText("${((millisUntilFinished/1000)% 60)}")
+                        hour.setText(String.format("%02d", ((millisUntilFinished / (1000*60*60)) % 24).toInt()))
+                        min.setText(String.format("%02d", ((millisUntilFinished / (1000*60)) % 60).toInt()))
+                        second.setText(String.format("%02d", ((millisUntilFinished/1000)% 60).toInt()))
 
                         Log.i("Fenil",millisUntilFinished.toString())
 

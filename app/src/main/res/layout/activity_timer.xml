@@ -101,6 +101,8 @@
                     android:textColor="@color/white"
                     android:inputType="number"
                     android:hint="00"
+                    android:textStyle="bold"
+                    android:maxLength="2"
                     android:textAlignment="center"
                     android:textColorHint="@color/white"
                     >
@@ -120,6 +122,8 @@
                     android:textSize="40sp"
                     android:textColor="@color/white"
                     android:hint="00"
+                    android:textStyle="bold"
+                    android:maxLength="2"
                     android:textAlignment="center"
                     android:textColorHint="@color/white"
                     />
@@ -135,6 +139,8 @@
                     android:layout_height="wrap_content"
                     android:inputType="number"
                     android:hint="00"
+                    android:textStyle="bold"
+                    android:maxLength="2"
                     android:textAlignment="center"
                     android:textSize="40sp"
                     android:textColor="@color/white"

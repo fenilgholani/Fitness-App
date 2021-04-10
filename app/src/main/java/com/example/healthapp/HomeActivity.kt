@@ -45,7 +45,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun Better() {
-        val intent = Intent(this@HomeActivity, TimerActivity::class.java)
+        val intent = Intent(this@HomeActivity, CalendarActivity::class.java)
         startActivity(intent)
     }
 }

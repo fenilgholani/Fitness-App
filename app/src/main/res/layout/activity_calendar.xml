@@ -27,11 +27,18 @@
             android:textStyle="bold"
             android:text="@string/workout_title" />
 
-        <CalendarView
+<!--        <CalendarView-->
+<!--            android:id="@+id/calendarView"-->
+<!--            android:layout_below="@id/textView"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"/>-->
+
+        <com.applandeo.materialcalendarview.CalendarView
             android:id="@+id/calendarView"
             android:layout_below="@id/textView"
+            app:headerColor="@color/main_blue"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation"

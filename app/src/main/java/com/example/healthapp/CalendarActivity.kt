@@ -2,13 +2,18 @@ package com.example.healthapp
 
 import android.app.Activity
 import android.content.Intent
-import android.icu.util.Calendar
+import java.util.Calendar
 import android.icu.util.ULocale
 import android.os.Bundle
 import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.applandeo.materialcalendarview.CalendarView
+import com.applandeo.materialcalendarview.EventDay
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import java.util.*
+import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
 
 
 class CalendarActivity  : AppCompatActivity(){
@@ -28,12 +33,29 @@ class CalendarActivity  : AppCompatActivity(){
         calendar = findViewById(R.id.calendarView)
         dateView = findViewById(R.id.textView)
 
-
-//        var intent = intent
+//       Got Todays Exercise Data
         var exerciseData = Exercise.getExerciseData()
-//
-        Log.i("Fenil", exerciseData.toString())
+        // Date -> {Exercise Name->{Set#->[lbs,reps]}}
+        var dateExercise= HashMap<String, HashMap<String, HashMap<Int, ArrayList<Int>>>>()
 
+        val c = Calendar.getInstance()
+        val year = c.get(Calendar.YEAR)
+        val month = c.get(Calendar.MONTH)
+        val day = c.get(Calendar.DAY_OF_MONTH)
+
+//        var todayDate = ArrayList<EventDay>()
+//        todayDate.add(c)
+//        calendar!!.selectedDates = todayDate
+//        c.add(Calendar.DAY_OF_MONTH, -5)
+//        Log.d("DATE", "${c.get(Calendar.MONTH)} ${c.get(Calendar.DAY_OF_MONTH)} ${c.get(Calendar.YEAR)}")
+
+        var todayDate = Calendar.getInstance()
+        todayDate.set(2021, 3, 4)
+        calendar!!.setDate(todayDate)
+
+        dateExercise["${month+1}.$day.$year"] = exerciseData
+
+        Log.i("Fenil", exerciseData.toString())
 
         bottomNavigationView = findViewById(R.id.bottom_navigation)
         bottomNavigationView!!.selectedItemId = R.id.action_history
