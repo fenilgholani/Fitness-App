@@ -13,8 +13,9 @@ import androidx.core.view.isVisible
 
 class TimerActivity : AppCompatActivity() {
 
-    var countdown: CountDownTimer ?= null
-    var timer: TextView ?= null
+
+    private lateinit var countDown: CountDownTimer
+    var timer: TextView? = null
     var chronometer: Chronometer? = null
     var btStart: ImageButton? = null
     var btStop: ImageButton? = null
@@ -27,6 +28,7 @@ class TimerActivity : AppCompatActivity() {
     var sec = 0
     var min = 0
     var milliSec = 0
+    var count = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -119,91 +121,146 @@ class TimerActivity : AppCompatActivity() {
         }
     }
 
-    fun timerStarting(){
+    fun timerStarting() {
 
         findViewById<LinearLayout>(R.id.timer_layout).isVisible = true
         findViewById<LinearLayout>(R.id.stopwatch_layout).isVisible = false
 
-        timer = findViewById(R.id.textView);
 
         var start: ImageButton = findViewById(R.id.timer_start)
 
         start.setOnClickListener {
 
-            var hour:EditText = findViewById(R.id.hour)
-            var min:EditText = findViewById(R.id.mins)
-            var second:EditText = findViewById(R.id.second)
+            //clicked
+            count++
+
+            var hour: EditText = findViewById(R.id.hour)
+            var min: EditText = findViewById(R.id.mins)
+            var second: EditText = findViewById(R.id.second)
 
 
             var hour_cal: Int = 0
             var min_cal: Int = 0
             var sec_cal: Int = 0
 
-            if (!hour.text.toString().equals("")){
+            if (!hour.text.toString().equals("")) {
                 hour_cal = hour.text.toString().toInt()
             }
-            if ( !min.text.toString().equals("")){
+            if (!min.text.toString().equals("")) {
                 min_cal = min.text.toString().toInt()
             }
-            if (!second.text.toString().equals("")){
+            if (!second.text.toString().equals("")) {
                 sec_cal = second.text.toString().toInt()
             }
 
 
-//                Log.i("Fenil",(hour_cal * 3600 + min_cal * 60 + sec_cal).toLong().toString())
+            //                Log.i("Fenil",.toLong().toString())
 
-            countdown = CountDownTimer(
-                ((hour_cal * 3600 + min_cal * 60 + sec_cal) * 1000).toLong(),
-                1000
-            ) {
+            var current_time = (hour_cal * 3600 + min_cal * 60 + sec_cal)
 
-                override fun onTick(millisUntilFinished: Long) {
+            timer_work(
+                (current_time * 1000).toLong(),
+                hour,
+                min,
+                second
+            )
 
-                    findViewById<ImageButton>(R.id.timer_stopped).setOnClickListener{
+            Log.i("Count:", "Count: $count isResume: $isResume")
+            // The timer is paused
+            if (isResume && count % 2 == 0) {
+                isResume = false
+                //play button is created
 
-                    }
-                    hour.setText(
-                        String.format(
-                            "%02d",
-                            ((millisUntilFinished / (1000 * 60 * 60)) % 24).toInt()
+                findViewById<ImageButton>(R.id.timer_stopped)!!.visibility = View.GONE
+                findViewById<ImageButton>(R.id.timer_start)!!.setImageDrawable(
+                    ContextCompat.getDrawable(
+                        applicationContext, // Context
+                        R.drawable.ic_pause // Drawable
+                    )
+                )
+            }
+
+        }
+
+
+
+    }
+
+    fun timer_work(time: Long, hour: EditText, min: EditText, second: EditText) {
+
+        countDown = object : CountDownTimer(time, 1000) {
+
+            override fun onTick(millisUntilFinished: Long) {
+
+
+                hour.setText(
+                    String.format(
+                        "%02d",
+                        ((millisUntilFinished / (1000 * 60 * 60)) % 24).toInt()
+                    )
+                )
+                min.setText(
+                    String.format(
+                        "%02d",
+                        ((millisUntilFinished / (1000 * 60)) % 60).toInt()
+                    )
+                )
+                second.setText(
+                    String.format(
+                        "%02d",
+                        ((millisUntilFinished / 1000) % 60).toInt()
+                    )
+                )
+
+                Log.i("Fenil", millisUntilFinished.toString())
+
+
+                // the timer is paused
+                if (!isResume && count % 2 != 0) {
+                    isResume = true
+                    countDown.cancel()
+
+
+                    findViewById<ImageButton>(R.id.timer_stopped)!!.visibility = View.VISIBLE
+                    findViewById<ImageButton>(R.id.timer_start)!!.setImageDrawable(
+                        ContextCompat.getDrawable(
+                            applicationContext, // Context
+                            R.drawable.ic_play // Drawable
                         )
                     )
-                    min.setText(
-                        String.format(
-                            "%02d",
-                            ((millisUntilFinished / (1000 * 60)) % 60).toInt()
-                        )
-                    )
-                    second.setText(
-                        String.format(
-                            "%02d",
-                            ((millisUntilFinished / 1000) % 60).toInt()
-                        )
-                    )
-
-                    Log.i("Fenil", millisUntilFinished.toString())
-
                 }
 
-                override fun onFinish() {
-                    Log.i("Hello", "Finished")
-                }
+                // clicks on pause button
 
 
             }
 
-            countdown.start()
+            override fun onFinish() {
+                Log.i("Hello", "Finished")
+                isResume = false
+                findViewById<android.widget.ImageButton>(com.example.healthapp.R.id.timer_stopped)!!.visibility =
+                    android.view.View.VISIBLE
+                findViewById<android.widget.ImageButton>(com.example.healthapp.R.id.timer_start)!!.setImageDrawable(
+                    androidx.core.content.ContextCompat.getDrawable(
+                        applicationContext, // Context
+                        com.example.healthapp.R.drawable.ic_play // Drawable
+                    )
+                )
+
+            }
+
+
+
 
         }
-        }
-
-
-
-
-    private fun timerResume() {
-        Log.i("min", java.lang.Long.toString(min.toLong()))
-        Log.i("Sec", java.lang.Long.toString(sec.toLong()))
-        timerStart(milliLeft)
+        countDown.start()
     }
-    }
+}
+
+
+
+
+
+
+
 
