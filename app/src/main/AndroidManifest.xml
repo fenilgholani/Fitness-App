@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HealthApp">
 
-        <activity android:name=".TimerActivity"
+        <activity android:name=".BetterEx"
             android:theme="@style/Theme.HealthApp.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,22 +25,22 @@
         <activity android:name=".SignUpActivity" />
         <activity android:name=".SignInActivity" />
 
-<!--        <activity-->
-<!--            android:name=".MainActivity">-->
-<!--&lt;!&ndash;            <intent-filter>&ndash;&gt;-->
-<!--&lt;!&ndash;                <action android:name="android.intent.action.MAIN" />&ndash;&gt;-->
-<!--&lt;!&ndash;                <category android:name="android.intent.category.LAUNCHER" />&ndash;&gt;-->
-<!--&lt;!&ndash;            </intent-filter>&ndash;&gt;-->
-<!--        </activity>-->
+        <activity
+            android:name=".MainActivity">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+        </activity>
 
 
         <activity android:name=".InfoActivity" ></activity>
         <activity android:name=".RecordActivity" ></activity>
         <activity android:name=".ExerciseInfo" ></activity>
         <activity android:name=".TodayExerciseActivity"></activity>
-<!--        <activity android:name=".TimerActivity"></activity>-->
+        <activity android:name=".TimerActivity"></activity>
         <activity android:name=".CalendarActivity"></activity>
-        <activity android:name=".BetterEx"></activity>
+<!--        <activity android:name=".BetterEx"></activity>-->
         <activity android:name=".SettingActivity"></activity>
     </application>
 

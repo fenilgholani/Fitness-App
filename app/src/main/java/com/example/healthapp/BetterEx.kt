@@ -60,37 +60,35 @@ class BetterEx : AppCompatActivity()  {
     private fun postToList(){
 
 
-        var ex = listOf("Planks","Pull up", "Push up", "Sit up", "Squats")
+//        var ex = listOf("Planks","Pull up", "Push up", "Sit up", "Squats")
 
-//        var ex = listOf("Oblique twist",
-//              "Benchpress",
-//              "Deadlift",
-//              "Squat",
-//              "Tricep pulldown",
-//              "Pulley crunch",
-//              "Floor crunch",
-//              "Overhead tricep extension",
-//              "Dumbbell press",
-//              "Forearm curl back (15 reps)"  ,
-//              "Forearm curl in (15 reps)"  ,
-//              "Seated pulley row"  ,
-//              "Shrug"  ,
-//              "Calf raise"  ,
-//              "Dumbbell romanian deadlift"  ,
-//              "Forearm curl up (25 reps)"  ,
-//              "Dumbbell squat"  ,
-//              "Front raise"  ,
-//              "Julian tricep extension"  ,
-//              "Bicep curl"  ,
-//              "Dumbbell incline press"  ,
-//              "Hammer pulley curls 2h"  ,
-//              "Side raise"  ,
-//              "Hand grippers"  ,
-//              "Dumbbell shoulder press"  ,
-//              "Overhead press"  ,
-//              "Hamstring curl"  ,
-//              "Lat pulldown"  ,
-//              "Hanging leg raise").sorted()
+        var ex = listOf("Planks","Pull up", "Push up", "Sit up", "Squats"
+            ,"Oblique twist",
+              "Benchpress",
+              "Deadlift",
+              "Tricep pulldown",
+              "Pulley crunch",
+              "Floor crunch",
+              "Overhead tricep extension",
+              "Dumbbell press",
+              "Forearm curl back "  ,
+              "Forearm curl in"  ,
+              "Seated pulley row"  ,
+              "Shrug"  ,
+              "Calf raise"  ,
+              "Dumbbell romanian deadlift"   ,
+              "Dumbbell squat"  ,
+              "Front raise"  ,
+              "Julian tricep extension"  ,
+              "Bicep curl"  ,
+              "Dumbbell incline press"  ,
+              "Side raise"  ,
+              "Hand grippers"  ,
+              "Dumbbell shoulder press"  ,
+              "Overhead press"  ,
+              "Hamstring curl"  ,
+              "Lat pulldown"  ,
+              "Hanging leg raise")
 
         var j= 1
         for(x in ex){
