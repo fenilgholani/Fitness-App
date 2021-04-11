@@ -13,6 +13,7 @@ import androidx.core.view.isVisible
 
 class TimerActivity : AppCompatActivity() {
 
+    var countdown: CountDownTimer ?= null
     var timer: TextView ?= null
     var chronometer: Chronometer? = null
     var btStart: ImageButton? = null
@@ -151,16 +152,36 @@ class TimerActivity : AppCompatActivity() {
 
 //                Log.i("Fenil",(hour_cal * 3600 + min_cal * 60 + sec_cal).toLong().toString())
 
-            var countdown = object : CountDownTimer(((hour_cal * 3600 + min_cal * 60 + sec_cal)*1000).toLong(),
-                1000) {
+            countdown = CountDownTimer(
+                ((hour_cal * 3600 + min_cal * 60 + sec_cal) * 1000).toLong(),
+                1000
+            ) {
 
                 override fun onTick(millisUntilFinished: Long) {
 
-                    hour.setText(String.format("%02d", ((millisUntilFinished / (1000*60*60)) % 24).toInt()))
-                    min.setText(String.format("%02d", ((millisUntilFinished / (1000*60)) % 60).toInt()))
-                    second.setText(String.format("%02d", ((millisUntilFinished/1000)% 60).toInt()))
+                    findViewById<ImageButton>(R.id.timer_stopped).setOnClickListener{
 
-                    Log.i("Fenil",millisUntilFinished.toString())
+                    }
+                    hour.setText(
+                        String.format(
+                            "%02d",
+                            ((millisUntilFinished / (1000 * 60 * 60)) % 24).toInt()
+                        )
+                    )
+                    min.setText(
+                        String.format(
+                            "%02d",
+                            ((millisUntilFinished / (1000 * 60)) % 60).toInt()
+                        )
+                    )
+                    second.setText(
+                        String.format(
+                            "%02d",
+                            ((millisUntilFinished / 1000) % 60).toInt()
+                        )
+                    )
+
+                    Log.i("Fenil", millisUntilFinished.toString())
 
                 }
 
@@ -175,5 +196,14 @@ class TimerActivity : AppCompatActivity() {
 
         }
         }
+
+
+
+
+    private fun timerResume() {
+        Log.i("min", java.lang.Long.toString(min.toLong()))
+        Log.i("Sec", java.lang.Long.toString(sec.toLong()))
+        timerStart(milliLeft)
+    }
     }
 
