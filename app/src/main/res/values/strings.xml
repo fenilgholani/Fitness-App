@@ -57,6 +57,9 @@
     <!--  Calendar Strings  -->
     <string name="workout_title">Workout Calendar</string>
 
+    <!--  Exercise Strings  -->
+    <string name="pullup">Pullups are cool</string>
+
     <!-- Strings used for search information of exercise    -->
     <string-array name="exercise_array">
         <item>Squats</item>

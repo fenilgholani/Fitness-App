@@ -62,33 +62,33 @@ class BetterEx : AppCompatActivity()  {
 
 //        var ex = listOf("Planks","Pull up", "Push up", "Sit up", "Squats")
 
-        var ex = listOf("Planks","Pull up", "Push up", "Sit up", "Squats"
-            ,"Oblique twist",
-              "Benchpress",
+        var ex = listOf("Plank","Pull up", "Push up", "Sit up", "Squat"
+            ,"Oblique Twist",
+              "Bench Press",
               "Deadlift",
-              "Tricep pulldown",
-              "Pulley crunch",
-              "Floor crunch",
-              "Overhead tricep extension",
-              "Dumbbell press",
-              "Forearm curl back "  ,
-              "Forearm curl in"  ,
-              "Seated pulley row"  ,
+              "Tricep Pulldown",
+              "Pulley Crunch",
+              "Floor Crunch",
+              "Overhead Tricep Extension",
+              "Press",
+              "Forearm Curl Back "  ,
+              "Forearm Curl In"  ,
+              "Seated Pulley Row"  ,
               "Shrug"  ,
-              "Calf raise"  ,
-              "Dumbbell romanian deadlift"   ,
-              "Dumbbell squat"  ,
-              "Front raise"  ,
-              "Julian tricep extension"  ,
-              "Bicep curl"  ,
-              "Dumbbell incline press"  ,
-              "Side raise"  ,
-              "Hand grippers"  ,
-              "Dumbbell shoulder press"  ,
-              "Overhead press"  ,
-              "Hamstring curl"  ,
-              "Lat pulldown"  ,
-              "Hanging leg raise")
+              "Calf Raise"  ,
+              "Romanian Deadlift" ,
+              "Front Raise"  ,
+              "Julian Tricep extension"  ,
+              "Bicep Curl"  ,
+              "Incline press"  ,
+              "Side Raise"  ,
+              "Hand Grippers"  ,
+              "Shoulder Press"  ,
+              "Overhead Press"  ,
+              "Hamstring Curl"  ,
+              "Lat Pulldown"  ,
+              "Hanging Leg Raise")
+//            .sorted()
 
         var j= 1
         for(x in ex){

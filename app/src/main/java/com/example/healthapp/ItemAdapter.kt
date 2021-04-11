@@ -1,13 +1,13 @@
 package com.example.healthapp
 
+import android.app.Activity
+import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
-import com.afollestad.materialdialogs.MaterialDialog
-import com.afollestad.materialdialogs.customview.customView
-import pl.droidsonroids.gif.GifImageView
+import com.shashank.sony.fancygifdialoglib.FancyGifDialog
 
 
 class ItemAdapter(
@@ -16,7 +16,6 @@ class ItemAdapter(
     private var images: List<Int>
 ) :
 
-//Hello
     RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
 
     private var exerciseList = ArrayList<String>()
@@ -61,56 +60,45 @@ class ItemAdapter(
 //        holder.itemDetail.text = details[position]
         holder.itemImg.setImageResource(images[position])
 
-
         holder.itemView.setOnClickListener {
-
             var context = holder.itemTitle.context
+            var drawable: Int? = null
+            var description: String? = null
 
-            if(holder.itemTitle.text == "Planks") {
-                val dialog = MaterialDialog(context)
-                    .customView(R.layout.ex_activity_plank)
-
-                dialog.show()
-            }
-            if(holder.itemTitle.text == "Pull up") {
-                val dialog = MaterialDialog(context)
-                    .customView(R.layout.ex_activity_pullup)
-
-                dialog.show()
-            }
-            if(holder.itemTitle.text == "Push up") {
-                val dialog = MaterialDialog(context)
-                    .customView(R.layout.ex_activity_pushup)
-
-                dialog.show()
-            }
-            if(holder.itemTitle.text == "Sit up") {
-                val dialog = MaterialDialog(context)
-                    .customView(R.layout.ex_activity_situp)
-
-                dialog.show()
-            }
-            if(holder.itemTitle.text == "Squats") {
-                val dialog = MaterialDialog(context)
-                    .customView(R.layout.ex_activity_squat)
-
-                dialog.show()
+            when(holder.itemTitle.text){
+                "Pull up" -> {
+                    drawable = R.drawable.pullup
+                    description = context.resources.getString(R.string.pullup)
+                }
+                "Plank" -> {
+                    drawable = R.drawable.plank
+                }
+                "Squat" -> {
+                    drawable = R.drawable.squat
+                }
+                "Push up" -> {
+                    drawable = R.drawable.pushup
+                }
+                "Sit up" -> {
+                    drawable = R.drawable.situp
+                }
             }
 
-//            var gif: ImageView = l.findViewById(R.id.ex_gif)
+            FancyGifDialog.Builder(context as Activity?)
+                .setTitle(holder.itemTitle.text.toString())
+                .setMessage(description)
+                .setNegativeBtnText("Cancel")
+                .setNegativeBtnBackground("#E43F5A")
+                .setPositiveBtnText("Ok")
+                .setGifResource(drawable!!)
+                .isCancellable(false)
+                .OnPositiveClicked {
+                    holder.itemCheckBox.isChecked = true
+                    Toast.makeText(context, "${holder.itemTitle.text} Added!", Toast.LENGTH_SHORT).show()
+                }.OnNegativeClicked {
 
-//            when(holder.itemTitle.text){
-//                "Pull up"-> gif = l.findViewById(R.id.ex_pullup)
-//                "Planks"-> gif = l.findViewById(R.id.ex_plank)
-//            }
-
-
-//            gif.setImageResource(R.drawable.plank)
-//            Glide.with(l).asGif().load(R.drawable.pullup).into(gif)
-
-//            var intent = Intent(context, ExerciseInfo::class.java)
-//            intent.putExtra("exerciseName", holder.itemTitle.text)
-//            context.startActivity(intent)
+                }
+                .build()
 
         }
 
