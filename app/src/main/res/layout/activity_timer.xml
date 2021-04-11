@@ -130,7 +130,7 @@
                     android:textColor="@color/white"
                     android:textColorHint="@color/white"
                     android:textSize="40sp"
-                    android:textStyle="bold"></EditText>
+                    android:textStyle="bold"/>
             </LinearLayout>
 
             <LinearLayout
@@ -143,6 +143,7 @@
                     android:id="@+id/timer_start"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:tint="@color/white"
                     android:background="@android:color/transparent"
                     android:src="@drawable/ic_play" />
 
@@ -150,6 +151,7 @@
                     android:id="@id/timer_stopped"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:tint="@color/white"
                     android:background="@android:color/transparent"
                     android:src="@drawable/ic_stop" />
             </LinearLayout>
