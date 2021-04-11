@@ -79,4 +79,20 @@ class SignInActivity : AppCompatActivity() {
         return verified
     }
 
+    public override fun onSaveInstanceState(savedInstanceState: Bundle){
+        super.onSaveInstanceState(savedInstanceState)
+        savedInstanceState.putSerializable("User Data", UserInfo.getUserData())
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        if (savedInstanceState != null) {
+            var usernameSaved = savedInstanceState.getSerializable("Username")
+            if(usernameSaved != null){
+                UserInfo.setUsername(usernameSaved as String)
+            } else {
+                UserInfo.setUsername("!")
+            }
+        }
+    }
+
 }

@@ -20,11 +20,10 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="22dp"
         android:gravity="center"
         android:text="@string/workout_title"
         android:textColor="@color/main_red"
-        android:textSize="44dp"
+        android:textSize="34dp"
         android:textStyle="bold" />
 
     <RelativeLayout
@@ -32,6 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/textView"
+        android:background="@color/main_blue"
         android:orientation="horizontal">
 
         <ImageView
@@ -68,7 +68,7 @@
     <com.github.sundeepk.compactcalendarview.CompactCalendarView
         android:id="@+id/calendarView"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="210dp"
         android:layout_below="@id/months"
         app:compactCalendarBackgroundColor="@color/main_blue"
         app:compactCalendarCurrentSelectedDayBackgroundColor="@color/light_blue"
@@ -80,7 +80,7 @@
     <!--  TODO place workout history recyclerview   -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="150dp"
         android:layout_below="@+id/calendarView">
 
         <androidx.recyclerview.widget.RecyclerView
@@ -89,7 +89,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="5dp"
             tools:listitem="@layout/row_calender" />
     </LinearLayout>
 

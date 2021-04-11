@@ -3,7 +3,7 @@
     android:shape = "oval">
 
     <solid android:color = "@color/main_blue"/>
-<!--    <corners android:radius="400dp"/>-->
+    <corners android:radius="400dp"/>
 <!--    <size android:height = "300dp"-->
 <!--        android:width="300dp"/>-->
 </shape>

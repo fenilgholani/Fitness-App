@@ -1,6 +1,5 @@
 package com.example.healthapp
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.os.Handler
@@ -33,7 +32,7 @@ class TimerActivity : AppCompatActivity() {
         setContentView(R.layout.activity_timer)
 
 
-        timer_starting()
+        timerStarting()
 
         findViewById<Button>(R.id.stopwatch).setOnClickListener {
 
@@ -95,7 +94,7 @@ class TimerActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.timer).setOnClickListener {
 
-            timer_starting()
+            timerStarting()
 
 
         }
@@ -119,7 +118,7 @@ class TimerActivity : AppCompatActivity() {
         }
     }
 
-    fun timer_starting(){
+    fun timerStarting(){
 
         findViewById<LinearLayout>(R.id.timer_layout).isVisible = true
         findViewById<LinearLayout>(R.id.stopwatch_layout).isVisible = false

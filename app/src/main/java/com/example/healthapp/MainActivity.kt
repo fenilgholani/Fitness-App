@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.charts.LineChart
@@ -17,6 +18,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 class MainActivity : AppCompatActivity() {
 
     private var bottomNavigationView : BottomNavigationView? = null
+    private var userName: TextView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -105,6 +107,9 @@ class MainActivity : AppCompatActivity() {
 //        val markerView = CustomMarker(this@ShowForexActivity, R.layout.marker_view)
 //        lineChart.marker = markerView
 
+
+        userName = findViewById(R.id.username_text)
+        userName!!.text = "${userName!!.text}${UserInfo.getUsername()}"
 
         bottomNavigationView = findViewById(R.id.bottom_navigation_main)
         bottomNavigationView!!.selectedItemId = R.id.action_profile

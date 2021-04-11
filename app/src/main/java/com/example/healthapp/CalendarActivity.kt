@@ -58,7 +58,6 @@ class CalendarActivity  : AppCompatActivity(){
         }
 //        Log.i("UTIL LONG VALUE", Utils().getDateInMilliSeconds("04.04.2021", "MM.dd.yyyy").toString())
 
-//        calendar!!.setFirstDayOfWeek(Calendar.SUNDAY)
         var event = Event(R.color.main_green, 1617499276000L, "New event on this day!")
         calendar!!.addEvent(event)
 

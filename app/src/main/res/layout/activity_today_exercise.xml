@@ -17,16 +17,16 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/today_recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="350dp"
         tools:listitem="@layout/row_todaysrow"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/dummy_finish"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
         android:background="@drawable/custom_btn"
         android:text="Finish Workout"
+        android:layout_marginBottom="15dp"
         android:textColor="@color/white"
         android:textStyle="bold" />
 

@@ -13,15 +13,12 @@
         android:layout_height="300dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_marginTop="170dp"
-        android:layout_marginBottom="260dp"
         android:background="@drawable/bg_ground"
         android:gravity="center"
         android:orientation="vertical"
         android:visibility="invisible">
 
         <LinearLayout
-
             android:layout_width="188dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -68,8 +65,6 @@
         android:layout_height="300dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_marginTop="170dp"
-        android:layout_marginBottom="260dp"
         android:background="@drawable/bg_ground1"
         android:gravity="center"
         android:orientation="vertical"

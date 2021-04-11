@@ -44,7 +44,7 @@
     <string name="submit">Submit</string>
 
     <!--  Menu Navigation Strings  -->
-    <string name="profile">Profile</string>
+    <string name="profile">Home</string>
     <string name="calendar">Calendar</string>
     <string name="workouts">Workouts</string>
     <string name="information">Information</string>

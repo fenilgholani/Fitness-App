@@ -108,13 +108,22 @@ class SignUpActivity : AppCompatActivity() {
 
     public override fun onSaveInstanceState(savedInstanceState: Bundle){
         super.onSaveInstanceState(savedInstanceState)
-
+        savedInstanceState.putSerializable("Username", username!!.text.toString())
         savedInstanceState.putSerializable("User Data", userInfo)
     }
 
-    private fun restore(savedInstanceState: Bundle){
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         if (savedInstanceState != null) {
-            userInfo = savedInstanceState.getSerializable ("User Data") as HashMap<String, String>
+            var usernameSaved = savedInstanceState.getSerializable("Username")
+            if(usernameSaved != null){
+                UserInfo.setUsername(usernameSaved as String)
+            }
+//            else {
+//                UserInfo.setUsername("!")
+//            }
+
+            var userInfoSaved = savedInstanceState.getSerializable("User Data")
+            UserInfo.setUserData(userInfoSaved as HashMap<String, String>)
         }
     }
 
