@@ -82,6 +82,71 @@ class ItemAdapter(
                 "Sit up" -> {
                     drawable = R.drawable.situp
                 }
+                "Oblique Twist" -> {
+                    drawable = R.drawable.obliqueTwist
+                }
+                "Bench Press" -> {
+                    drawable = R.drawable.bench_press
+                }
+                "Deadlift" -> {
+                    drawable = R.drawable.deadlift
+                }
+                "Tricep Pulldown" -> {
+                    drawable = R.drawable.tricep_pulldown
+                }
+                "Pulley Crunch" -> {
+                    drawable = R.drawable.pulley_crunch
+                }
+                "Floor Crunch" -> {
+                    drawable = R.drawable.floor_crunch
+                }
+                "Overhead Tricep Extension" -> {
+                    drawable = R.drawable.overhead_tricep_extension
+                }
+                "Seated Pulley Row"   -> {
+                    drawable = R.drawable.seated_pulley_row
+                }
+                "Shrug"   -> {
+                    drawable = R.drawable.shrug
+                }
+                "Calf Raise"   -> {
+                    drawable = R.drawable.calf_raise
+                }
+                "Romanian Deadlift"  -> {
+                    drawable = R.drawable.romanian_deadlift
+                }
+                "Front Raise"   -> {
+                    drawable = R.drawable.plank
+                }
+                "Bicep Curl"   -> {
+                    drawable = R.drawable.bicep_curl
+                }
+                // help
+                "Incline press"   -> {
+                    drawable = R.drawable.plank
+                }
+                "Side Raise"   -> {
+                    drawable = R.drawable.side_raise
+                }
+                "Hand Grippers"   -> {
+                    drawable = R.drawable.hand_grippers
+                }
+                "Shoulder Press"   -> {
+                    drawable = R.drawable.shoulder_press
+                }
+                "Overhead Press"   -> {
+                    drawable = R.drawable.overheadPress
+                }
+                "Hamstring Curl"   -> {
+                    drawable = R.drawable.hamstring_curl
+                }
+                // help
+                "Lat Pulldown"   -> {
+                    drawable = R.drawable.plank
+                }
+                "Hanging Leg Raise" -> {
+                    drawable = R.drawable.hanging_leg_raise
+                }
             }
 
             FancyGifDialog.Builder(context as Activity?)
