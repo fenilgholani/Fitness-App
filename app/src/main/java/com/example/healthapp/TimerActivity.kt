@@ -102,6 +102,7 @@ class TimerActivity : AppCompatActivity() {
 
         }
 
+
     }
 
     val runnable: Runnable = object : Runnable {
@@ -128,6 +129,21 @@ class TimerActivity : AppCompatActivity() {
 
 
         var start: ImageButton = findViewById(R.id.timer_start)
+
+        findViewById<ImageButton>(R.id.timer_stopped).setOnClickListener{
+
+            var hour: EditText = findViewById(R.id.hour)
+            var min: EditText = findViewById(R.id.mins)
+            var second: EditText = findViewById(R.id.second)
+
+            hour.setText("")
+            min.setText("")
+            second.setText("")
+
+            hour.hint = "00"
+            min.hint = "00"
+            second.hint = "00"
+        }
 
         start.setOnClickListener {
 
@@ -158,18 +174,19 @@ class TimerActivity : AppCompatActivity() {
 
             var current_time = (hour_cal * 3600 + min_cal * 60 + sec_cal)
 
-            timer_work(
-                (current_time * 1000).toLong(),
-                hour,
-                min,
-                second
-            )
+
 
             Log.i("Count:", "Count: $count isResume: $isResume")
             // The timer is paused
-            if (isResume && count % 2 == 0) {
+            if (count % 2 != 0) {
                 isResume = false
                 //play button is created
+                timer_work(
+                    (current_time * 1000).toLong(),
+                    hour,
+                    min,
+                    second
+                )
 
                 findViewById<ImageButton>(R.id.timer_stopped)!!.visibility = View.GONE
                 findViewById<ImageButton>(R.id.timer_start)!!.setImageDrawable(
@@ -179,6 +196,7 @@ class TimerActivity : AppCompatActivity() {
                     )
                 )
             }
+
 
         }
 
@@ -216,10 +234,9 @@ class TimerActivity : AppCompatActivity() {
 
 
                 // the timer is paused
-                if (!isResume && count % 2 != 0) {
+                if (count % 2 == 0) {
                     isResume = true
                     countDown.cancel()
-
 
                     findViewById<ImageButton>(R.id.timer_stopped)!!.visibility = View.VISIBLE
                     findViewById<ImageButton>(R.id.timer_start)!!.setImageDrawable(
@@ -237,6 +254,13 @@ class TimerActivity : AppCompatActivity() {
 
             override fun onFinish() {
                 Log.i("Hello", "Finished")
+                hour.setText("")
+                min.setText("")
+                second.setText("")
+
+                hour.hint = "00"
+                min.hint = "00"
+                second.hint = "00"
                 isResume = false
                 findViewById<android.widget.ImageButton>(com.example.healthapp.R.id.timer_stopped)!!.visibility =
                     android.view.View.VISIBLE
