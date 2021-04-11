@@ -83,7 +83,7 @@ class ItemAdapter(
                     drawable = R.drawable.situp
                 }
                 "Oblique Twist" -> {
-                    drawable = R.drawable.obliqueTwist
+                    drawable = R.drawable.oblique_twist
                 }
                 "Bench Press" -> {
                     drawable = R.drawable.bench_press
@@ -123,7 +123,7 @@ class ItemAdapter(
                 }
                 // help
                 "Incline press"   -> {
-                    drawable = R.drawable.plank
+                    drawable = R.drawable.incline_press
                 }
                 "Side Raise"   -> {
                     drawable = R.drawable.side_raise
@@ -135,14 +135,14 @@ class ItemAdapter(
                     drawable = R.drawable.shoulder_press
                 }
                 "Overhead Press"   -> {
-                    drawable = R.drawable.overheadPress
+                    drawable = R.drawable.overhead_press
                 }
                 "Hamstring Curl"   -> {
                     drawable = R.drawable.hamstring_curl
                 }
                 // help
                 "Lat Pulldown"   -> {
-                    drawable = R.drawable.plank
+                    drawable = R.drawable.lat_pulldown
                 }
                 "Hanging Leg Raise" -> {
                     drawable = R.drawable.hanging_leg_raise
