@@ -28,7 +28,7 @@ class CalendarAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v: View = LayoutInflater.from(parent.context).inflate(
-            R.layout.row_exercise,
+            R.layout.row_calender,
             parent,
             false
         )
@@ -38,13 +38,25 @@ class CalendarAdapter(
     //  ExerciseName => [lbs, ]
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        Log.i("Information", exerciseData.toString())
+        var key = exerciseData.keys.toTypedArray()[position]
 
+        holder.itemTitle.text = key
+
+        var sets: String = "Sets"
+        var lbsreps: String = ""
+
+        for((k,v) in exerciseData[key]!!){
+            sets += "\n  ${k}"
+            lbsreps += "\n${v[0]}lbs X ${v[1]}"
+        }
+
+        holder.itemSet.text = sets
+        holder.itemWeight.text = lbsreps
 
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return exerciseData.size
     }
 
 

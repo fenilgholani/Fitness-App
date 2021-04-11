@@ -54,7 +54,7 @@ class TodayExerciseActivity : AppCompatActivity() {
             if(month > 9)
                 dateExercise["${month+1}.$day.$year"] = Exercise.getExerciseData()
             else
-                dateExercise["0${month+1}.$day.$year"] = Exercise.getExerciseData()
+                dateExercise["0${month}.$day.$year"] = Exercise.getExerciseData()
 
             DateExercise.setExerciseData( dateExercise)
 

@@ -25,7 +25,7 @@ class ItemAdapter(
         inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
 
             val itemTitle: TextView = itemView.findViewById(R.id.ex_title)
-            val itemDetail: TextView = itemView.findViewById(R.id.ex_description)
+//            val itemDetail: TextView = itemView.findViewById(R.id.ex_description)
             val itemImg: ImageView = itemView.findViewById(R.id.ex_pic)
             val itemCheckBox: CheckBox = itemView.findViewById(R.id.ex_checkbox)
 
@@ -58,7 +58,7 @@ class ItemAdapter(
 
 
         holder.itemTitle.text = titles[position]
-        holder.itemDetail.text = details[position]
+//        holder.itemDetail.text = details[position]
         holder.itemImg.setImageResource(images[position])
 
 

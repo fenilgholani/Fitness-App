@@ -46,20 +46,21 @@ class CalendarActivity  : AppCompatActivity(){
         // Date -> {Exercise Name->{Set#->[lbs,reps]}}
         var dateExercise = DateExercise.getExerciseData()
 
-        var event: Event
+
 
 
         for((k,v) in dateExercise){
 
-            event = Event(R.color.main_green, Utils().getDateInMilliSeconds(k, "MM.dd.yyyy"), "New event on this day!")
+            var event = Event(R.color.main_green, Utils().getDateInMilliSeconds(k, "MM.dd.yyyy"), "New event on this day!")
+            Log.i("EVENT", event.toString())
             calendar!!.addEvent(event)
 
         }
 //        Log.i("UTIL LONG VALUE", Utils().getDateInMilliSeconds("04.04.2021", "MM.dd.yyyy").toString())
 
 //        calendar!!.setFirstDayOfWeek(Calendar.SUNDAY)
-//        var event = Event(R.color.main_blue, 1617499276000L, "New event on this day!")
-//        calendar!!.addEvent(event)
+        var event = Event(R.color.main_green, 1617499276000L, "New event on this day!")
+        calendar!!.addEvent(event)
 
         calendar!!.setListener(object : CompactCalendarViewListener {
             override fun onDayClick(dateClicked: Date) {
@@ -69,9 +70,12 @@ class CalendarActivity  : AppCompatActivity(){
                 var dayFormatter = SimpleDateFormat("MM.dd.yyyy")
                 var day = dayFormatter.format(dateClicked)
 
-                Log.i("DAY", day)
+
 
                 if(dateExercise.containsKey(day)) {
+
+                    Log.i("DAY", day)
+
                     var rv_recyclerView: RecyclerView = findViewById(R.id.rv_calendar)
 
                     rv_recyclerView!!.layoutManager = LinearLayoutManager(this@CalendarActivity)

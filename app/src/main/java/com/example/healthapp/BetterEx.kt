@@ -94,7 +94,7 @@ class BetterEx : AppCompatActivity()  {
 
         var j= 1
         for(x in ex){
-            addToList(x, "Description $j", R.drawable.ic_workout)
+            addToList(x, "", R.drawable.ic_workout)
             j+=1
         }
 

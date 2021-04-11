@@ -17,7 +17,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/today_recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="400dp"
         tools:listitem="@layout/row_todaysrow"/>
 
     <androidx.appcompat.widget.AppCompatButton
