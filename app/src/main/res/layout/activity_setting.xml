@@ -171,7 +171,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/age"
+                android:text="@string/dob"
                 android:textColor="@color/main_red"
                 android:textSize="24dp"
                 android:textStyle="bold" />

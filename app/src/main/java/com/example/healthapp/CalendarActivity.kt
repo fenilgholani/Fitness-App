@@ -132,30 +132,7 @@ class CalendarActivity  : AppCompatActivity(){
         backArrow!!.setOnClickListener { calendar!!.scrollLeft() }
         nextArrow!!.setOnClickListener { calendar!!.scrollRight() }
 
-//        Log.i("Fenil", exerciseData.toString())
-
         // Adapter for calendar recycle view
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         bottomNavigationView = findViewById(R.id.bottom_navigation_calendar)
         bottomNavigationView!!.selectedItemId = R.id.action_calendar
         bottomNavigationView!!.menu.findItem(R.id.action_calendar).isEnabled = false

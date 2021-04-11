@@ -10,7 +10,8 @@
     <color name="main_green">#3EAC1F</color>
     <color name="main_blue">#0088FF</color>
     <color name="light_blue">#83C4EF</color>
-    <color name="main_red">#E43F5A</color>
+    <color name="main_red">#92172B</color>
+    <color name="alt_red">#E43F5A</color>
     <color name="grey">#5CD3D3D3</color>
 </resources>
 

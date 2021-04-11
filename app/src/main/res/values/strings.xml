@@ -19,7 +19,7 @@
     <string name="password">Password</string>
     <string name="hi_there">Hi there! Nice to see you again.</string>
     <string name="welcome_thanks_for_joining">Welcome! Thanks for joining.</string>
-    <string name="example_username">egolub123</string>
+    <string name="example_username">Enter username</string>
     <string name="example_email">example@email.com</string>
     <string name="enter_password">Enter password</string>
     <string name="no_results">No Results</string>
@@ -29,14 +29,14 @@
     <string name="today_exercise_dummy">Todays Exercise</string>
 
     <!--  Record Activity Strings  -->
-    <string name="record">Record Personal Information</string>
+    <string name="record">Personal Information</string>
     <string name="height">Height</string>
     <string name="feet">Feet</string>
     <string name="inches">Inches</string>
     <string name="weight">Weight</string>
     <string name="lbs">LBS</string>
     <string name="kg">KG</string>
-    <string name="age">Age</string>
+    <string name="dob">Date of Birth</string>
     <string name="enter_height_feet">5</string>
     <string name="enter_height_inches">8</string>
     <string name="enter_weight">180</string>
