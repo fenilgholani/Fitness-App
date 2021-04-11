@@ -82,6 +82,7 @@
             <!--  TODO place workout history recyclerview   -->
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_calendar"
         android:layout_width="395dp"
         android:layout_height="200dp"
         android:layout_below="@+id/calendarView"

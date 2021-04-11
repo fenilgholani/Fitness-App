@@ -2,6 +2,7 @@ package com.example.healthapp
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.util.*
+import kotlin.collections.HashMap
 
 class TodayExerciseActivity : AppCompatActivity() {
 
@@ -44,6 +46,19 @@ class TodayExerciseActivity : AppCompatActivity() {
                 b.performClick()
             }
             Exercise.setExerciseData(adapter.getexerciseData(),"${month+1}.$day.$year")
+
+
+            // Setting the exercise for the day
+            var dateExercise = HashMap<String, HashMap<String, HashMap<Int, ArrayList<Int>>>>()
+
+            if(month > 9)
+                dateExercise["${month+1}.$day.$year"] = Exercise.getExerciseData()
+            else
+                dateExercise["0${month+1}.$day.$year"] = Exercise.getExerciseData()
+
+            DateExercise.setExerciseData( dateExercise)
+
+            Log.i("Date Exercise", DateExercise.getExerciseData().toString())
 
             // in1.putExtra("exerciseData", adapter.getexerciseData())
             // startActivity(in1)

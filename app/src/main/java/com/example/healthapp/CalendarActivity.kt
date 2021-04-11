@@ -1,11 +1,14 @@
 package com.example.healthapp
 
 import android.content.Intent
+import android.icu.text.SimpleDateFormat
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.github.sundeepk.compactcalendarview.CompactCalendarView
 import com.github.sundeepk.compactcalendarview.CompactCalendarView.CompactCalendarViewListener
 import com.github.sundeepk.compactcalendarview.domain.Event
@@ -37,25 +40,45 @@ class CalendarActivity  : AppCompatActivity(){
         backArrow = findViewById(R.id.back_arrow)
         nextArrow = findViewById(R.id.next_arrow)
 
+        calendar!!.setFirstDayOfWeek(Calendar.SUNDAY)
         // Got Today's Exercise Data
         var exerciseData = Exercise.getExerciseData()
         // Date -> {Exercise Name->{Set#->[lbs,reps]}}
-        var dateExercise= HashMap<String, HashMap<String, HashMap<Int, ArrayList<Int>>>>()
+        var dateExercise = DateExercise.getExerciseData()
 
-        val c = Calendar.getInstance()
-        val year = c.get(Calendar.YEAR)
-        val month = c.get(Calendar.MONTH)
-        val day = c.get(Calendar.DAY_OF_MONTH)
+        var event: Event
 
-        dateExercise["${month + 1}.$day.$year"] = exerciseData
-        calendar!!.setFirstDayOfWeek(Calendar.SUNDAY)
-        var event = Event(R.color.main_blue, 1617499276000L, "New event on this day!")
-        calendar!!.addEvent(event)
+
+        for((k,v) in dateExercise){
+
+            event = Event(R.color.main_green, Utils().getDateInMilliSeconds(k, "MM.dd.yyyy"), "New event on this day!")
+            calendar!!.addEvent(event)
+
+        }
+//        Log.i("UTIL LONG VALUE", Utils().getDateInMilliSeconds("04.04.2021", "MM.dd.yyyy").toString())
+
+//        calendar!!.setFirstDayOfWeek(Calendar.SUNDAY)
+//        var event = Event(R.color.main_blue, 1617499276000L, "New event on this day!")
+//        calendar!!.addEvent(event)
 
         calendar!!.setListener(object : CompactCalendarViewListener {
             override fun onDayClick(dateClicked: Date) {
                 val events: List<Event> = calendar!!.getEvents(dateClicked)
                 Log.d("EVENT", "Day was clicked: $dateClicked with events $events")
+
+                var dayFormatter = SimpleDateFormat("MM.dd.yyyy")
+                var day = dayFormatter.format(dateClicked)
+
+                Log.i("DAY", day)
+
+                if(dateExercise.containsKey(day)) {
+                    var rv_recyclerView: RecyclerView = findViewById(R.id.rv_calendar)
+
+                    rv_recyclerView!!.layoutManager = LinearLayoutManager(this@CalendarActivity)
+
+                    var adapter = dateExercise[day]?.let { CalendarAdapter(it) }
+                    rv_recyclerView!!.adapter = adapter
+                }
             }
 
             override fun onMonthScroll(firstDayOfNewMonth: Date) {
@@ -105,7 +128,29 @@ class CalendarActivity  : AppCompatActivity(){
         backArrow!!.setOnClickListener { calendar!!.scrollLeft() }
         nextArrow!!.setOnClickListener { calendar!!.scrollRight() }
 
-        Log.i("Fenil", exerciseData.toString())
+//        Log.i("Fenil", exerciseData.toString())
+
+        // Adapter for calendar recycle view
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         bottomNavigationView = findViewById(R.id.bottom_navigation_calendar)
         bottomNavigationView!!.selectedItemId = R.id.action_calendar
