@@ -21,8 +21,6 @@
             android:textColor="@color/black"
             android:textStyle="bold" />
 
-        <!--    Height Info    -->
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -44,8 +42,8 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/custom_row"
                 android:orientation="horizontal"
-                android:layout_marginBottom="24dp"
-                android:padding="12dp">
+                android:layout_marginBottom="14dp"
+                android:padding="4dp">
 
                 <EditText
                     android:id="@+id/personalinfo_username"
@@ -66,10 +64,10 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
+                android:layout_marginBottom="14dp"
                 android:background="@drawable/custom_row"
                 android:orientation="horizontal"
-                android:padding="12dp"
+                android:padding="4dp"
                 android:weightSum="1">
 
                 <EditText
@@ -78,6 +76,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight=".25"
                     android:hint="@string/enter_height_feet"
+                    android:gravity="center"
                     android:importantForAutofill="no" />
 
                 <TextView
@@ -94,6 +93,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight=".25"
                     android:hint="@string/enter_height_inches"
+                    android:gravity="center"
                     android:importantForAutofill="no" />
 
                 <TextView
@@ -131,6 +131,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight=".35"
                     android:hint="@string/enter_weight"
+                    android:gravity="center"
                     android:importantForAutofill="no"
                     android:inputType="number" />
 
