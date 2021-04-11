@@ -68,7 +68,7 @@ class ItemAdapter(
             when(holder.itemTitle.text){
                 "Pull up" -> {
                     drawable = R.drawable.pullup
-                    description = context.resources.getString(R.string.pullup)
+                    description = context.resources.getString(R.string.pull_up)
                 }
                 "Plank" -> {
                     drawable = R.drawable.plank
@@ -121,7 +121,6 @@ class ItemAdapter(
                 "Bicep Curl"   -> {
                     drawable = R.drawable.bicep_curl
                 }
-                // help
                 "Incline press"   -> {
                     drawable = R.drawable.incline_press
                 }
@@ -140,7 +139,6 @@ class ItemAdapter(
                 "Hamstring Curl"   -> {
                     drawable = R.drawable.hamstring_curl
                 }
-                // help
                 "Lat Pulldown"   -> {
                     drawable = R.drawable.lat_pulldown
                 }
@@ -154,7 +152,7 @@ class ItemAdapter(
                 .setMessage(description)
                 .setNegativeBtnText("Cancel")
                 .setNegativeBtnBackground("#E43F5A")
-                .setPositiveBtnText("Ok")
+                .setPositiveBtnText("OK")
                 .setGifResource(drawable!!)
                 .isCancellable(false)
                 .OnPositiveClicked {

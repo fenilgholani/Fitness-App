@@ -85,7 +85,7 @@ class RecordActivity: AppCompatActivity() {
         return calendar.time
     }
 
-    fun verifyFields(): Boolean{
+    private fun verifyFields(): Boolean{
         var verified = true
         when {
             TextUtils.isEmpty(feet!!.text.toString()) -> {
@@ -97,7 +97,7 @@ class RecordActivity: AppCompatActivity() {
                 verified = false
             }
             TextUtils.isEmpty(weight!!.text.toString()) -> {
-                inches!!.error = "Please enter Weight"
+                weight!!.error = "Please enter Weight"
                 verified = false
             }
             weightUnit!!.text.isEmpty() -> {

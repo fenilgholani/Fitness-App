@@ -58,7 +58,33 @@
     <string name="workout_title">Workout Calendar</string>
 
     <!--  Exercise Strings  -->
-    <string name="pullup">Pullups are cool</string>
+    <string name="pull_up">1. Grasp the bar with an overhand grip, arms and shoulders fully extended.\n
+        2. Pull your body up until your chin is above the bar.\n
+        3. Lower your body back to starting position.</string>
+    <string name="push_up"></string>
+    <string name="sit_up"></string>
+    <string name="squat"></string>
+    <string name="oblique_twist"></string>
+    <string name="bench_press"></string>
+    <string name="deadlift"></string>
+    <string name="tricep_pulldown"></string>
+    <string name="pulley_crunch"></string>
+    <string name="floor_crunch"></string>
+    <string name="overhead_tricep_extension"></string>
+    <string name="seated_pulley_row"></string>
+    <string name="shrug"></string>
+    <string name="calf_raise"></string>
+    <string name="romanian_deadlift"></string>
+    <string name="front_raise"></string>
+    <string name="bicep_curl"></string>
+    <string name="incline_press"></string>
+    <string name="side_raise"></string>
+    <string name="hand_grippers"></string>
+    <string name="shoulder_press"></string>
+    <string name="overhead_press"></string>
+    <string name="hamstring_curl"></string>
+    <string name="lat_pulldown"></string>
+    <string name="hanging_leg_raise"></string>
 
     <!-- Strings used for search information of exercise    -->
     <string-array name="exercise_array">
