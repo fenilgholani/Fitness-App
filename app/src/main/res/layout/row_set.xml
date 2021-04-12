@@ -23,7 +23,7 @@
     <Space
         android:layout_width="0dp"
         android:layout_height="1dp"
-        android:layout_weight=".1"/>
+        android:layout_weight="0.03"/>
 
     <EditText
         android:id="@+id/weight_done"
@@ -38,7 +38,7 @@
     <Space
         android:layout_width="0dp"
         android:layout_height="1dp"
-        android:layout_weight=".1"/>
+        android:layout_weight="0.05"/>
 
     <EditText
         android:id="@+id/reps_done"
@@ -49,6 +49,10 @@
         android:inputType="number"
         android:padding="4dp"
         android:textSize="20dp"/>
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_weight=".1"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/close_set"

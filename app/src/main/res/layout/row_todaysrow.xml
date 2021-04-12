@@ -16,28 +16,28 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:weightSum="1">
-    <!--  Exercise name  -->
-    <TextView
-        android:id="@+id/today_exercise_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Plank"
-        android:layout_weight="0.5"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:textSize="34dp"/>
+        <!--  Exercise name  -->
+        <TextView
+            android:id="@+id/today_exercise_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Plank"
+            android:layout_weight="0.5"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="34dp"/>
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/delete_exercise"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.5"
-        android:layout_gravity="center_vertical"
-        android:background="@drawable/custom_btn"
-        android:backgroundTint="#EE2A2A"
-        android:text="Delete"
-        android:textColor="@color/white"
-        android:textStyle="bold" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/delete_exercise"
+            android:layout_width="5dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/custom_btn"
+            android:backgroundTint="#EE2A2A"
+            android:text="Delete"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <!--  Header for fields  -->
@@ -60,7 +60,7 @@
             android:id="@+id/weight_unit_label"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight=".3"
+            android:layout_weight="0.25"
             android:text="lbs"
             android:gravity="center"
             android:padding="4dp"
@@ -69,7 +69,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight=".3"
+            android:layout_weight="0.25"
             android:text="Reps"
             android:gravity="center"
             android:padding="4dp"

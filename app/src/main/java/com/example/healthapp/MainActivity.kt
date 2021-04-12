@@ -1,6 +1,7 @@
 package com.example.healthapp
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -67,17 +68,19 @@ class MainActivity : AppCompatActivity() {
 
 
         //Part3
-        val vl = LineDataSet(entries, "My Type")
+        val vl = LineDataSet(entries, "Calories Burnt")
 
         //Part4
-        vl.setDrawValues(false)
+        vl.setDrawValues(true)
         vl.setDrawFilled(true)
-        vl.lineWidth = 7f
-        vl.fillColor = R.color.main_blue
+        //change colors here
+        vl.setColor(Color.parseColor("#0000D1"))
+        vl.lineWidth = 5f
+        vl.fillColor = R.color.main_green
         vl.circleRadius = 9f
 
         //Part5
-        lineChart.backgroundTintBlendMode
+//        lineChart.backgroundTintBlendMode
 
 //        lineChart.xAxis.labelRotationAngle = 0f
 
@@ -90,6 +93,7 @@ class MainActivity : AppCompatActivity() {
         lineChart.xAxis.setDrawGridLines(false)
         lineChart.axisLeft.setDrawGridLines(false)
         lineChart.axisRight.setDrawGridLines(false)
+
 //        lineChart.xAxis.axisMaximum = 0.1f
 
         //Part8
