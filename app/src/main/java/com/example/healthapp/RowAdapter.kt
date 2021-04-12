@@ -179,7 +179,7 @@ class RowAdapter(
 
     fun getSets(): HashMap<Int, ArrayList<Int>>{
 
-        var hash = HashMap<Int, ArrayList<Int>>()
+        var hash = HashMap<Int, ArrayList<Int>>() // {set=>[weight, rep]}
         var list = ArrayList<Int>()
 
         for(i in 1..itemCount) {
@@ -188,16 +188,14 @@ class RowAdapter(
             exerciseRep[i]?.let { list.add( it) }
 
             if(!list.isEmpty()) {
-
                 hash[i] = list
-
                 list = ArrayList<Int>()
             }
 
-
         }
-        return hash
-
+//        if(hash.isNotEmpty()){
+            return hash
+//        }
     }
 
 }

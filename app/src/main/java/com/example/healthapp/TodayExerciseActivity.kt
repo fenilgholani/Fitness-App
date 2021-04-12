@@ -54,7 +54,7 @@ class TodayExerciseActivity : AppCompatActivity() {
             if(month > 9)
                 dateExercise["${month+1}.$day.$year"] = Exercise.getExerciseData()
             else
-                dateExercise["0${month}.$day.$year"] = Exercise.getExerciseData()
+                dateExercise["0${month+1}.$day.$year"] = Exercise.getExerciseData()
 
             DateExercise.setExerciseData( dateExercise)
 
@@ -62,6 +62,8 @@ class TodayExerciseActivity : AppCompatActivity() {
 
             // in1.putExtra("exerciseData", adapter.getexerciseData())
             // startActivity(in1)
+            var intent = Intent(this@TodayExerciseActivity, CalendarActivity::class.java)
+            startActivity(intent)
         }
 
         bottomNavigationView = findViewById(R.id.bottom_navigation_today_exercise)

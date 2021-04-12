@@ -177,7 +177,7 @@ class ItemAdapter(
                 .setMessage(description)
                 .setNegativeBtnText("Cancel")
 //                .setNegativeBtnBackground("#E43F5A")
-                .setPositiveBtnText("OK")
+                .setPositiveBtnText("Add")
                 .setGifResource(drawable!!)
                 .isCancellable(false)
                 .OnPositiveClicked {

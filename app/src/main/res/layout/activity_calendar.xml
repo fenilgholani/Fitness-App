@@ -81,7 +81,8 @@
     <LinearLayout
         android:id="@+id/workout_display"
         android:layout_width="match_parent"
-        android:layout_height="240dp"
+        android:layout_height="200dp"
+        android:layout_margin="5dp"
         android:background="@color/grey"
         android:gravity="center"
         android:layout_below="@+id/calendarView"
@@ -92,7 +93,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginTop="5dp"
             tools:listitem="@layout/row_calender" />
     </LinearLayout>
 

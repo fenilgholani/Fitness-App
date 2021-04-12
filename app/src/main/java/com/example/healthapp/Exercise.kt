@@ -21,6 +21,12 @@ class Exercise {
 
         fun setExerciseData(exerciseData: HashMap<String, HashMap<Int, ArrayList<Int>>>, timestamp: String){
 
+            for((k,v) in exerciseData){
+                if(v.isEmpty()){
+                    exerciseData.remove(k)
+                }
+            }
+
             if(this.timestamp == null || timestamp.compareTo(this.timestamp!!) != 0) {
                 this.timestamp = timestamp
                 this.exerciseData = exerciseData

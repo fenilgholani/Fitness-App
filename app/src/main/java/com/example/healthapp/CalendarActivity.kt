@@ -59,8 +59,8 @@ class CalendarActivity  : AppCompatActivity(){
         }
 //        Log.i("UTIL LONG VALUE", Utils().getDateInMilliSeconds("04.04.2021", "MM.dd.yyyy").toString())
 
-        var event = Event(R.color.main_green, 1617499276000L, "New event on this day!")
-        calendar!!.addEvent(event)
+//        var event = Event(R.color.main_green, 1617499276000L, "New event on this day!")
+//        calendar!!.addEvent(event)
 
         calendar!!.setListener(object : CompactCalendarViewListener {
             override fun onDayClick(dateClicked: Date) {
@@ -71,12 +71,8 @@ class CalendarActivity  : AppCompatActivity(){
                 var day = dayFormatter.format(dateClicked)
 
 
-
-                if(dateExercise.containsKey(day)) {
-
+                if(dateExercise.containsKey(day) && dateExercise[day]!!.isNotEmpty()) {
                     findViewById<LinearLayout>(R.id.workout_display).visibility = View.VISIBLE
-
-
                     Log.i("DAY", day)
 
                     var rv_recyclerView: RecyclerView = findViewById(R.id.rv_calendar)
