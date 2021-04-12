@@ -83,7 +83,7 @@
     <!--  Barbell  -->
     <string name="bench_press">1. Lay flat on the bench with your feet on the ground. With straight arms unrack the bar.\n
         2. Lower the bar to your mid chest\n
-        3. Raise the bar until you've locked your elbows.</string>
+        3. Raise the bar until you\'ve locked your elbows.</string>
     <string name="deadlift">1. Stand with your mid-foot under the bar and grip the bar with your hands, about a shoulder width apart.\n
         2. Bend your knees, then lift the bar by straightening your back. It is important to keep your back straight.\n
         3. Stand to your full height and hold.
@@ -151,7 +151,7 @@
         2. Check that your arm position is firm to be able to lift your bodyweight from the floor.\n
         3. Inhale as you engage your abdominal muscles to prepare for the leg lift.\n
         4. Bend your knees and raise them upward until your quads are parallel to the ground.\n
-        5. With an engaged core, exhale as you lower your legs in a controlled movement until you're back in the starting position.</string>
+        5. With an engaged core, exhale as you lower your legs in a controlled movement until you\'re back in the starting position.</string>
 
     <!-- Strings used for search information of exercise    -->
     <string-array name="exercise_array">
