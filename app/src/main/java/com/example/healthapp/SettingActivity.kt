@@ -1,11 +1,13 @@
 package com.example.healthapp
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.icu.text.SimpleDateFormat
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
 import android.widget.*
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import java.util.*
 
@@ -56,7 +58,8 @@ class SettingActivity: AppCompatActivity() {
         inches!!.setText(UserInfo.getHeightIn())
         weight!!.setText(UserInfo.getWeight())
         weightUnit!!.text = UserInfo.getWeightUn()
-        dob!!.updateDate(daysof[2].toInt(), daysof[0].toInt()-1, daysof[1].toInt())
+//        if(dob != null)
+            dob!!.updateDate(daysof[2].toInt(), daysof[0].toInt()-1, daysof[1].toInt())
 
         submit!!.setOnClickListener {
             //   Updating personal Info
@@ -93,6 +96,28 @@ class SettingActivity: AppCompatActivity() {
                 val intent = Intent(this@SettingActivity, MainActivity::class.java)
                 startActivity(intent)
             }
+        }
+
+
+
+        var logout:Button = findViewById(R.id.per_logout)
+        logout.setOnClickListener{
+            val dialogBuilder = AlertDialog.Builder(this)
+
+            dialogBuilder.setMessage("Do you want to Log Out?")
+                .setCancelable(false)
+                .setPositiveButton("Proceed", DialogInterface.OnClickListener {
+                    _,_->
+                        var intent = Intent(this@SettingActivity, HomeActivity::class.java)
+                        startActivity(intent)
+                })
+                .setNegativeButton("Cancel", DialogInterface.OnClickListener {
+                        dialog, _ -> dialog.cancel()
+                })
+            val alert = dialogBuilder.create()
+            alert.setTitle("Log Out")
+            alert.show()
+
         }
 
     }

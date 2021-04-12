@@ -13,24 +13,24 @@
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
     android:orientation="vertical"
-    android:padding="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
     tools:context=".CalendarActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/workout_title"
-        android:textColor="@color/black"
-        android:textSize="34dp"
-        android:textStyle="bold" />
+<!--    <TextView-->
+<!--        android:id="@+id/textView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:gravity="center"-->
+<!--        android:text="Calendar"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="34dp"-->
+<!--        android:textStyle="bold" />-->
 
     <RelativeLayout
         android:id="@+id/months"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textView"
         android:background="@color/white"
         android:outlineSpotShadowColor="@color/black"
         android:orientation="horizontal">
@@ -50,7 +50,7 @@
             android:layout_centerHorizontal="true"
             android:text="April"
             android:textColor="@color/main_red"
-            android:textSize="24dp"
+            android:textSize="30dp"
             android:textStyle="bold" />
 
         <ImageView
@@ -82,8 +82,7 @@
     <LinearLayout
         android:id="@+id/workout_display"
         android:layout_width="match_parent"
-        android:layout_height="195dp"
-        android:layout_margin="5dp"
+        android:layout_height="200dp"
         android:background="@color/grey"
         android:gravity="center"
         android:layout_below="@+id/calendarView"

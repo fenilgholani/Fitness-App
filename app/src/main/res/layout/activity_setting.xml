@@ -224,6 +224,17 @@
             android:textColor="@color/white"
             android:textStyle="bold" />
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/per_logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/custom_btn"
+            android:backgroundTint="@color/delete_red"
+            android:text="Log Out"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
         <!--        <ProgressBar-->
         <!--            android:id="@+id/progressBar"-->
         <!--            android:layout_width="wrap_content"-->

@@ -72,7 +72,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/header"
         android:layout_centerHorizontal="true"
-        android:padding="4dp"
         android:text="Calories Burned"
         android:textColor="@color/main_red"
         android:textSize="24dp"
@@ -81,7 +80,7 @@
     <LinearLayout
         android:id="@+id/lineChart_layout"
         android:layout_width="match_parent"
-        android:layout_height="300sp"
+        android:layout_height="290sp"
         android:layout_below="@+id/calories"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"

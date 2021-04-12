@@ -36,7 +36,6 @@ class CalendarActivity  : AppCompatActivity(){
         setContentView(R.layout.activity_calendar)
 
         calendar = findViewById(R.id.calendarView)
-        dateView = findViewById(R.id.textView)
         monthName = findViewById(R.id.month_name)
         backArrow = findViewById(R.id.back_arrow)
         nextArrow = findViewById(R.id.next_arrow)
@@ -81,6 +80,10 @@ class CalendarActivity  : AppCompatActivity(){
 
                     var adapter = dateExercise[day]?.let { CalendarAdapter(it) }
                     rv_recyclerView!!.adapter = adapter
+                }
+                else{
+
+                    findViewById<LinearLayout>(R.id.workout_display).visibility = View.GONE
                 }
             }
 
