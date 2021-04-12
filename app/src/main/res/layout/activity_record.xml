@@ -165,6 +165,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/custom_row"
                 android:orientation="horizontal"
+                android:gravity="center"
                 android:padding="4dp">
 
 <!--                <EditText-->

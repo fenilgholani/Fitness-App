@@ -19,8 +19,11 @@ class RecordActivity: AppCompatActivity() {
 //    private var age : EditText? = null
     private var dob: DatePicker? = null
     private var submit : Button? = null
-    private var userHeight = HashMap<String, String>()
-    private var userWeight = HashMap<String, String>()
+    private var userHeightFt: String ?= null
+    private var userHeightIn: String ?= null
+    private var userWeightUn : String ?= null
+    private var userWeight : String ?= null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,22 +55,26 @@ class RecordActivity: AppCompatActivity() {
         submit!!.setOnClickListener {
             //   Updating personal Info
 
-            userHeight[feet!!.text.toString()] = inches!!.text.toString()
-            UserInfo.setHeight(userHeight)
+            userHeightFt = feet!!.text.toString()
+            UserInfo.setHeightFt(userHeightFt!!)
+            userHeightIn = inches!!.text.toString()
+            UserInfo.setHeightIn(userHeightIn!!)
 
-            userWeight[weight!!.text.toString()] = weightUnit!!.text.toString()
-            UserInfo.setWeight(userWeight)
+            userWeight = weight!!.text.toString()
+            userWeightUn = weightUnit!!.text.toString()
+            UserInfo.setWeight(userWeight!!)
+            UserInfo.setWeightUn(userWeightUn!!)
 
             var userDOB = dob!!.getDate()
             UserInfo.setDOB(userDOB)
 
-            for((k,v) in userHeight){
-                Log.i("USER INFO", "Height:${k + v}")
-            }
-
-            for((k,v) in userWeight){
-                Log.i("USER INFO", "Weight:${k + v}")
-            }
+//            for((k,v) in userHeight){
+//                Log.i("USER INFO", "Height:${k + v}")
+//            }
+//
+//            for((k,v) in userWeight){
+//                Log.i("USER INFO", "Weight:${k + v}")
+//            }
 
             Log.i("USER INFO", "DOB: ${userDOB}")
 

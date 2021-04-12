@@ -7,8 +7,10 @@ class UserInfo {
     companion object {
         private var username: String? = null
         private var userInfo = HashMap<String, String>() // email, password
-        private var height = HashMap<String, String>() // ft, inches
-        private var weight = HashMap<String, String>() // num, unit
+        private var heightFt: String? = null
+        private var heightIn: String? = null// ft, inches
+        private var weight: String?= null
+        private var weightUn: String?= null// num, unit
         private var dob: Date? = null
 
         fun setUsername(username: String) {
@@ -27,21 +29,39 @@ class UserInfo {
             return userInfo
         }
 
-        fun setHeight(height: HashMap<String, String>){
-            this.height = height
+        fun setHeightFt(heightFt: String){
+            this.heightFt = heightFt
         }
 
-        fun getHeight(): HashMap<String, String>{
-           return height
+        fun setHeightIn(heightIn: String){
+            this.heightIn = heightIn
         }
 
-        fun setWeight(height: HashMap<String, String>){
+        fun getHeightFt(): String? {
+           return heightFt
+        }
+
+        fun getHeightIn(): String? {
+            return heightIn
+        }
+
+
+        fun setWeight(weight: String){
             this.weight = weight
         }
 
-        fun getWeight(): HashMap<String, String>{
+        fun getWeight(): String ?{
             return weight
         }
+
+        fun setWeightUn(weightUn: String){
+            this.weightUn = weightUn
+        }
+
+        fun getWeightUn(): String ?{
+            return weightUn
+        }
+
 
         fun setDOB(dob: Date){
             this.dob = dob

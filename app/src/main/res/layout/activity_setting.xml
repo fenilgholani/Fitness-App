@@ -16,9 +16,9 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
             android:gravity="center_horizontal"
-            android:text="Personal Information"
-            android:textSize="34dp"
+            android:text="@string/record"
             android:textColor="@color/black"
+            android:textSize="34dp"
             android:textStyle="bold" />
 
         <LinearLayout
@@ -28,6 +28,7 @@
             android:gravity="center_vertical"
             android:orientation="vertical"
             android:padding="16dp">
+
 
             <TextView
                 android:layout_width="wrap_content"
@@ -40,18 +41,21 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp"
                 android:background="@drawable/custom_row"
                 android:orientation="horizontal"
-                android:layout_marginBottom="14dp"
                 android:padding="4dp">
 
                 <EditText
-                    android:id="@+id/personalinfo_username"
+                    android:id="@+id/per_username"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:importantForAutofill="no"
                     android:inputType="text" />
             </LinearLayout>
+
+
+            <!--    Height Info    -->
 
             <TextView
                 android:layout_width="wrap_content"
@@ -71,11 +75,12 @@
                 android:weightSum="1">
 
                 <EditText
-                    android:id="@+id/height_feet"
+                    android:id="@+id/per_height_feet"
                     android:layout_width="36dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".25"
                     android:gravity="center"
+                    android:hint="@string/enter_height_feet"
                     android:importantForAutofill="no" />
 
                 <TextView
@@ -83,16 +88,17 @@
                     android:layout_height="wrap_content"
                     android:layout_weight=".25"
                     android:text="@string/feet"
-                    android:textSize="20dp"
                     android:textColor="@color/black"
+                    android:textSize="20dp"
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/height_inches"
+                    android:id="@+id/per_height_inches"
                     android:layout_width="36dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".25"
                     android:gravity="center"
+                    android:hint="@string/enter_height_inches"
                     android:importantForAutofill="no" />
 
                 <TextView
@@ -100,8 +106,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight=".25"
                     android:text="@string/inches"
-                    android:textSize="20dp"
                     android:textColor="@color/black"
+                    android:textSize="20dp"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -119,31 +125,35 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
+                android:layout_marginBottom="14dp"
                 android:background="@drawable/custom_row"
                 android:orientation="horizontal"
-                android:padding="12dp"
+                android:padding="4dp"
                 android:weightSum="1">
 
                 <EditText
-                    android:id="@+id/weight"
+                    android:id="@+id/per_weight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight=".35"
                     android:gravity="center"
+                    android:hint="@string/enter_weight"
                     android:importantForAutofill="no"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:maxLength="3" />
 
                 <TextView
-                    android:id="@+id/weight_unit"
+                    android:id="@+id/per_weight_unit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight=".45"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
                     android:textColor="@color/black"
                     android:textStyle="bold" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/lbs"
+                    android:id="@+id/per_lbs"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="12dp"
@@ -154,7 +164,7 @@
                     android:textStyle="bold" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/kg"
+                    android:id="@+id/per_kg"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="12dp"
@@ -179,37 +189,46 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
                 android:background="@drawable/custom_row"
                 android:orientation="horizontal"
-                android:padding="12dp">
+                android:padding="4dp">
 
-                <EditText
-                    android:id="@+id/age"
+                <!--                <EditText-->
+                <!--                    android:id="@+id/age"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:hint="@string/enter_age"-->
+                <!--                    android:importantForAutofill="no"-->
+                <!--                    android:inputType="number" />-->
+                <DatePicker
+                    android:id="@+id/per_dob"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="@string/enter_age"
-                    android:importantForAutofill="no"
-
-                    android:inputType="number" />
+                    android:layout_gravity="center"
+                    android:calendarViewShown="false"
+                    android:datePickerMode="spinner"
+                    android:spinnersShown="true" />
             </LinearLayout>
         </LinearLayout>
 
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/submit"
+            android:id="@+id/per_save"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="16dp"
             android:background="@drawable/custom_btn"
             android:text="Save"
             android:textColor="@color/white"
             android:textStyle="bold" />
 
-        <ProgressBar
-            android:id="@+id/progressBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone" />
+        <!--        <ProgressBar-->
+        <!--            android:id="@+id/progressBar"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:visibility="gone" />-->
 
     </LinearLayout>
 </ScrollView>
