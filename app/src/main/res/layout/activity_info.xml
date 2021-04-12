@@ -8,12 +8,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <SearchView
-        android:id="@+id/searchView"
-        android:layout_width="300dp"
-        android:layout_height="35dp"
-        android:layout_margin="30sp"
-        android:background="@drawable/custom_background" />
+<!--    <SearchView-->
+<!--        android:id="@+id/searchView"-->
+<!--        android:layout_width="300dp"-->
+<!--        android:layout_height="35dp"-->
+<!--        android:layout_margin="30sp"-->
+<!--        android:background="@drawable/custom_background" />-->
 
 
     <ListView

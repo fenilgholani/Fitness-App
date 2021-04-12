@@ -45,6 +45,7 @@ RecyclerView.Adapter<ExerciseAdapter.ViewHolder>() {
 
         val add = v.findViewById<Button>(R.id.add_set)
         val completed = v.findViewById<Button>(R.id.completed)
+        val delete = v.findViewById<Button>(R.id.delete_exercise)
         val exerciseData = v.findViewById<TextView>(R.id.today_exercise_name)
 
 
@@ -53,6 +54,13 @@ RecyclerView.Adapter<ExerciseAdapter.ViewHolder>() {
             adapter.notifyItemInserted(default.size+1)
 //            adapter.notifyItemChanged(default.size)
 //            adapter.notifyItemChanged(default.size+1)
+        }
+
+        delete.setOnClickListener {
+            Toast.makeText(
+                v.context, "Delete Exercise Under Development!",
+                Toast.LENGTH_LONG
+            ).show()
         }
 
         completed.setOnClickListener {

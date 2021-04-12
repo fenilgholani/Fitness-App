@@ -2,23 +2,29 @@ package com.example.healthapp
 
 import android.app.Activity
 import android.graphics.drawable.Drawable
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.shashank.sony.fancygifdialoglib.FancyGifDialog
+import java.util.*
+import kotlin.collections.ArrayList
 
 
-class ItemAdapter(
+class ItemAdapter (
     private var titles: List<String>,
     private var details: List<String>,
     private var images: List<Int>
 ) :
 
-    RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
+    RecyclerView.Adapter<ItemAdapter.ViewHolder>()
+//    , Filterable
+        {
 
     private var exerciseList = ArrayList<String>()
+    private var filteredExercises = ArrayList<String>()
 
 
         inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
@@ -54,8 +60,6 @@ class ItemAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
-
         holder.itemTitle.text = titles[position]
 //        holder.itemDetail.text = details[position]
         holder.itemImg.setImageResource(images[position])
@@ -197,10 +201,8 @@ class ItemAdapter(
             else {
                 exerciseList.remove(holder.itemTitle.text.toString())
             }
-
-
-
         }
+
     }
 
     override fun getItemCount(): Int {
@@ -212,6 +214,36 @@ class ItemAdapter(
         return exerciseList
     }
 
+//    override fun getFilter(): Filter {
+//        return object : Filter() {
+//            override fun performFiltering(constraint: CharSequence?): FilterResults {
+//                val charSearch = constraint.toString()
+//
+//                if (charSearch.isEmpty()) {
+//                    filteredExercises = titles as ArrayList<String>
+//                } else {
+//                    val resultList = ArrayList<String>()
+//                    for (row in titles) {
+//                        if (row.toLowerCase(Locale.ROOT).contains(charSearch.toLowerCase(Locale.ROOT))) {
+//                            resultList.add(row)
+//                        }
+//                    }
+//                    filteredExercises = resultList
+//                }
+//                val filterResults = FilterResults()
+//                filterResults.values = filteredExercises
+//                return filterResults
+//            }
+////
+//            @Suppress("UNCHECKED_CAST")
+//            override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
+//                filteredExercises.clear()
+//                filteredExercises = results?.values as ArrayList<String>
+//                notifyDataSetChanged()
+//            }
+//
+//        }
+//    }
 
 
 }
