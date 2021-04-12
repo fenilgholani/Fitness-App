@@ -8,6 +8,7 @@
         android:enabled="true"
         android:icon="@drawable/ic_profile"
         app:showAsAction="ifRoom"
+        android:iconTint="@color/white"
         android:title="@string/action_settings" />
 
 <!--    <item-->
