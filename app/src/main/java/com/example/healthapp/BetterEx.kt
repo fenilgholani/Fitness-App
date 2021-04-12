@@ -59,9 +59,6 @@ class BetterEx : AppCompatActivity()  {
 
     private fun postToList(){
 
-
-//        var ex = listOf("Planks","Pull up", "Push up", "Sit up", "Squats")
-
         var ex = listOf("Plank","Pull up", "Push up", "Sit up", "Squat"
             ,"Oblique Twist",
               "Bench Press",
@@ -83,8 +80,7 @@ class BetterEx : AppCompatActivity()  {
               "Overhead Press"  ,
               "Hamstring Curl"  ,
               "Lat Pulldown"  ,
-              "Hanging Leg Raise")
-//            .sorted()
+              "Hanging Leg Raise").sorted()
 
         var j= 1
         for(x in ex){
