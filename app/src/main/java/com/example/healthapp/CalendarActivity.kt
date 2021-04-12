@@ -3,6 +3,7 @@ package com.example.healthapp
 import android.content.Intent
 import android.icu.text.SimpleDateFormat
 import android.os.Bundle
+import android.text.Layout
 import android.util.Log
 import android.view.View
 import android.widget.*
@@ -72,6 +73,9 @@ class CalendarActivity  : AppCompatActivity(){
 
 
                 if(dateExercise.containsKey(day)) {
+
+                    findViewById<LinearLayout>(R.id.workout_display).visibility = View.VISIBLE
+
 
                     Log.i("DAY", day)
 

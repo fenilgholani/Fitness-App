@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/workout_title"
-        android:textColor="@color/main_red"
+        android:textColor="@color/black"
         android:textSize="34dp"
         android:textStyle="bold" />
 
@@ -36,8 +36,8 @@
 
         <ImageView
             android:id="@+id/back_arrow"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="12dp"
             android:src="@drawable/arrow_back" />
@@ -49,13 +49,13 @@
             android:layout_centerHorizontal="true"
             android:text="April"
             android:textColor="@color/black"
-            android:textSize="30dp"
+            android:textSize="24dp"
             android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/next_arrow"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="12dp"
@@ -75,20 +75,23 @@
         app:compactCalendarMultiEventIndicatorColor="#fff"
         app:compactCalendarTargetHeight="250dp"
         app:compactCalendarTextColor="#fff"
-        app:compactCalendarTextSize="15dp" />
+        app:compactCalendarTextSize="10dp" />
     <!--app:compactCalendarCurrentDayBackgroundColor="@color/main_red"-->
     <!--  TODO place workout history recyclerview   -->
     <LinearLayout
+        android:id="@+id/workout_display"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_below="@+id/calendarView">
+        android:layout_height="240dp"
+        android:background="@color/grey"
+        android:gravity="center"
+        android:layout_below="@+id/calendarView"
+        android:visibility="invisible">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_calendar"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
             android:layout_marginTop="5dp"
             tools:listitem="@layout/row_calender" />
     </LinearLayout>

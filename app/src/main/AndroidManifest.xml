@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HealthApp">
 
-        <activity android:name=".HomeActivity"
+        <activity android:name=".CalendarActivity"
             android:theme="@style/Theme.HealthApp.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,7 +40,7 @@
         <activity android:name=".ExerciseInfo" ></activity>
         <activity android:name=".TodayExerciseActivity"></activity>
         <activity android:name=".TimerActivity"></activity>
-        <activity android:name=".CalendarActivity"></activity>
+<!--        <activity android:name=".CalendarActivity"></activity>-->
         <activity android:name=".BetterEx"></activity>
         <activity android:name=".SettingActivity"></activity>
     </application>
