@@ -16,18 +16,21 @@ class RowAdapter(
 
     RecyclerView.Adapter<RowAdapter.ViewHolder>() {
 
-    private var exerciseRep: HashMap<Int, Int> = HashMap()
-    private var exerciseWeight: HashMap<Int, Int> = HashMap()
+    var exerciseRep: HashMap<Int, Int> = HashMap()
+    var exerciseWeight: HashMap<Int, Int> = HashMap()
     private var isOnTextChangedR: Boolean = false
     private var isOnTextChangedW: Boolean = false
     private var indexingChange: Boolean = false
+    private var flag: Boolean = false
 
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         val itemSet: TextView = itemView.findViewById(R.id.set_num)
         val itemWeight: EditText = itemView.findViewById(R.id.weight_done)
         val itemReps: EditText = itemView.findViewById(R.id.reps_done)
         val itemClose: Button = itemView.findViewById(R.id.close_set)
+
+
     }
 
 
@@ -38,27 +41,33 @@ class RowAdapter(
             false
         )
 
-        return  ViewHolder(v)
+
+
+        return ViewHolder(v)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.itemSet.text = "${position + 1}"
-        holder.itemWeight.setText("")
-        holder.itemReps.setText("")
+//        holder.itemWeight.setText("")
+//        holder.itemReps.setText("")
 
 
-        if(exerciseRep.containsKey(position+1))
-            holder.itemReps.setText(exerciseRep[position+1].toString())
+        if (!flag) {
+            for (i in 1..4) {
+                exerciseRep[position + 1] = 0
+                exerciseWeight[position + 1] = 0
+            }
+        }
 
-        if(exerciseWeight.containsKey(position+1))
-            holder.itemWeight.setText(exerciseWeight[position+1].toString())
+
+
 
 
         //change the positioning of data when closed
-        holder.itemClose.setOnClickListener{
+        holder.itemClose.setOnClickListener {
             Log.i("Before", "Weight:$exerciseWeight Rep:$exerciseRep")
 
-            if(itemCount == 1 ) {
+            if (itemCount == 1) {
 
                 Toast.makeText(
                     holder.itemView.context,
@@ -73,13 +82,41 @@ class RowAdapter(
                 this.notifyItemRemoved(holder.adapterPosition)
                 notifyItemRangeChanged(position, defaultRows.size)
 
-               var flag = false
+                Log.i("Before for loop", "Weight:$exerciseWeight Rep:$exerciseRep")
+                Log.i("Positions", "Adapter: ${position + 1}")
+                Log.i("Array", "Position: ${itemCount+1}")
 
-                for( i in (position+1)..(exerciseRep.size)){
-//                if(exerciseRep[i+1] != null) {
-                    exerciseRep[i] = exerciseRep[i + 1]!!
-                    exerciseWeight[i] = exerciseWeight[i + 1]!!
-//                }
+
+                var arrayKey = exerciseRep.keys.toIntArray()
+
+                if (position+1 != itemCount+1) {
+
+
+                    for (i in (position+1)..(itemCount)) {
+
+                        exerciseRep[i] = exerciseRep[i + 1]!!
+                        exerciseWeight[i] = exerciseWeight[i + 1]!!
+                        Log.i("In the for loop of doom", "Key: $i Value: ${exerciseRep[i]}")
+
+                    }
+                }
+
+
+
+                exerciseRep.remove(itemCount+1)
+                exerciseWeight.remove(itemCount+1)
+
+//                for(i in 1..itemCount)
+//                    notifyItemChanged(i)
+                if (exerciseRep[position + 1] != 0)
+                    holder.itemReps.setText(exerciseRep[position + 1].toString())
+
+                if (exerciseWeight[position + 1] != 0)
+                    holder.itemWeight.setText(exerciseWeight[position + 1].toString())
+
+
+
+                //                }
 //                if(!exerciseRep.containsKey(i)){
 //                    exerciseRep[i] = exerciseRep[i+1]!!
 //                    exerciseWeight[i] = exerciseWeight[i+1]!!
@@ -88,17 +125,10 @@ class RowAdapter(
 //                }
 //
 //                else if(flag){
-//                    Log.i("after", "Weight:$exerciseWeight Rep:$exerciseRep")
-//                    exerciseRep[i] = exerciseRep[i+1]!!
+//                      exerciseRep[i] = exerciseRep[i+1]!!
 //                    exerciseWeight[i] = exerciseWeight[i+1]!!
 //                }
-                }
-
-
-                exerciseRep.remove(exerciseRep.size)
-                exerciseWeight.remove(exerciseWeight.size)
-
-                indexingChange = true
+//                indexingChange = true
 //
                 Log.i("after", "Weight:$exerciseWeight Rep:$exerciseRep")
 //
@@ -110,8 +140,8 @@ class RowAdapter(
 
 //                holder.itemReps.text = ""
 //                holder.itemWeight.text = ""
-                holder.itemWeight.setText("")
-                holder.itemReps.setText("")
+//                holder.itemWeight.setText("")
+//                holder.itemReps.setText("")
 //                for(i in 1..itemCount)
 //                    notifyItemChanged(i)
             }
@@ -121,13 +151,13 @@ class RowAdapter(
         holder.itemReps.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
 
-                if(isOnTextChangedR){
+                if (isOnTextChangedR) {
                     isOnTextChangedR = false
 
-                    try{
-                        exerciseRep[position+1] = s.toString().toInt()
+                    try {
+                        exerciseRep[position + 1] = s.toString().toInt()
 
-                    }catch (e: NumberFormatException){
+                    } catch (e: NumberFormatException) {
 //                        Toast.makeText(holder.itemView.context, "Invalid input", Toast.LENGTH_SHORT).show()
                     }
 
@@ -148,13 +178,13 @@ class RowAdapter(
         holder.itemWeight.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
 
-                if(isOnTextChangedW){
+                if (isOnTextChangedW) {
                     isOnTextChangedW = false
 
-                    try{
-                        exerciseWeight[position+1] = s.toString().toInt()
+                    try {
+                        exerciseWeight[position + 1] = s.toString().toInt()
 
-                    }catch (e: NumberFormatException){
+                    } catch (e: NumberFormatException) {
 //                        Toast.makeText(holder.itemView.context, "Invalid input", Toast.LENGTH_SHORT).show()
                     }
                 }
@@ -177,24 +207,27 @@ class RowAdapter(
         return defaultRows.size
     }
 
-    fun getSets(): HashMap<Int, ArrayList<Int>>{
+    fun getSets(): HashMap<Int, ArrayList<Int>> {
 
         var hash = HashMap<Int, ArrayList<Int>>() // {set=>[weight, rep]}
         var list = ArrayList<Int>()
 
-        for(i in 1..itemCount) {
 
-            exerciseWeight[i]?.let { list.add(it) }
-            exerciseRep[i]?.let { list.add( it) }
+        for (i in 1..itemCount) {
 
-            if(!list.isEmpty()) {
+            if(exerciseWeight[i] != 0 && exerciseRep[i] != 0) {
+                exerciseWeight[i]?.let { list.add(it) }
+                exerciseRep[i]?.let { list.add(it) }
+            }
+
+            if (!list.isEmpty()) {
                 hash[i] = list
                 list = ArrayList<Int>()
             }
 
         }
 //        if(hash.isNotEmpty()){
-            return hash
+        return hash
 //        }
     }
 

@@ -34,8 +34,7 @@ RecyclerView.Adapter<ExerciseAdapter.ViewHolder>() {
         for(i in 0..3) {
             default.add(0)
         }
-        var exerciseRep: HashMap<Int, Int> = HashMap()
-        var exerciseWeight: HashMap<Int, Int> = HashMap()
+
 
         var rowRecyclerView = v.findViewById<RecyclerView>(R.id.row_recyclerView)
         rowRecyclerView!!.layoutManager = LinearLayoutManager(v.context)
@@ -51,7 +50,10 @@ RecyclerView.Adapter<ExerciseAdapter.ViewHolder>() {
 
         add.setOnClickListener {
             default.add(0)
-            adapter.notifyItemInserted(default.size+1)
+            adapter.exerciseWeight[default.size] = 0
+            adapter.exerciseRep[default.size] = 0
+            Log.i(" Added", "Weight:${adapter.exerciseWeight} Rep:${adapter.exerciseRep}")
+            adapter.notifyItemInserted(default.size)
 //            adapter.notifyItemChanged(default.size)
 //            adapter.notifyItemChanged(default.size+1)
         }
