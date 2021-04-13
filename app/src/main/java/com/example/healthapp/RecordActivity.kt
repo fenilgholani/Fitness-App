@@ -50,7 +50,7 @@ class RecordActivity: AppCompatActivity() {
         val c = Calendar.getInstance()
         val month = c.get(Calendar.MONTH)
         val day = c.get(Calendar.DAY_OF_MONTH)
-        dob!!.updateDate(2003,month,day)
+        dob!!.updateDate(2005,month,day)
 
         submit!!.setOnClickListener {
             //   Updating personal Info

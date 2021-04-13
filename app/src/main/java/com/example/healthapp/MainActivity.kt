@@ -136,7 +136,7 @@ class MainActivity : AppCompatActivity() {
 
 
         userName = findViewById(R.id.username_text)
-        userName!!.text = "${userName!!.text}${UserInfo.getUsername()}"
+        userName!!.text = "${userName!!.text}${UserInfo.getUsername()}!"
 
         bottomNavigationView = findViewById(R.id.bottom_navigation_main)
         bottomNavigationView!!.selectedItemId = R.id.action_profile

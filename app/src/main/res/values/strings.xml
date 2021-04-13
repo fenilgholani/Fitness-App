@@ -86,7 +86,7 @@
         3. Raise the bar until you\'ve locked your elbows.</string>
     <string name="deadlift">1. Stand with your mid-foot under the bar and grip the bar with your hands, about a shoulder width apart.\n
         2. Bend your knees, then lift the bar by straightening your back. It is important to keep your back straight.\n
-        3. Stand to your full height and hold.
+        3. Stand to your full height and hold.\n
         4. Lower the bar to the floor by bending your knees and keeping your back straight.</string>
     <string name="tricep_pulldown">1. Grip the pulley bar with palms facing down at shoulder width.\n
         2. Stand straight with a small forward incline. Keep your upper arms close to your body, and slowly bring the pulley bar down until your arms are fully extended.\n
@@ -112,7 +112,9 @@
     <string name="calf_raise">1. Get comfortable on the machine, then place your lower thighs beneath the padded lever. Place your toes and the balls of your feet onto the foot supports.\n
         2. Prevent the weight from slipping forward by gripping the handles, and release the safety bar. Lower the weight until your calves are extended.\n
         3. Push your heels up to lift the padded lever and hold the contracted position, then slowly lower back down to the starting position. Repeat.</string>
-    <string name="romanian_deadlift"></string>
+    <string name="romanian_deadlift">1. Stand up tall with your feet shoulder-width apart and hold a dumbbell in each hand.\n
+        2. Push your hips back and lower the dumbbells, while keeping your legs straight or only slightly bent.\n
+        3. Return to the starting position and repeat</string>
     <!--  Dumbbell  -->
     <string name="front_raise">1. Grab two dumbbells while standing upright with the dumbbells at your side.\n
         2. Raise the two dumbbells with your elbows being fully extended until the dumbbells are eye level.\n
@@ -130,7 +132,8 @@
     <string name="side_raise">1. Stand up straight with dumbbells at either side, palms facing your hips.\n
         2. Raise your arms on either side with a slight bend in your elbow until they are parallel with the floor. Pause at the top of the motion.\n
         3. Slowly return your arms down to starting position.</string>
-    <string name="hand_grippers"></string>
+    <string name="hand_grippers">1. Push only with your thumb, with your other four fingers wrapped around the bottom handle of the grip.\n
+        2. Reverse the grip and perform the exercise with your four fingers wrapped around the top.</string>
     <!--  Seated Dumbbell  -->
     <string name="shoulder_press">1. Sit on a bench with back support. Raise the dumbbells to shoulder height with your palms forward.\n
         2. Raise the dumbbells upwards and pause at the contracted position.\n
