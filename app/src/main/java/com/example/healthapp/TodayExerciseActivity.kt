@@ -116,7 +116,9 @@ class TodayExerciseActivity : AppCompatActivity() {
                 .setCancelable(false)
                 .setPositiveButton("Proceed", DialogInterface.OnClickListener {
                         _,_->
-                    super.onBackPressed()
+                    val intent = Intent(this@TodayExerciseActivity, BetterEx::class.java)
+                    startActivity(intent)
+//                    super.onBackPressed()
                 })
                 .setNegativeButton("Cancel", DialogInterface.OnClickListener {
                         dialog, _ -> dialog.cancel()

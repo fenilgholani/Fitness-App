@@ -1,6 +1,7 @@
 package com.example.healthapp
 
 import android.content.Intent
+import android.graphics.Color
 import android.icu.text.SimpleDateFormat
 import android.os.Bundle
 import android.text.Layout
@@ -41,6 +42,7 @@ class CalendarActivity  : AppCompatActivity(){
         nextArrow = findViewById(R.id.next_arrow)
 
         calendar!!.setFirstDayOfWeek(Calendar.SUNDAY)
+        calendar!!.shouldDrawIndicatorsBelowSelectedDays(true)
         // Got Today's Exercise Data
         var exerciseData = Exercise.getExerciseData()
         // Date -> {Exercise Name->{Set#->[lbs,reps]}}
@@ -51,7 +53,7 @@ class CalendarActivity  : AppCompatActivity(){
 
         for((k,v) in dateExercise){
 
-            var event = Event(R.color.main_green, Utils().getDateInMilliSeconds(k, "MM.dd.yyyy"), v.toString())
+            var event = Event(Color.WHITE, Utils().getDateInMilliSeconds(k, "MM.dd.yyyy"), v.toString())
             Log.i("EVENT", event.toString())
             calendar!!.addEvent(event)
 
