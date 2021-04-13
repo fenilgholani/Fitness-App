@@ -1,5 +1,6 @@
 package com.example.healthapp
 
+import android.os.SystemClock
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
@@ -22,6 +23,7 @@ class RowAdapter(
     private var isOnTextChangedW: Boolean = false
     private var indexingChange: Boolean = false
     private var flag: Boolean = false
+    private var mLastClickTime: Long = 0
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -65,6 +67,10 @@ class RowAdapter(
 
         //change the positioning of data when closed
         holder.itemClose.setOnClickListener {
+            if (SystemClock.elapsedRealtime() - mLastClickTime < 1000){
+                return@setOnClickListener
+            }
+            mLastClickTime = SystemClock.elapsedRealtime()
             Log.i("Before", "Weight:$exerciseWeight Rep:$exerciseRep")
 
             if (itemCount == 1) {
