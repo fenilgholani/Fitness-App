@@ -51,7 +51,7 @@ class CalendarActivity  : AppCompatActivity(){
 
         for((k,v) in dateExercise){
 
-            var event = Event(R.color.main_green, Utils().getDateInMilliSeconds(k, "MM.dd.yyyy"), "New event on this day!")
+            var event = Event(R.color.main_green, Utils().getDateInMilliSeconds(k, "MM.dd.yyyy"), v.toString())
             Log.i("EVENT", event.toString())
             calendar!!.addEvent(event)
 

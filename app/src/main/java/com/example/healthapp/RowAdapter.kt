@@ -140,8 +140,8 @@ class RowAdapter(
 
 //                holder.itemReps.text = ""
 //                holder.itemWeight.text = ""
-//                holder.itemWeight.setText("")
-//                holder.itemReps.setText("")
+                holder.itemWeight.setText("")
+                holder.itemReps.setText("")
 //                for(i in 1..itemCount)
 //                    notifyItemChanged(i)
             }
