@@ -66,8 +66,11 @@ RecyclerView.Adapter<ExerciseAdapter.ViewHolder>() {
         }
 
         completed.setOnClickListener {
-
             exerciseHash[exerciseData.text.toString()] = adapter.getSets()
+            Toast.makeText(
+                v.context, "Completed Exercise",
+                Toast.LENGTH_LONG
+            ).show()
 
         }
 

@@ -1,11 +1,13 @@
 package com.example.healthapp
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -19,6 +21,7 @@ class TodayExerciseActivity : AppCompatActivity() {
     private var add: Button? = null
     var bottomNavigationView : BottomNavigationView? = null
     private var todayRecyclerView: RecyclerView?= null
+    private var finished = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +43,7 @@ class TodayExerciseActivity : AppCompatActivity() {
         todayRecyclerView!!.adapter = adapter
 
         finishWorkout.setOnClickListener{
+            finished = true
             adapter!!.notifyDataSetChanged()
 
             for(b in adapter.getCompleteButton()!!.iterator()){
@@ -101,5 +105,26 @@ class TodayExerciseActivity : AppCompatActivity() {
             }
         }
         false
+    }
+
+    override fun onBackPressed() {
+
+        if(!finished){
+            val dialogBuilder = AlertDialog.Builder(this)
+
+            dialogBuilder.setMessage("Do you want to leave Today's Workout? Data will not be saved.")
+                .setCancelable(false)
+                .setPositiveButton("Proceed", DialogInterface.OnClickListener {
+                        _,_->
+                    super.onBackPressed()
+                })
+                .setNegativeButton("Cancel", DialogInterface.OnClickListener {
+                        dialog, _ -> dialog.cancel()
+                })
+            val alert = dialogBuilder.create()
+            alert.setTitle("Leaving So Soon?")
+            alert.show()
+        }
+
     }
 }
