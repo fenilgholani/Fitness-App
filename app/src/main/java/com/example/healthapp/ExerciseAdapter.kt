@@ -58,12 +58,13 @@ RecyclerView.Adapter<ExerciseAdapter.ViewHolder>() {
 //            adapter.notifyItemChanged(default.size+1)
         }
 
-        delete.setOnClickListener {
-            Toast.makeText(
-                v.context, "Delete Exercise Under Development!",
-                Toast.LENGTH_LONG
-            ).show()
-        }
+//        delete.setOnClickListener {
+//
+//            Toast.makeText(
+//                v.context, "Delete Exercise Under Development!",
+//                Toast.LENGTH_LONG
+//            ).show()
+//        }
 
         completed.setOnClickListener {
             exerciseHash[exerciseData.text.toString()] = adapter.getSets()
@@ -78,9 +79,25 @@ RecyclerView.Adapter<ExerciseAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.itemTitle.text = exerciseNames[position]
 
         setCompleteButton(holder.itemView.findViewById<Button>(R.id.completed))
+
+        holder.itemView.findViewById<Button>(R.id.delete_exercise).setOnClickListener {
+            if(exerciseNames.size > 1) {
+                exerciseNames.removeAt(position)
+                notifyItemRemoved(position)
+                Toast.makeText(
+                    holder.itemView.context, "Deleted ${holder.itemTitle.text}!",
+                    Toast.LENGTH_LONG
+                ).show()
+            } else {
+                Toast.makeText(
+                    holder.itemView.context, "There must be at least 1 exercise!",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+        }
+        holder.itemTitle.text = exerciseNames[position]
 
     }
 
