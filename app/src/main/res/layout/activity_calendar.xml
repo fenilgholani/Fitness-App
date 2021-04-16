@@ -72,12 +72,13 @@
         android:layout_height="212dp"
         android:layout_below="@id/months"
         app:compactCalendarBackgroundColor="@color/main_blue"
+        app:compactCalendarShouldSelectFirstDayOfMonthOnScroll="false"
+        app:compactCalendarCurrentDayBackgroundColor="@color/main_red"
         app:compactCalendarCurrentSelectedDayBackgroundColor="@color/light_blue"
         app:compactCalendarMultiEventIndicatorColor="@color/white"
         app:compactCalendarTargetHeight="250dp"
         app:compactCalendarTextColor="#fff"
         app:compactCalendarTextSize="15dp" />
-    <!--app:compactCalendarCurrentDayBackgroundColor="@color/main_red"-->
     <!--  TODO place workout history recyclerview   -->
     <LinearLayout
         android:id="@+id/workout_display"

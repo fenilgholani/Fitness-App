@@ -48,14 +48,16 @@ class CalendarActivity  : AppCompatActivity(){
         // Date -> {Exercise Name->{Set#->[lbs,reps]}}
         var dateExercise = DateExercise.getExerciseData()
 
-
+        var event = Event(Color.WHITE, Utils().getDateInMilliSeconds("04.5.2021", "MM.dd.yyyy"), "event1")
+        calendar!!.addEvent(event)
 
 
         for((k,v) in dateExercise){
-
-            var event = Event(Color.WHITE, Utils().getDateInMilliSeconds(k, "MM.dd.yyyy"), v.toString())
-            Log.i("EVENT", event.toString())
-            calendar!!.addEvent(event)
+            if(dateExercise.containsKey(k) && dateExercise[k]!!.isNotEmpty()) {
+                var event = Event(Color.WHITE, Utils().getDateInMilliSeconds(k, "MM.dd.yyyy"), v.toString())
+                Log.i("EVENT", event.toString())
+                calendar!!.addEvent(event)
+            }
 
         }
 //        Log.i("UTIL LONG VALUE", Utils().getDateInMilliSeconds("04.04.2021", "MM.dd.yyyy").toString())
