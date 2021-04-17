@@ -22,7 +22,7 @@ class RowAdapter(
     private var isOnTextChangedR: Boolean = false
     private var isOnTextChangedW: Boolean = false
     private var indexingChange: Boolean = false
-    private var flag: Boolean = false
+    var flag: Boolean = false
     private var lastClickTime: Long = 0
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -50,9 +50,16 @@ class RowAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.itemSet.text = "${position + 1}"
-//        holder.itemWeight.setText("")
-//        holder.itemReps.setText("")
 
+
+        if(exerciseRep.containsKey(position+1) && exerciseRep[position+1] != 0) {
+            holder.itemReps.setText(exerciseRep[position + 1].toString())
+            holder.itemWeight.setText(exerciseWeight[position + 1].toString())
+        }
+        else{
+            holder.itemWeight.setText("")
+            holder.itemReps.setText("")
+        }
 
         if (!flag) {
             for (i in 1..4) {
@@ -112,14 +119,15 @@ class RowAdapter(
 
                 exerciseRep.remove(itemCount+1)
                 exerciseWeight.remove(itemCount+1)
+                flag = true
 
 //                for(i in 1..itemCount)
 //                    notifyItemChanged(i)
-                if (exerciseRep[position + 1] != 0)
-                    holder.itemReps.setText(exerciseRep[position + 1].toString())
-
-                if (exerciseWeight[position + 1] != 0)
-                    holder.itemWeight.setText(exerciseWeight[position + 1].toString())
+//                if (exerciseRep[position + 1] != 0)
+//                    holder.itemReps.setText(exerciseRep[position + 1].toString())
+//
+//                if (exerciseWeight[position + 1] != 0)
+//                    holder.itemWeight.setText(exerciseWeight[position + 1].toString())
 
 
 

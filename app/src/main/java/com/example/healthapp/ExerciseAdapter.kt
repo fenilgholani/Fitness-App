@@ -50,6 +50,7 @@ RecyclerView.Adapter<ExerciseAdapter.ViewHolder>() {
 
         add.setOnClickListener {
             default.add(0)
+            adapter.flag = true
             adapter.exerciseWeight[default.size] = 0
             adapter.exerciseRep[default.size] = 0
             Log.i(" Added", "Weight:${adapter.exerciseWeight} Rep:${adapter.exerciseRep}")
