@@ -105,23 +105,23 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
-            android:layout_weight="0.4"
+            android:layout_weight="1"
             android:background="@drawable/custom_btn"
             android:text="Add Set"
+            android:backgroundTint="@color/main_green"
             android:textColor="@color/white"
             android:textStyle="bold" />
 
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="0.2" />
+<!--        <Space-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_weight="0.1" />-->
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/completed"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:layout_weight="0.4"
+            android:layout_weight="0"
             android:background="@drawable/custom_btn"
             android:backgroundTint="@color/main_green"
             android:text="Completed"
