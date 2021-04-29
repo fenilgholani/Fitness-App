@@ -125,6 +125,7 @@
             android:background="@drawable/custom_btn"
             android:backgroundTint="@color/main_green"
             android:text="Completed"
+            android:soundEffectsEnabled="false"
             android:textColor="@color/white"
             android:textStyle="bold" />
     </LinearLayout>
