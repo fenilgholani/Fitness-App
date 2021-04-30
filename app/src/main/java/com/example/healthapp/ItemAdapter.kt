@@ -1,5 +1,6 @@
 package com.example.healthapp
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.graphics.drawable.Drawable
 import android.util.Log
@@ -8,7 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
-import com.shashank.sony.fancygifdialoglib.FancyGifDialog
+//import com.shashank.sony.fancygifdialoglib.FancyGifDialog
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -59,6 +60,7 @@ class ItemAdapter (
         return  ViewHolder(v)
     }
 
+    @SuppressLint("ResourceAsColor")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.itemTitle.text = titles[position]
 //        holder.itemDetail.text = details[position]
@@ -176,11 +178,13 @@ class ItemAdapter (
                 }
             }
 
-            FancyGifDialog.Builder(context as Activity?)
+
+            FancyGifDialog.Builder(context)
                 .setTitle(holder.itemTitle.text.toString())
                 .setMessage(description)
                 .setNegativeBtnText("Cancel")
-//                .setNegativeBtnBackground("#E43F5A")
+                .setPositiveBtnBackground(R.color.delete_red)
+                .setNegativeBtnBackground(R.color.main_blue)
                 .setPositiveBtnText("Add")
                 .setGifResource(drawable!!)
                 .isCancellable(false)
@@ -190,6 +194,7 @@ class ItemAdapter (
                 }.OnNegativeClicked {
                     // Do Nothing
                 }
+
                 .build()
 
         }

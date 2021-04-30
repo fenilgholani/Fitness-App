@@ -17,6 +17,7 @@ RecyclerView.Adapter<ExerciseAdapter.ViewHolder>() {
 
     private var exerciseHash = HashMap<String, HashMap<Int, ArrayList<Int>>>()
     private var completeButtonSend = ArrayList<Button>()
+    private var lst = ArrayList<String>()
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val itemTitle: TextView = itemView.findViewById(R.id.today_exercise_name)
@@ -69,6 +70,9 @@ RecyclerView.Adapter<ExerciseAdapter.ViewHolder>() {
 
         completed.setOnClickListener {
             exerciseHash[exerciseData.text.toString()] = adapter.getSets()
+            for(i in lst){
+                exerciseHash.remove(i)
+            }
             Toast.makeText(
                 v.context, "Completed Exercise",
                 Toast.LENGTH_LONG
@@ -85,6 +89,8 @@ RecyclerView.Adapter<ExerciseAdapter.ViewHolder>() {
 
         holder.itemView.findViewById<Button>(R.id.delete_exercise).setOnClickListener {
             if(exerciseNames.size > 1) {
+
+                lst.add(exerciseNames[position])
                 exerciseNames.removeAt(position)
                 notifyItemRemoved(position)
                 Toast.makeText(
