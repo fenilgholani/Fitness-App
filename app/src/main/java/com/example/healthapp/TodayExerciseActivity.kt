@@ -49,16 +49,31 @@ class TodayExerciseActivity : AppCompatActivity() {
             for(b in adapter.getCompleteButton()!!.iterator()){
                 b.performClick()
             }
-            Exercise.setExerciseData(adapter.getexerciseData(),"${month+1}.$day.$year")
+            if(month > 9)
+                if(day > 9)
+                    Exercise.setExerciseData(adapter.getexerciseData(),"${month+1}.$day.$year")
+                else
+                    Exercise.setExerciseData(adapter.getexerciseData(),"${month+1}.0$day.$year")
+            else
+                if(day > 9)
+                    Exercise.setExerciseData(adapter.getexerciseData(),"0${month+1}.$day.$year")
+                else
+                    Exercise.setExerciseData(adapter.getexerciseData(),"0${month+1}.0$day.$year")
 
 
             // Setting the exercise for the day
             var dateExercise = HashMap<String, HashMap<String, HashMap<Int, ArrayList<Int>>>>()
 
             if(month > 9)
-                dateExercise["${month+1}.$day.$year"] = Exercise.getExerciseData()
+                if(day > 9)
+                    dateExercise["${month+1}.$day.$year"] = Exercise.getExerciseData()
+                else
+                    dateExercise["${month+1}.0$day.$year"] = Exercise.getExerciseData()
             else
-                dateExercise["0${month+1}.$day.$year"] = Exercise.getExerciseData()
+                if(day > 9)
+                    dateExercise["0${month+1}.$day.$year"] = Exercise.getExerciseData()
+                else
+                    dateExercise["0${month+1}.0$day.$year"] = Exercise.getExerciseData()
 
             DateExercise.setExerciseData( dateExercise)
 

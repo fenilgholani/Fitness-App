@@ -48,7 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:text="April"
+            android:text="May"
             android:textColor="@color/main_red"
             android:textSize="30dp"
             android:textStyle="bold" />

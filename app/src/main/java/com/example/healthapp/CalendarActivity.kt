@@ -73,6 +73,9 @@ class CalendarActivity  : AppCompatActivity(){
                 var dayFormatter = SimpleDateFormat("MM.dd.yyyy")
                 var day = dayFormatter.format(dateClicked)
 
+                Log.i("Exercise", dateExercise.toString())
+                Log.i("day", day)
+                Log.i("Exercise", dateExercise.containsKey(day).toString())
 
                 if(dateExercise.containsKey(day) && dateExercise[day]!!.isNotEmpty()) {
                     findViewById<LinearLayout>(R.id.workout_display).visibility = View.VISIBLE

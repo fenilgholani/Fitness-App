@@ -2,20 +2,22 @@ package com.example.healthapp
 
 import android.content.Intent
 import android.graphics.Color
+import android.icu.text.DateFormat
 import android.icu.text.SimpleDateFormat
+import android.net.ParseException
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.charts.LineChart
-import com.github.mikephil.charting.components.AxisBase
 import com.github.mikephil.charting.components.XAxis
+import com.github.mikephil.charting.components.YAxis
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
-import com.github.mikephil.charting.formatter.IAxisValueFormatter
 import com.github.mikephil.charting.formatter.ValueFormatter
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.util.*
@@ -42,47 +44,76 @@ class MainActivity : AppCompatActivity() {
 //
 //        settings.setOnClickListener{
 //            SettingActivity()
+
 //        }
+
+        // CALORIE CALCULATOR
+
+        val default_cal = 10
+
+        val df: DateFormat = SimpleDateFormat("MM.dd.yyyy")
+        val date: String = df.format(Calendar.getInstance().time)
+        val f = SimpleDateFormat("MM.dd.yyyy")
+        val d = f.parse(date)
+        var milliseconds = d.time
+        Log.i("today date", milliseconds.toString())
+
+//
+//        val exercise = DateExercise.getExerciseData()
+//        var total_cal = 0
+//
+//        var allExercise = exercise[date]
+//
+//        if (allExercise != null) {
+//            for((k,v) in allExercise){
+//
+//                for((set, weightReps) in v){
+//
+//                    total_cal+=default_cal
+//                }
+//
+//            }
+//        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         var lineChart: LineChart = findViewById(R.id.lineChart)
 
 
         //Part1
         val entries = ArrayList<Entry>()
-        val xLabel: ArrayList<String> = ArrayList()
+
+
 
 
         //Part2
-        entries.add(Entry(1618252200000f, 100f))
-        entries.add(Entry(1618338600000f, 200f))
-        entries.add(Entry(1618425000000f, 700f))
-        entries.add(Entry(1618511400000f, 200f))
-        entries.add(Entry(1618597800000f, 160f))
-        entries.add(Entry(1618684200000f, 520f))
-        entries.add(Entry(1618770600000f, 360f))
+        entries.add(Entry(1619150400000f, 100f))
+        entries.add(Entry(1619236800000f, 200f))
+        entries.add(Entry(1619323200000f, 700f))
+        entries.add(Entry(1619409600000f, 200f))
+        entries.add(Entry(1619496000000f, 160f))
+        entries.add(Entry(1619582400000f, 520f))
+        entries.add(Entry(1619668800000f, 360f))
+//        entries.add(Entry(milliseconds.toFloat(), total_cal.toFloat()))
 
-        // Label in the Xaxis
-//        xLabel.add("7")
-//        xLabel.add("14")
-//        xLabel.add("21")
-//        xLabel.add("28")
-//        xLabel.add("35")
 
         val xAxis: XAxis = lineChart.xAxis
         xAxis.position = XAxis.XAxisPosition.BOTTOM
-
-
-//        xAxis.labelCount = 7
-
-
-        //Part3
         val vl = LineDataSet(entries, "Progress")
-
-        //Part4
-//        vl.setDrawValues(true)
         vl.setDrawFilled(true)
-        //change colors here
-        val dateFormatter = SimpleDateFormat("MM/dd")
+        val dateFormatter = SimpleDateFormat("dd/MM")
         var lastDate = ""
         val formatter = object :  ValueFormatter() {
             override fun getFormattedValue(value: Float): String {
@@ -96,19 +127,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         xAxis.valueFormatter = formatter
-
-//        xAxis.setCenterAxisLabels(true)
-        vl.setColor(Color.parseColor("#0000D1"))
-        vl.lineWidth = 5f
-        vl.circleRadius = 9f
-
-        //Part5
-//        lineChart.backgroundTintBlendMode
-
-//        lineChart.xAxis.labelRotationAngle = 0f
-
-
-        //Part6
+        vl.color = Color.parseColor("#0000D1")
+        vl.lineWidth = 3f
+//        vl.circleRadius = 6f
         lineChart.data = LineData(vl)
 
         //Part7
@@ -116,23 +137,13 @@ class MainActivity : AppCompatActivity() {
         lineChart.xAxis.setDrawGridLines(false)
         lineChart.axisLeft.setDrawGridLines(false)
         lineChart.axisRight.setDrawGridLines(false)
-
-//        lineChart.xAxis.axisMaximum = 0.1f
-
-        //Part8
         lineChart.setTouchEnabled(true)
         lineChart.setPinchZoom(true)
-
-        //Part9
+//        lineChart.xAxis.axisMaximum = j+0.1f
         lineChart.description.text = "Week"
         lineChart.setNoDataText("No forex yet!")
-
-        //Part10
         lineChart.animateX(1500, Easing.EaseInExpo)
 
-        //Part11
-//        val markerView = CustomMarker(this@ShowForexActivity, R.layout.marker_view)
-//        lineChart.marker = markerView
 
 
         userName = findViewById(R.id.username_text)
@@ -201,6 +212,5 @@ class MainActivity : AppCompatActivity() {
 //        return mValues[value.toInt()]
 //    }
 //}
-
 
 

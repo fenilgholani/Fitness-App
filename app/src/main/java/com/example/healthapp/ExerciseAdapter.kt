@@ -70,8 +70,10 @@ RecyclerView.Adapter<ExerciseAdapter.ViewHolder>() {
 
         completed.setOnClickListener {
             exerciseHash[exerciseData.text.toString()] = adapter.getSets()
-            for(i in lst){
-                exerciseHash.remove(i)
+            if(!lst.isEmpty()) {
+                for (i in lst) {
+                    exerciseHash.remove(i)
+                }
             }
             Toast.makeText(
                 v.context, "Completed Exercise",
