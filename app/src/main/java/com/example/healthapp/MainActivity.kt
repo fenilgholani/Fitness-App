@@ -85,7 +85,7 @@ class MainActivity : AppCompatActivity() {
 //        var dat = Calendar.getInstance()   // 19-01-2018
 //        dat.add(Calendar.DATE, -7)
 
-        days!!.add(getDaysAgo(0).month.toString()+"/"+getDaysAgo(7).day.toString())
+        days!!.add(Calendar.getInstance(). .toString()+"/"+getDaysAgo(7).day.toString())
         days!!.add(getDaysAgo(1).month.toString()+"/"+getDaysAgo(7).day.toString())
         days!!.add(getDaysAgo(2).month.toString()+"/"+getDaysAgo(7).day.toString())
         days!!.add(getDaysAgo(3).month.toString()+"/"+getDaysAgo(7).day.toString())
