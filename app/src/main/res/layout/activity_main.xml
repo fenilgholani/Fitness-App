@@ -90,8 +90,8 @@
         app:layout_constraintLeft_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.github.mikephil.charting.charts.LineChart
-            android:id="@+id/lineChart"
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/barchart"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="5dp"
