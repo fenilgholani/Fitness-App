@@ -8,8 +8,11 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
+import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.*
@@ -23,7 +26,7 @@ class MainActivity : AppCompatActivity() {
 
     private var bottomNavigationView: BottomNavigationView? = null
     private var userName: TextView? = null
-
+    var total_cal = 0.0f
 
     var barChart: BarChart? = null
 
@@ -36,7 +39,7 @@ class MainActivity : AppCompatActivity() {
     var barEntries: ArrayList<BarEntry>? = null
 
     // creating a string array for displaying days.
-    var days: ArrayList<String> ?=null
+    var days = ArrayList<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,48 +61,25 @@ class MainActivity : AppCompatActivity() {
 
         // CALORIE CALCULATOR
 
-        val default_cal = 10
 
-        val df: DateFormat = SimpleDateFormat("MM.dd.yyyy")
-        val date: String = df.format(Calendar.getInstance().time)
-        val f = SimpleDateFormat("MM.dd.yyyy")
-        val d = f.parse(date)
-        var milliseconds = d.time
-        Log.i("today date", milliseconds.toString())
-
-        val exercise = DateExercise.getExerciseData()
-        var total_cal = 0
-
-        var allExercise = exercise[date]
-
-        if (allExercise != null) {
-            for((k,v) in allExercise){
-
-                for((set, weightReps) in v){
-
-                    total_cal+=default_cal
-                }
-
-            }
+           // 19-01-2018
+        for (i in 6 downTo -1) {
+            var dat = Calendar.getInstance()
+            dat.add(Calendar.DATE, -i)
+            days!!.add((dat.get(Calendar.MONTH) + 1).toString()+ "/" + dat.get(Calendar.DAY_OF_MONTH).toString() )
+//            Log.i("Allthedays", dat.get(Calendar.DAY_OF_MONTH).toString() + "/" + (dat.get(Calendar.MONTH) + 1).toString())
         }
-//        var dat = Calendar.getInstance()   // 19-01-2018
-//        dat.add(Calendar.DATE, -7)
 
-        days!!.add(Calendar.getInstance(). .toString()+"/"+getDaysAgo(7).day.toString())
-        days!!.add(getDaysAgo(1).month.toString()+"/"+getDaysAgo(7).day.toString())
-        days!!.add(getDaysAgo(2).month.toString()+"/"+getDaysAgo(7).day.toString())
-        days!!.add(getDaysAgo(3).month.toString()+"/"+getDaysAgo(7).day.toString())
-        days!!.add(getDaysAgo(4).month.toString()+"/"+getDaysAgo(7).day.toString())
-        days!!.add(getDaysAgo(5).month.toString()+"/"+getDaysAgo(7).day.toString())
-        days!!.add(getDaysAgo(6).month.toString()+"/"+getDaysAgo(7).day.toString())
-        Log.i("All the days", getDaysAgo(7).month.toString())
+
+
+//        Log.i("Allthedays", dat.get(Calendar.DAY_OF_MONTH).toString() + "/" + (dat.get(Calendar.MONTH) + 1).toString())
 
         barChart = findViewById(R.id.barchart)
 
         // creating a new bar data set.
 
-        barDataSet1 = BarDataSet(getBarEntriesOne(), "First Set")
-        barDataSet1!!.color = applicationContext.resources.getColor(R.color.purple_200)
+        barDataSet1 = BarDataSet(getBarEntriesOne(), "progress")
+        barDataSet1!!.color = applicationContext.resources.getColor(R.color.main_blue)
 //        barDataSet2 = BarDataSet(getBarEntriesTwo(), "Second Set")
 //        barDataSet2!!.setColor(Color.BLUE)
 
@@ -143,6 +123,7 @@ class MainActivity : AppCompatActivity() {
         // below line is to set center axis
         // labels to our bar chart.
         xAxis.setCenterAxisLabels(false)
+        data.setValueTextSize(10f)
 
         // below line is to set position
         // to our x-axis to bottom.
@@ -212,7 +193,21 @@ class MainActivity : AppCompatActivity() {
 
         // below line is to
         // animate our chart.
-        barChart!!.animate()
+        barChart!!.data.setValueTextSize(12f)
+        barChart!!.getXAxis().textSize = 12f
+        barChart!!.axisLeft.textSize = 12f
+        barChart!!.getAxisRight().setEnabled(false);
+        barChart!!.legend.isEnabled = false
+        barChart!!.getXAxis().setDrawGridLines(false);
+        barChart!!.getAxisLeft().setDrawGridLines(false);
+        barChart!!.getAxisRight().setDrawGridLines(false);
+        if(total_cal == 0.0f) {
+            barChart!!.clear()
+            findViewById<BarChart>(R.id.barchart).isVisible = false
+            findViewById<ImageView>(R.id.goworkout).isVisible = true
+        }
+        barChart!!.animateX(1500, Easing.EaseInExpo)
+
 
         // below line is to group bars
         // and add spacing to it.
@@ -297,18 +292,52 @@ class MainActivity : AppCompatActivity() {
     // array list for first set
     private fun getBarEntriesOne(): ArrayList<BarEntry>? {
 
+        val default_cal = 10f
+
+        val df: DateFormat = SimpleDateFormat("MM.dd.yyyy")
+        val date: String = df.format(Calendar.getInstance().time)
+        val f = SimpleDateFormat("MM.dd.yyyy")
+        val d = f.parse(date)
+        var milliseconds = d.time
+        Log.i("today date", milliseconds.toString())
+
+        val exercise = DateExercise.getExerciseData()
+        total_cal = 0f
+
+        var allExercise = exercise[date]
+
+        Log.i("Exercise", allExercise.toString())
+
+            if (allExercise != null) {
+                for((k,v) in allExercise){
+
+                    for((set, weightReps) in v){
+
+                        total_cal+=default_cal*weightReps[1]
+                    }
+
+                }
+            }
+
+
+
         // creating a new array list
         barEntries = ArrayList<BarEntry>()
 
         // adding new entry to our array list with bar
         // entry and passing x and y axis value to it.
-        barEntries!!.add(BarEntry(0f, 9f))
-        barEntries!!.add(BarEntry(1f, 4f))
-        barEntries!!.add(BarEntry(2f, 6f))
-        barEntries!!.add(BarEntry(3f, 8f))
-        barEntries!!.add(BarEntry(4f, 2f))
-        barEntries!!.add(BarEntry(5f, 4f))
-        barEntries!!.add(BarEntry(6f, 1f))
+        if(total_cal != 0.0f) {
+            findViewById<BarChart>(R.id.barchart).isVisible =true
+                barEntries!!.add(BarEntry(6f, total_cal))
+        }
+//        else {
+//            barEntries!!.add(BarEntry(0f, 120f))
+//            barEntries!!.add(BarEntry(1f, 200f))
+//            barEntries!!.add(BarEntry(2f, 300f))
+//            barEntries!!.add(BarEntry(3f, 150f))
+//            barEntries!!.add(BarEntry(4f, 40f))
+//            barEntries!!.add(BarEntry(5f, 90f))
+//            barEntries!!.add(BarEntry(6f, total_cal))
 
         return barEntries
     }
