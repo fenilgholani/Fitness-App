@@ -48,6 +48,8 @@
         <item>KG</item>
     </string-array>
 
+    <string name="guest">Username</string>
+
     <!--  Menu Navigation Strings  -->
     <string name="profile">Home</string>
     <string name="calendar">Calendar</string>

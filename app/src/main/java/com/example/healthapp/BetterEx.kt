@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class BetterEx : AppCompatActivity()  {
@@ -23,6 +24,7 @@ class BetterEx : AppCompatActivity()  {
     private var toTodayExercise: Button ?= null
     private var listSelectedEx : ArrayList<String> ?= null
     private var searchView: SearchView? = null
+    private var bottomNavigationView: BottomNavigationView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +32,7 @@ class BetterEx : AppCompatActivity()  {
 
         rv_recyclerView = findViewById(R.id.rv_recyclerView)
         toTodayExercise = findViewById(R.id.button_to_exercisein)
-        searchView = findViewById(R.id.searchView)
+//        searchView = findViewById(R.id.searchView)
         postToList()
 
         rv_recyclerView!!.layoutManager = LinearLayoutManager(this)
@@ -39,32 +41,32 @@ class BetterEx : AppCompatActivity()  {
 
         listSelectedEx = adapter.getExerciseList()
 
-        searchView!!.queryHint = "Search Exercises"
-        searchView!!.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
-            override fun onQueryTextSubmit(query: String?): Boolean {
+//        searchView!!.queryHint = "Search Exercises"
+//        searchView!!.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
+//            override fun onQueryTextSubmit(query: String?): Boolean {
+////                return false
+////                if (listSelectedEx!!.contains(query)) {
+////                    adapter.filter.filter(query)
+////                } else {
+//                    Toast.makeText(
+//                        this@BetterEx, "Exercise Search Under Development!",
+//                        Toast.LENGTH_LONG
+//                    ).show()
+////                }
 //                return false
-//                if (listSelectedEx!!.contains(query)) {
-//                    adapter.filter.filter(query)
-//                } else {
-                    Toast.makeText(
-                        this@BetterEx, "Exercise Search Under Development!",
-                        Toast.LENGTH_LONG
-                    ).show()
-//                }
-                return false
-            }
-
-            override fun onQueryTextChange(newText: String?): Boolean {
-//                if (TextUtils.isEmpty(newText)) {
+//            }
 //
-//                } else {
-//                    adapter.filter.filter(newText)
-//                }
-
-                return false
-            }
-
-        })
+//            override fun onQueryTextChange(newText: String?): Boolean {
+////                if (TextUtils.isEmpty(newText)) {
+////
+////                } else {
+////                    adapter.filter.filter(newText)
+////                }
+//
+//                return false
+//            }
+//
+//        })
 
         toTodayExercise!!.setOnClickListener{
             if(listSelectedEx!!.isNotEmpty()) {
@@ -81,8 +83,27 @@ class BetterEx : AppCompatActivity()  {
 
         }
 
+        bottomNavigationView = findViewById(R.id.bottom_navigation_workout)
+        bottomNavigationView!!.selectedItemId = R.id.action_workout
+        bottomNavigationView!!.menu.findItem(R.id.action_workout).isEnabled = false
+        bottomNavigationView!!.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+
     }
 
+    private val mOnNavigationItemSelectedListener =
+        BottomNavigationView.OnNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.action_calendar -> {
+                    val intent = Intent(this@BetterEx, CalendarActivity::class.java)
+                    startActivity(intent)
+                }
+                R.id.action_profile -> {
+                    val intent = Intent(this@BetterEx, MainActivity::class.java)
+                    startActivity(intent)
+                }
+            }
+            false
+        }
     private fun addToList(title: String, desc: String, image: Int){
         titlesList.add(title)
         descList.add(desc)
@@ -121,6 +142,10 @@ class BetterEx : AppCompatActivity()  {
         }
 
 
+    }
+
+    fun getEx(): MutableList<String> {
+        return titlesList
     }
 
 

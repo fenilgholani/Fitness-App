@@ -1,5 +1,6 @@
 package com.example.healthapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.os.Handler
@@ -10,6 +11,7 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class TimerActivity : AppCompatActivity() {
 
@@ -29,6 +31,7 @@ class TimerActivity : AppCompatActivity() {
     var min = 0
     var milliSec = 0
     var count = 0
+    private var bottomNavigationView: BottomNavigationView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -103,7 +106,31 @@ class TimerActivity : AppCompatActivity() {
         }
 
 
+        bottomNavigationView = findViewById(R.id.bottom_navigation_timer)
+        bottomNavigationView!!.selectedItemId = R.id.action_workout
+//        bottomNavigationView!!.menu.findItem(R.id.action_workout).isEnabled = false
+        bottomNavigationView!!.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+
     }
+
+    private val mOnNavigationItemSelectedListener =
+        BottomNavigationView.OnNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.action_workout -> {
+                    val intent = Intent(this@TimerActivity, BetterEx::class.java)
+                    startActivity(intent)
+                }
+                R.id.action_calendar -> {
+                    val intent = Intent(this@TimerActivity, CalendarActivity::class.java)
+                    startActivity(intent)
+                }
+                R.id.action_profile -> {
+                    val intent = Intent(this@TimerActivity, MainActivity::class.java)
+                    startActivity(intent)
+                }
+            }
+            false
+        }
 
     val runnable: Runnable = object : Runnable {
         override fun run() {

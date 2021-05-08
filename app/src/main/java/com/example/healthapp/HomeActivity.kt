@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 class HomeActivity : AppCompatActivity() {
     private var signInButton: Button? = null
     private var signUpButton: Button? = null
-    private var dummy: Button? = null
+    private var guest: Button? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,7 +17,7 @@ class HomeActivity : AppCompatActivity() {
 
         signInButton = findViewById(R.id.sign_in)
         signUpButton = findViewById(R.id.sign_up)
-//        dummy = findViewById(R.id.dummy)
+        guest = findViewById(R.id.guest)
 
 
         signInButton!!.setOnClickListener {
@@ -28,9 +28,9 @@ class HomeActivity : AppCompatActivity() {
             signUp()
         }
 
-//        dummy!!.setOnClickListener {
-//            Better()
-//        }
+        guest!!.setOnClickListener {
+            Better()
+        }
 
     }
 
@@ -45,7 +45,8 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun Better() {
-        val intent = Intent(this@HomeActivity, BetterEx::class.java)
+        val intent = Intent(this@HomeActivity, MainActivity::class.java)
+        intent.putExtra("user", "guest")
         startActivity(intent)
     }
 }

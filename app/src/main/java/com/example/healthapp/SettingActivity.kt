@@ -9,6 +9,7 @@ import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import de.hdodenhof.circleimageview.CircleImageView
 import java.util.*
 
@@ -26,6 +27,7 @@ class SettingActivity: AppCompatActivity() {
     private var avatar1 : CircleImageView? = null
     private var avatar2 : CircleImageView? = null
     private var avatar3 : CircleImageView? = null
+    private var bottomNavigationView: BottomNavigationView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -84,20 +86,25 @@ class SettingActivity: AppCompatActivity() {
         }
 
 //        Think about the date
-        val dateOfBirth = UserInfo.getDOB()
-        var dayFormatter = SimpleDateFormat("MM.dd.yyyy")
-        var daysof = dayFormatter.format(dateOfBirth).split(".")
+        var dateOfBirth: Date? =  null
+        var dayFormatter: SimpleDateFormat?= null
+        var daysof:List<String>? = null
 
 
+        if(!UserInfo.getUsername().equals("Guest")) {
+            dateOfBirth = UserInfo.getDOB()
+            dayFormatter = SimpleDateFormat("MM.dd.yyyy")
+            daysof = dayFormatter.format(dateOfBirth).split(".")
 
-        username!!.setText(UserInfo.getUsername())
-        feet!!.setText(UserInfo.getHeightFt())
-        inches!!.setText(UserInfo.getHeightIn())
-        weight!!.setText(UserInfo.getWeight())
-        weightUnit!!.text = UserInfo.getWeightUn()
-//        if(dob != null)
-            dob!!.updateDate(daysof[2].toInt(), daysof[0].toInt()-1, daysof[1].toInt())
-
+            username!!.setText(UserInfo.getUsername())
+            feet!!.setText(UserInfo.getHeightFt())
+            inches!!.setText(UserInfo.getHeightIn())
+            weight!!.setText(UserInfo.getWeight())
+            weightUnit!!.text = UserInfo.getWeightUn()
+            dob!!.updateDate(daysof[2].toInt(), daysof[0].toInt() - 1, daysof[1].toInt())
+        }
+        if(UserInfo.getUsername().equals("Guest"))
+            username!!.setHint("Username")
         submit!!.setOnClickListener {
             //   Updating personal Info
 
@@ -157,7 +164,31 @@ class SettingActivity: AppCompatActivity() {
 
         }
 
+        bottomNavigationView = findViewById(R.id.bottom_navigation_setting)
+        bottomNavigationView!!.selectedItemId = R.id.action_profile
+//        bottomNavigationView!!.menu.findItem(R.id.action_profile).isEnabled = false
+        bottomNavigationView!!.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+
     }
+
+    private val mOnNavigationItemSelectedListener =
+        BottomNavigationView.OnNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.action_profile -> {
+                    val intent = Intent(this@SettingActivity, MainActivity::class.java)
+                    startActivity(intent)
+                }
+                R.id.action_calendar -> {
+                    val intent = Intent(this@SettingActivity, CalendarActivity::class.java)
+                    startActivity(intent)
+                }
+                R.id.action_workout -> {
+                    val intent = Intent(this@SettingActivity, BetterEx::class.java)
+                    startActivity(intent)
+                }
+            }
+            false
+        }
 
     private fun DatePicker.getDate(): Date {
         val calendar = Calendar.getInstance()

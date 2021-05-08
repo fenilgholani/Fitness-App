@@ -79,7 +79,7 @@ class RecordActivity: AppCompatActivity() {
             Log.i("USER INFO", "DOB: ${userDOB}")
 
             if(verifyFields()) {
-                val intent = Intent(this@RecordActivity, SignInActivity::class.java)
+                val intent = Intent(this@RecordActivity, MainActivity::class.java)
                 startActivity(intent)
             }
         }

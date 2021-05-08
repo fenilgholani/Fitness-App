@@ -1,7 +1,6 @@
 package com.example.healthapp
 
 import android.content.Intent
-import android.graphics.Color
 import android.icu.text.DateFormat
 import android.icu.text.SimpleDateFormat
 import android.os.Bundle
@@ -66,7 +65,10 @@ class MainActivity : AppCompatActivity() {
         for (i in 6 downTo -1) {
             var dat = Calendar.getInstance()
             dat.add(Calendar.DATE, -i)
-            days!!.add((dat.get(Calendar.MONTH) + 1).toString()+ "/" + dat.get(Calendar.DAY_OF_MONTH).toString() )
+            days!!.add(
+                (dat.get(Calendar.MONTH) + 1).toString() + "/" + dat.get(Calendar.DAY_OF_MONTH)
+                    .toString()
+            )
 //            Log.i("Allthedays", dat.get(Calendar.DAY_OF_MONTH).toString() + "/" + (dat.get(Calendar.MONTH) + 1).toString())
         }
 
@@ -277,10 +279,17 @@ class MainActivity : AppCompatActivity() {
 //        lineChart.setNoDataText("No forex yet!")
 //        lineChart.animateX(1500, Easing.EaseInExpo)
 
-
+        val intent = intent
+        val user = intent.getStringExtra("user")
 
         userName = findViewById(R.id.username_text)
-        userName!!.text = "${userName!!.text}${UserInfo.getUsername()}!"
+        if(UserInfo.getUsername() == null || UserInfo.getUsername() == "Guest")
+            userName!!.text = userName!!.text.toString() +  "Guest!"
+        if(!user.equals("guest") && UserInfo.getUsername() != "Guest")
+            userName!!.text = "${userName!!.text}${UserInfo.getUsername()}!"
+
+        UserInfo.setUsername("Guest")
+
 
         bottomNavigationView = findViewById(R.id.bottom_navigation_main)
         bottomNavigationView!!.selectedItemId = R.id.action_profile
@@ -309,7 +318,7 @@ class MainActivity : AppCompatActivity() {
         Log.i("Exercise", allExercise.toString())
 
             if (allExercise != null) {
-                for((k,v) in allExercise){
+                for((k, v) in allExercise){
 
                     for((set, weightReps) in v){
 

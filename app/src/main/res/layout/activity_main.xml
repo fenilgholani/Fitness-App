@@ -30,81 +30,89 @@
 <!--        app:srcCompat="@android:drawable/ic_dialog_email" />-->
 
 <!--</androidx.coordinatorlayout.widget.CoordinatorLayout>-->
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp">
+    android:layout_height="match_parent">
 
-    <LinearLayout
-        android:id="@+id/header"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:padding="16dp">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profile_image"
-            android:layout_width="96dp"
-            android:layout_height="96dp"
-            android:src="@drawable/golub"
-            app:civ_border_color="#FF000000"
-            app:civ_border_width="2dp" />
+        <LinearLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:src="@drawable/golub"
+                app:civ_border_color="#FF000000"
+                app:civ_border_width="2dp" />
+
+            <TextView
+                android:id="@+id/username_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="14dp"
+                android:layout_marginTop="14dp"
+                android:layout_toRightOf="@+id/profile_image"
+                android:padding="12dp"
+                android:text="Welcome, "
+                android:textColor="@color/main_blue"
+                android:textSize="24dp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
         <TextView
-            android:id="@+id/username_text"
+            android:id="@+id/calories"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/header"
             android:layout_centerHorizontal="true"
-            android:layout_marginLeft="14dp"
-            android:layout_marginTop="14dp"
-            android:layout_toRightOf="@+id/profile_image"
-            android:padding="12dp"
-            android:text="Welcome, "
-            android:textColor="@color/main_blue"
+            android:text="Calories Burned"
+            android:textColor="@color/main_red"
             android:textSize="24dp"
             android:textStyle="bold" />
-    </LinearLayout>
 
-    <TextView
-        android:id="@+id/calories"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/header"
-        android:layout_centerHorizontal="true"
-        android:text="Calories Burned"
-        android:textColor="@color/main_red"
-        android:textSize="24dp"
-        android:textStyle="bold" />
-
-    <RelativeLayout
-        android:id="@+id/lineChart_layout"
-        android:layout_width="match_parent"
-        android:layout_height="290sp"
-        android:layout_below="@+id/calories"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:fitsSystemWindows="true"
-        android:orientation="vertical"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintLeft_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <com.github.mikephil.charting.charts.BarChart
-            android:id="@+id/barchart"
+        <RelativeLayout
+            android:id="@+id/lineChart_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="-20dp"
-            android:paddingBottom="4dp"/>
-        <ImageView
-            android:id="@+id/goworkout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/go"
-            android:visibility="invisible"/>
+            android:layout_height="290sp"
+            android:layout_below="@+id/calories"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:fitsSystemWindows="true"
+            android:orientation="vertical"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintLeft_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/barchart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="-20dp"
+                android:paddingBottom="4dp"/>
+            <ImageView
+                android:id="@+id/goworkout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/go"
+                android:visibility="invisible"/>
+
+        </RelativeLayout>
+
+
+
 
     </RelativeLayout>
-
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation_main"
@@ -112,5 +120,4 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         app:menu="@menu/menu_bottom_navigation" />
-
 </RelativeLayout>

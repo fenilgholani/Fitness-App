@@ -120,7 +120,7 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/completed"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_weight="0"
             android:background="@drawable/custom_btn"
             android:backgroundTint="@color/main_green"
