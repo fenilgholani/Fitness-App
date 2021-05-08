@@ -1,5 +1,6 @@
 package com.example.healthapp
 
+import de.hdodenhof.circleimageview.CircleImageView
 import java.util.*
 import kotlin.collections.HashMap
 
@@ -12,6 +13,7 @@ class UserInfo {
         private var weight: String?= null
         private var weightUn: String?= null// num, unit
         private var dob: Date? = null
+        private var avatar: CircleImageView? = null
 
         fun setUsername(username: String) {
             this.username = username
@@ -69,6 +71,14 @@ class UserInfo {
 
         fun getDOB(): Date? {
             return dob
+        }
+
+        fun setAvatar(avatar: CircleImageView){
+            this.avatar = avatar
+        }
+
+        fun getAvatar(): CircleImageView? {
+            return avatar
         }
     }
 }

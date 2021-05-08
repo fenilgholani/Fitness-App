@@ -9,6 +9,7 @@ import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import de.hdodenhof.circleimageview.CircleImageView
 import java.util.*
 
 class SettingActivity: AppCompatActivity() {
@@ -22,6 +23,9 @@ class SettingActivity: AppCompatActivity() {
     //    private var age : EditText? = null
     private var dob: DatePicker? = null
     private var submit : Button? = null
+    private var avatar1 : CircleImageView? = null
+    private var avatar2 : CircleImageView? = null
+    private var avatar3 : CircleImageView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +41,9 @@ class SettingActivity: AppCompatActivity() {
 //        age = findViewById(R.id.age)
         submit = findViewById(R.id.per_save)
         dob = findViewById(R.id.per_dob)
+        avatar1 = findViewById(R.id.avatar1)
+        avatar2 = findViewById(R.id.avatar2)
+        avatar3 = findViewById(R.id.avatar3)
 
         lbs!!.setOnClickListener {
             weightUnit!!.text = "LBS"
@@ -44,6 +51,36 @@ class SettingActivity: AppCompatActivity() {
 
         kg!!.setOnClickListener {
             weightUnit!!.text = "KG"
+        }
+
+        avatar1!!.setOnClickListener {
+            avatar1!!.circleBackgroundColor = getColor(R.color.main_green)
+            Toast.makeText(
+                applicationContext,
+                "Selected Kettlebell avatar!",
+                Toast.LENGTH_LONG
+            ).show()
+            UserInfo.setAvatar(avatar1!!)
+        }
+
+        avatar2!!.setOnClickListener {
+            avatar2!!.circleBackgroundColor = getColor(R.color.main_green)
+            Toast.makeText(
+                applicationContext,
+                "Selected Heart avatar!",
+                Toast.LENGTH_LONG
+            ).show()
+            UserInfo.setAvatar(avatar2!!)
+        }
+
+        avatar3!!.setOnClickListener {
+            avatar3!!.circleBackgroundColor = getColor(R.color.main_green)
+            Toast.makeText(
+                applicationContext,
+                "Selected Weights avatar!",
+                Toast.LENGTH_LONG
+            ).show()
+            UserInfo.setAvatar(avatar3!!)
         }
 
 //        Think about the date
