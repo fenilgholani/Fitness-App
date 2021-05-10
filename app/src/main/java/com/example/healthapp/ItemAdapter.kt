@@ -29,7 +29,7 @@ class ItemAdapter(
 
             val itemTitle: TextView = itemView.findViewById(R.id.ex_title)
 //            val itemDetail: TextView = itemView.findViewById(R.id.ex_description)
-            val itemImg: ImageView = itemView.findViewById(R.id.ex_pic)
+//            val itemImg: ImageView = itemView.findViewById(R.id.ex_pic)
             val itemCheckBox: CheckBox = itemView.findViewById(R.id.ex_checkbox)
                 val pos = adapterPosition
 
@@ -74,7 +74,7 @@ class ItemAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.itemTitle.text = titles[position]
 //        holder.itemDetail.text = details[position]
-        holder.itemImg.setImageResource(images[position])
+//        holder.itemImg.setImageResource(images[position])
 
 
         holder.itemView.setOnClickListener {
