@@ -37,6 +37,10 @@ class ItemAdapter(
 
             init{
 
+                for (i in 0 until titles.size) {
+                    selectCheck.add(0)
+                }
+
                 itemView.setOnClickListener{
                     val pos: Int = adapterPosition
                     Toast.makeText(
@@ -44,14 +48,14 @@ class ItemAdapter(
                         "You clicked on item ${pos + 1}",
                         Toast.LENGTH_SHORT
                     ).show()
+
+
                 }
 
                 //initilize selectCheck
 
                 //initilize selectCheck
-                for (i in 0 until exerciseList.size) {
-                    selectCheck.add(0)
-                }
+
 
             }
         }
@@ -78,7 +82,7 @@ class ItemAdapter(
             var drawable: Int? = null
             var description: String? = null
 
-            when(holder.itemTitle.text){
+            when (holder.itemTitle.text) {
                 "Pull up" -> {
                     drawable = R.drawable.pullup
                     description = context.resources.getString(R.string.pull_up)
@@ -197,34 +201,51 @@ class ItemAdapter(
                 .isCancellable(false)
                 .OnPositiveClicked {
                     holder.itemCheckBox.isChecked = true
-                    Toast.makeText(context, "${holder.itemTitle.text} Added!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "${holder.itemTitle.text} Added!", Toast.LENGTH_SHORT)
+                        .show()
                 }.OnNegativeClicked {
                     // Do Nothing
                 }
 
                 .build()
+        }
 
-            if (selectCheck[position] == 1) {
-                holder.itemCheckBox.setChecked(true)
-            } else {
-                holder.itemCheckBox.setChecked(false)
-            }
+        if (selectCheck[position] == 1) {
+            holder.itemCheckBox.setChecked(true)
+        }
+         else {
+            holder.itemCheckBox.setChecked(false)
+        }
 
-            holder.itemCheckBox.setOnClickListener(View.OnClickListener {
-                for (k in selectCheck.indices) {
-                    if (k == position) {
-                        selectCheck[k] = 1
-                    } else {
-                        selectCheck[k] = 0
-                    }
+        holder.itemCheckBox.setOnClickListener(View.OnClickListener {
+            for (k in selectCheck.indices) {
+                if (k == position) {
+                    selectCheck[k] = 1
                 }
-                notifyDataSetChanged()
-            })
-//            holder.itemCheckBox.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { _, isChecked ->
-//                holder.itemCheckBox.isChecked = isChecked
-//
-//            })
+//                 else {
+//                    selectCheck[k] = 0
+//                }
+            }
+//            notifyDataSetChanged()
+        })
+        holder.itemCheckBox.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked == true && !exerciseList.contains(holder.itemTitle.text.toString())) {
+                exerciseList.add(holder.itemTitle.text.toString())
+                }
+                else if(!isChecked && exerciseList.contains(holder.itemTitle.text.toString())) {
+                    exerciseList.remove(holder.itemTitle.text.toString())
+                }
+        })
 
+
+//            holder.itemCheckBox.setOnCheckedChangeListener { _, isChecked ->
+//                if (isChecked) {
+//                    exerciseList.add(holder.itemTitle.text.toString())
+//                }
+//                else {
+//                    exerciseList.remove(holder.itemTitle.text.toString())
+//                }
+//            }
 
 
 //            if (selectCheck[position] == 1) {
@@ -252,7 +273,7 @@ class ItemAdapter(
 //                    exerciseList.remove(holder.itemTitle.text.toString())
 //                }
 //            })
-        }
+
 
 
 
