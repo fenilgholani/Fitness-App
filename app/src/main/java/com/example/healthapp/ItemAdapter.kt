@@ -8,8 +8,6 @@ import android.view.ViewGroup
 import android.widget.*
 import android.widget.CompoundButton
 import androidx.recyclerview.widget.RecyclerView
-import java.util.*
-import kotlin.collections.ArrayList
 
 
 class ItemAdapter(
@@ -24,7 +22,8 @@ class ItemAdapter(
 
     private var exerciseList = ArrayList<String>()
     private var filteredExercises = ArrayList<String>()
-            private var allpositions= -1
+            private val selectedPosition = 0
+            private val selectCheck: ArrayList<Int> = ArrayList()
 
             inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
 
@@ -45,6 +44,13 @@ class ItemAdapter(
                         "You clicked on item ${pos + 1}",
                         Toast.LENGTH_SHORT
                     ).show()
+                }
+
+                //initilize selectCheck
+
+                //initilize selectCheck
+                for (i in 0 until exerciseList.size) {
+                    selectCheck.add(0)
                 }
 
             }
@@ -198,6 +204,29 @@ class ItemAdapter(
 
                 .build()
 
+            if (selectCheck[position] == 1) {
+                holder.itemCheckBox.setChecked(true)
+            } else {
+                holder.itemCheckBox.setChecked(false)
+            }
+
+            holder.itemCheckBox.setOnClickListener(View.OnClickListener {
+                for (k in selectCheck.indices) {
+                    if (k == position) {
+                        selectCheck[k] = 1
+                    } else {
+                        selectCheck[k] = 0
+                    }
+                }
+                notifyDataSetChanged()
+            })
+//            holder.itemCheckBox.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { _, isChecked ->
+//                holder.itemCheckBox.isChecked = isChecked
+//
+//            })
+
+
+
 //            if (selectCheck[position] == 1) {
 //                holder.itemCheckBox.setChecked(true)
 //            } else {
@@ -215,15 +244,14 @@ class ItemAdapter(
 //                notifyDataSetChanged()
 //            })
 //
-            holder.itemCheckBox.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { buttonView, isChecked ->
-                if (isChecked == true) {
-                    exerciseList.add(holder.itemTitle.text.toString())
-
-                }
-                else{
-                    exerciseList.remove(holder.itemTitle.text.toString())
-                   }
-            })
+//            holder.itemCheckBox.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { buttonView, isChecked ->
+//                if (isChecked == true) {
+//                    exerciseList.add(holder.itemTitle.text.toString())
+//
+//                } else {
+//                    exerciseList.remove(holder.itemTitle.text.toString())
+//                }
+//            })
         }
 
 
