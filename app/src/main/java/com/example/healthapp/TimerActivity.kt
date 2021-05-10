@@ -174,60 +174,63 @@ class TimerActivity : AppCompatActivity() {
 
         start.setOnClickListener {
 
-            //clicked
-            count++
-
             var hour: EditText = findViewById(R.id.hour)
             var min: EditText = findViewById(R.id.mins)
             var second: EditText = findViewById(R.id.second)
 
+//            Log.i("Time", hour.text.toString() + "/" + min.text.toString() + "/" + second.text.toString())
 
-            var hour_cal: Int = 0
-            var min_cal: Int = 0
-            var sec_cal: Int = 0
+            if (!hour.text.toString().equals("") || !min.text.toString()
+                    .equals("") && !second.text.toString().equals("")
+            ) {
 
-            if (!hour.text.toString().equals("")) {
-                hour_cal = hour.text.toString().toInt()
-            }
-            if (!min.text.toString().equals("")) {
-                min_cal = min.text.toString().toInt()
-            }
-            if (!second.text.toString().equals("")) {
-                sec_cal = second.text.toString().toInt()
-            }
+                //clicked
+                count++
 
 
-            //                Log.i("Fenil",.toLong().toString())
+                var hour_cal: Int = 0
+                var min_cal: Int = 0
+                var sec_cal: Int = 0
 
-            var current_time = (hour_cal * 3600 + min_cal * 60 + sec_cal)
+                if (!hour.text.toString().equals("")) {
+                    hour_cal = hour.text.toString().toInt()
+                }
+                if (!min.text.toString().equals("")) {
+                    min_cal = min.text.toString().toInt()
+                }
+                if (!second.text.toString().equals("")) {
+                    sec_cal = second.text.toString().toInt()
+                }
 
 
+                var current_time = (hour_cal * 3600 + min_cal * 60 + sec_cal)
 
-            Log.i("Count:", "Count: $count isResume: $isResume")
-            // The timer is paused
-            if (count % 2 != 0) {
-                isResume = false
-                //play button is created
-                timer_work(
-                    (current_time * 1000).toLong(),
-                    hour,
-                    min,
-                    second
-                )
 
-                findViewById<ImageButton>(R.id.timer_stopped)!!.visibility = View.GONE
-                findViewById<ImageButton>(R.id.timer_start)!!.setImageDrawable(
-                    ContextCompat.getDrawable(
-                        applicationContext, // Context
-                        R.drawable.ic_pause // Drawable
+                Log.i("Count:", "Count: $count isResume: $isResume")
+                // The timer is paused
+                if (count % 2 != 0) {
+                    isResume = false
+                    //play button is created
+                    timer_work(
+                        (current_time * 1000).toLong(),
+                        hour,
+                        min,
+                        second
                     )
-                )
-            }
 
+                    findViewById<ImageButton>(R.id.timer_stopped)!!.visibility = View.GONE
+                    findViewById<ImageButton>(R.id.timer_start)!!.setImageDrawable(
+                        ContextCompat.getDrawable(
+                            applicationContext, // Context
+                            R.drawable.ic_pause // Drawable
+                        )
+                    )
+                }
+
+
+            }
 
         }
-
-
 
     }
 

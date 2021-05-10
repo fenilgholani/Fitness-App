@@ -77,7 +77,7 @@
         android:background="@drawable/custom_btn"
         android:textColor="@color/white"
         android:layout_marginBottom="36dp"
-        android:text="As Guest"
+        android:text="Sign in Guest"
         android:textStyle="bold"/>
 
     </LinearLayout>
