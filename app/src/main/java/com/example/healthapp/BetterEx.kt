@@ -112,8 +112,12 @@ class BetterEx : AppCompatActivity()  {
 
     private fun postToList(){
 
-        var ex = listOf("Plank","Pull up", "Push up", "Sit up", "Squat"
-            ,"Oblique Twist",
+        var ex = listOf("Plank",
+            "Pull up",
+            "Push up",
+            "Sit up",
+            "Squat",
+            "Oblique Twist",
               "Bench Press",
               "Deadlift",
               "Tricep Pulldown",

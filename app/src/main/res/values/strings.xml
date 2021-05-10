@@ -66,9 +66,19 @@
 
     <!--  Exercise Strings  -->
     <!--  https://musclewiki.com/Bodyweight/  -->
-    <string name="plank">1. Begin in the plank position, face down with your forearms and toes on the floor. Your elbows are directly under your shoulders and your forearms are facing forward. Your head is relaxed and you should be looking at the floor.\n
-        2. Engage your abdominal muscles. Keep your torso straight and rigid and your body in a straight line from ears to toes with no sagging or bending. Ensure your shoulders are down and your heels should be over the balls of your feet.\n
-        3. Hold this position then release to the floor.</string>
+    <string name="plank">
+        1. Plant hands directly under shoulders (slightly wider than shoulder width) like you’re about to do a push-up.\n
+
+2. Ground toes into the floor and squeeze glutes to stabilize your body. Your legs should be working, too — be careful not to lock or hyperextend your knees.\n
+
+3. Neutralize your neck and spine by looking at a spot on the floor about a foot beyond your hands. Your head should be in line with your back.\n
+
+4. Hold the position for 20 seconds. As you get more comfortable with the move, hold your plank for as long as possible without compromising your form or breath.\n
+<!--        1. Begin in the plank position, face down with your forearms and toes on the floor. Your elbows are directly under your shoulders and your forearms are facing forward. Your head is relaxed and you should be looking at the floor.\n-->
+<!--        2. Engage your abdominal muscles. Keep your torso straight and rigid and your body in a straight line from ears to toes with no sagging or bending. Ensure your shoulders are down and your heels should be over the balls of your feet.\n-->
+<!--        3. Hold this position then release to the floor.-->
+
+    </string>
     <string name="pull_up">1. Grasp the bar with an overhand grip, arms and shoulders fully extended.\n
         2. Pull your body up until your chin is above the bar.\n
         3. Lower your body back to starting position.</string>
@@ -81,9 +91,9 @@
         3. Return to the starting position by rolling down one vertebrae at a time.</string>
     <!--  Barbell  -->
     <string name="squat">1. Stand with your feet shoulder-width apart. Maintain the natural arch in your back, squeezing your shoulder blades and raising your chest.\n
-        2. Grip the bar across your shoulders and support it on your upper back. Unwrack the bar by straightening your legs, and take a step back.\n
-        3. Bend your knees as you lower the weight without altering the form of your back until your hips are below your knees.\n
-        4.Raise the bar back to starting position, lift with your legs and exhale at the top.</string>
+        2. Grip the bar across your shoulders.\n
+        3. Bend your knees until your hips are below your knees.\n
+        4. Raise the bar back to starting position, lift with your legs and exhale at the top.</string>
     <string name="oblique_twist">1. Lie down with your legs bent at the knees.\n
         2. Elevate your upper body so that it creates a V shape with your thighs.\n
         3. Twist your torso to the right, and then reverse the motion, twisting it to the left.</string>
@@ -92,9 +102,9 @@
         2. Lower the bar to your mid chest\n
         3. Raise the bar until you\'ve locked your elbows.</string>
     <string name="deadlift">1. Stand with your mid-foot under the bar and grip the bar with your hands, about a shoulder width apart.\n
-        2. Bend your knees, then lift the bar by straightening your back. It is important to keep your back straight.\n
+        2. Bend your knees, then lift the bar by straightening your back.\n
         3. Stand to your full height and hold.\n
-        4. Lower the bar to the floor by bending your knees and keeping your back straight.</string>
+        4. Lower the bar.</string>
     <string name="tricep_pulldown">1. Grip the pulley bar with palms facing down at shoulder width.\n
         2. Stand straight with a small forward incline. Keep your upper arms close to your body, and slowly bring the pulley bar down until your arms are fully extended.\n
         3. Pause when you are at the contracted position of the motion, then slowly raise the pulley bar back to the starting point.</string>
@@ -127,15 +137,15 @@
         2. Raise the two dumbbells with your elbows being fully extended until the dumbbells are eye level.\n
         3. Lower the weights in a controlled manner to the starting position and repeat.</string>
     <!--   Barbell -->
-    <string name="bicep_curl">1. While holding the upper arms stationary, curl the weights forward while contracting the biceps as you breathe out.\n
-        2. Continue the movement until your biceps are fully contracted and the bar is at shoulder level.\n
-        3. Hold the contracted position for a second and squeeze the biceps hard.\n
-        4. Slowly bring the weight back down to the starting position.</string>
+    <string name="bicep_curl">1. Curl the weights forward while contracting the biceps as you breathe out.\n
+
+        2. Hold the contracted position for a second and squeeze the biceps hard.\n
+        3. Slowly bring the weight back down to the starting position.</string>
     <!--  Dumbbell  -->
-    <string name="incline_press">1. Raise the bench to a 30° - 45° angle\n
-        2. Lay on the bench and set your feet on the ground.\n
-        3. Raise the dumbbells with straight arms then slowly lower them to about shoulder width.\n
-        4. Raise them again until your arms are locked and at the starting position again.</string>
+    <string name="incline_press">
+        1. Lay on the bench at 30° - 45° angle and set your feet on the ground.\n
+        2. Raise the dumbbells with straight arms then slowly lower them to about shoulder width.\n
+        3. Raise them again until your arms are locked and at the starting position again.</string>
     <string name="side_raise">1. Stand up straight with dumbbells at either side, palms facing your hips.\n
         2. Raise your arms on either side with a slight bend in your elbow until they are parallel with the floor. Pause at the top of the motion.\n
         3. Slowly return your arms down to starting position.</string>
@@ -146,22 +156,20 @@
         2. Raise the dumbbells upwards and pause at the contracted position.\n
         3. Lower the weights back to starting position.</string>
     <!--  Dumbbell  -->
-    <string name="overhead_press">1. Stand upright and keep the back straight.\n
-        2. Hold a dumbbell in each hand at the shoulders with an overhand grip. Thumbs should be on the inside and knuckles facing up.\n
-        3. Raise the weights above the head in a controlled motion while exhaling. Pause at the top of the motion.\n
-        4. Return the dumbbells to the shoulders while inhaling.</string>
-    <string name="hamstring_curl">1. Lay down on the machine, placing your legs beneath the padded lever. Position your legs so that the padded lever is below your calve muscles.\n
+    <string name="overhead_press">
+        1. Hold a dumbbell in each hand at the shoulders with an overhand grip.\n
+        2. Raise weights above the head in a controlled motion while exhaling. Pause at the top of the motion.\n
+        3. Return dumbbells to shoulders while inhaling.</string>
+    <string name="hamstring_curl">1. Lay down on the machine, placing your legs beneath the padded lever.\n
         2. Support yourself by grabbing the side handles of the machine, and slowly raise the weight with your legs, toes pointed straight.\n
-        3. Pause at the top of the motion, then slowly return to starting position.</string>
-    <string name="lat_pulldown">1. Grip the bar with the palms facing forward, your hands need to be spaced out at a distance wider than shoulder width.\n
-        2. As you have both arms extended in front of you holding the bar, bring your torso back around 30 degrees while sticking your chest out.\n
-        3. Pull the bar down to about chin level or a little lower in a smooth movement whilst squeezing the shoulder blades together.\n
-        4. After a second of squeezing, slowly raise the bar back to the starting position when your arms are fully extended.</string>
-    <string name="hanging_leg_raise">1. Stand in the frame with your arms resting on the arms of the chair. Grab on to the handles of the chair, if it has them.\n
-        2. Check that your arm position is firm to be able to lift your bodyweight from the floor.\n
-        3. Inhale as you engage your abdominal muscles to prepare for the leg lift.\n
-        4. Bend your knees and raise them upward until your quads are parallel to the ground.\n
-        5. With an engaged core, exhale as you lower your legs in a controlled movement until you\'re back in the starting position.</string>
+        3. Pause then slowly return to starting position.</string>
+    <string name="lat_pulldown">1. Grip the bar with the palms facing forward.\n
+        2. Pull the bar down whilst squeezing the shoulder blades together.\n
+        3. Slowly raise the bar back to the starting position when your arms are fully extended.</string>
+    <string name="hanging_leg_raise">
+        1. Stand in the frame with your arms resting on the arms of the chair.\n
+        2. Bend your knees and raise them upward until your quads are parallel to the ground.\n
+        3. Exhale as you lower your legs back in the starting position.</string>
 
     <!-- Strings used for search information of exercise    -->
     <string-array name="exercise_array">
