@@ -2,8 +2,11 @@ package com.example.healthapp
 
 import android.content.DialogInterface
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.icu.text.SimpleDateFormat
 import android.os.Bundle
+import android.os.Parcelable
 import android.text.TextUtils
 import android.util.Log
 import android.widget.*
@@ -11,7 +14,9 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import de.hdodenhof.circleimageview.CircleImageView
+import java.io.ByteArrayOutputStream
 import java.util.*
+
 
 class SettingActivity: AppCompatActivity() {
     private var feet : EditText? = null
@@ -57,6 +62,8 @@ class SettingActivity: AppCompatActivity() {
 
         avatar1!!.setOnClickListener {
             avatar1!!.circleBackgroundColor = getColor(R.color.main_green)
+            avatar2!!.circleBackgroundColor = getColor(R.color.white)
+            avatar3!!.circleBackgroundColor = getColor(R.color.white)
             Toast.makeText(
                 applicationContext,
                 "Selected Kettlebell avatar!",
@@ -67,6 +74,8 @@ class SettingActivity: AppCompatActivity() {
 
         avatar2!!.setOnClickListener {
             avatar2!!.circleBackgroundColor = getColor(R.color.main_green)
+            avatar1!!.circleBackgroundColor = getColor(R.color.white)
+            avatar3!!.circleBackgroundColor = getColor(R.color.white)
             Toast.makeText(
                 applicationContext,
                 "Selected Heart avatar!",
@@ -77,6 +86,8 @@ class SettingActivity: AppCompatActivity() {
 
         avatar3!!.setOnClickListener {
             avatar3!!.circleBackgroundColor = getColor(R.color.main_green)
+            avatar1!!.circleBackgroundColor = getColor(R.color.white)
+            avatar2!!.circleBackgroundColor = getColor(R.color.white)
             Toast.makeText(
                 applicationContext,
                 "Selected Weights avatar!",
@@ -105,6 +116,7 @@ class SettingActivity: AppCompatActivity() {
         }
         if(UserInfo.getUsername().equals("Guest"))
             username!!.setHint("Username")
+        
         submit!!.setOnClickListener {
             //   Updating personal Info
 
@@ -138,7 +150,18 @@ class SettingActivity: AppCompatActivity() {
 
             if (verifyFields()) {
                 val intent = Intent(this@SettingActivity, MainActivity::class.java)
+                var bitmap: Bitmap? = BitmapFactory.decodeResource(resources, UserInfo.getAvatar()!!.id)
+                Log.i("BITMAP", bitmap.toString())
+                val bs = ByteArrayOutputStream()
+                bitmap!!.compress(Bitmap.CompressFormat.PNG, 50, bs)
+                intent.putExtra("byteArray", bs.toByteArray())
                 startActivity(intent)
+            } else {
+                Toast.makeText(
+                    applicationContext,
+                    "Ensure all fields are entered correctly.",
+                    Toast.LENGTH_LONG
+                ).show()
             }
         }
 
@@ -150,13 +173,12 @@ class SettingActivity: AppCompatActivity() {
 
             dialogBuilder.setMessage("Do you want to Log Out?")
                 .setCancelable(false)
-                .setPositiveButton("Proceed", DialogInterface.OnClickListener {
-                    _,_->
-                        var intent = Intent(this@SettingActivity, HomeActivity::class.java)
-                        startActivity(intent)
+                .setPositiveButton("Proceed", DialogInterface.OnClickListener { _, _ ->
+                    var intent = Intent(this@SettingActivity, HomeActivity::class.java)
+                    startActivity(intent)
                 })
-                .setNegativeButton("Cancel", DialogInterface.OnClickListener {
-                        dialog, _ -> dialog.cancel()
+                .setNegativeButton("Cancel", DialogInterface.OnClickListener { dialog, _ ->
+                    dialog.cancel()
                 })
             val alert = dialogBuilder.create()
             alert.setTitle("Log Out")

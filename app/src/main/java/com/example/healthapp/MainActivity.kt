@@ -1,6 +1,8 @@
 package com.example.healthapp
 
+import android.content.DialogInterface
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.icu.text.DateFormat
 import android.icu.text.SimpleDateFormat
 import android.os.Bundle
@@ -9,6 +11,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import com.github.mikephil.charting.animation.Easing
@@ -17,6 +20,7 @@ import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.*
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import de.hdodenhof.circleimageview.CircleImageView
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -26,6 +30,7 @@ class MainActivity : AppCompatActivity() {
     private var bottomNavigationView: BottomNavigationView? = null
     private var userName: TextView? = null
     var total_cal = 0.0f
+    private var profile: CircleImageView? = null
 
     var barChart: BarChart? = null
 
@@ -43,6 +48,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        profile = findViewById(R.id.profile_image)
+        profile!!.background = getDrawable(R.drawable.avatar_weights)
 //        setSupportActionBar(findViewById(R.id.toolbar))
 //         TODO: could use floating action for potential share feature?
 //        findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { view ->
@@ -57,6 +65,33 @@ class MainActivity : AppCompatActivity() {
 //            SettingActivity()
 
 //        }
+        if (intent.hasExtra("byteArray")) {
+            val bitmap = BitmapFactory.decodeByteArray(
+                intent.getByteArrayExtra("byteArray"),
+                0,
+                intent.getByteArrayExtra("byteArray")!!.size
+            )
+            profile!!.setImageBitmap(bitmap)
+        }
+
+
+        profile!!.setOnClickListener {
+            val dialogBuilder = AlertDialog.Builder(this)
+
+            dialogBuilder.setMessage("Do you want to go to Settings to change your avatar?")
+                .setCancelable(false)
+                .setPositiveButton("Proceed", DialogInterface.OnClickListener {
+                        _,_->
+                    val intent = Intent(this@MainActivity, SettingActivity::class.java)
+                    startActivity(intent)
+                })
+                .setNegativeButton("Cancel", DialogInterface.OnClickListener {
+                        dialog, _ -> dialog.cancel()
+                })
+            val alert = dialogBuilder.create()
+            alert.setTitle("Change Avatar?")
+            alert.show()
+        }
 
         // CALORIE CALCULATOR
 
