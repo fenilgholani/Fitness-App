@@ -17,7 +17,7 @@ import androidx.core.content.ContextCompat;
 import pl.droidsonroids.gif.GifImageView;
 
 /**
- * Created by Shashank Singhal on 06/01/2018.
+ * Modified from Shashank Singhal Reference on 06/01/2018.
  */
 
 public class FancyGifDialog {

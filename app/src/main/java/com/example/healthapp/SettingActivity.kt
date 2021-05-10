@@ -116,7 +116,7 @@ class SettingActivity: AppCompatActivity() {
         }
         if(UserInfo.getUsername().equals("Guest"))
             username!!.setHint("Username")
-        
+
         submit!!.setOnClickListener {
             //   Updating personal Info
 

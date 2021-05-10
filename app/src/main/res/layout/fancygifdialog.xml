@@ -63,10 +63,9 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/title"
                         android:layout_marginTop="16dp"
-                        android:gravity="center"
+                        android:gravity="left"
                         android:paddingLeft="16dp"
                         android:paddingRight="16dp"
-                        android:textAlignment="center"
                         android:textSize="14dp"
                         tools:text="This is a granny eating chocolate dialog box. This library is used to help you easily create fancy gify dialog." />
 
