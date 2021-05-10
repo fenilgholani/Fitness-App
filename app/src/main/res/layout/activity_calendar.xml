@@ -17,8 +17,6 @@ android:layout_height="wrap_content">
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="vertical"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
         tools:context=".CalendarActivity">
 
     <!--    <TextView-->
@@ -35,8 +33,9 @@ android:layout_height="wrap_content">
             android:id="@+id/months"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
+            android:background="@color/main_blue"
             android:outlineSpotShadowColor="@color/black"
+
             android:orientation="horizontal">
 
             <ImageView
@@ -44,8 +43,8 @@ android:layout_height="wrap_content">
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="12dp"
-                android:src="@drawable/arrow_back" />
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/ic_baseline_arrow_back_ios_24" />
 
             <TextView
                 android:id="@+id/month_name"
@@ -53,7 +52,7 @@ android:layout_height="wrap_content">
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:text="May"
-                android:textColor="@color/main_red"
+                android:textColor="@color/white"
                 android:textSize="30dp"
                 android:textStyle="bold" />
 
@@ -63,26 +62,28 @@ android:layout_height="wrap_content">
                 android:layout_height="20dp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="12dp"
+                android:layout_marginRight="20dp"
                 android:rotationY="180"
-                android:src="@drawable/arrow_back" />
+                android:src="@drawable/ic_baseline_arrow_back_ios_24" />
 
 
         </RelativeLayout>
 
         <com.github.sundeepk.compactcalendarview.CompactCalendarView
             android:id="@+id/calendarView"
+            android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:layout_height="212dp"
             android:layout_below="@id/months"
-            app:compactCalendarBackgroundColor="@color/main_blue"
+            app:compactCalendarBackgroundColor="@color/white"
             app:compactCalendarShouldSelectFirstDayOfMonthOnScroll="false"
-            app:compactCalendarCurrentDayBackgroundColor="@color/main_red"
+            app:compactCalendarCurrentDayBackgroundColor="@color/main_blue"
+            app:compactCalendarCurrentDayTextColor="@color/white"
             app:compactCalendarCurrentSelectedDayBackgroundColor="@color/light_blue"
-            app:compactCalendarMultiEventIndicatorColor="@color/white"
+            app:compactCalendarMultiEventIndicatorColor="@color/main_red"
             app:compactCalendarTargetHeight="250dp"
-            app:compactCalendarTextColor="#fff"
-            app:compactCalendarTextSize="15dp" />
+            app:compactCalendarTextColor="@color/black"
+            app:compactCalendarTextSize="17dp" />
         <!--  TODO place workout history recyclerview   -->
         <LinearLayout
             android:id="@+id/workout_display"

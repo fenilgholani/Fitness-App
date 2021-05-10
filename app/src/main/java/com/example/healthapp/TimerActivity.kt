@@ -181,7 +181,7 @@ class TimerActivity : AppCompatActivity() {
 //            Log.i("Time", hour.text.toString() + "/" + min.text.toString() + "/" + second.text.toString())
 
             if (!hour.text.toString().equals("") || !min.text.toString()
-                    .equals("") && !second.text.toString().equals("")
+                    .equals("") || !second.text.toString().equals("")
             ) {
 
                 //clicked
