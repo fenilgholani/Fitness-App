@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity() {
     private var userName: TextView? = null
     var total_cal = 0.0f
     private var profile: CircleImageView? = null
+    private var calories: TextView? = null
 
     var barChart: BarChart? = null
 
@@ -50,6 +51,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         profile = findViewById(R.id.profile_image)
+        calories = findViewById(R.id.calories)
         profile!!.background = getDrawable(R.drawable.avatar_weights)
 //        setSupportActionBar(findViewById(R.id.toolbar))
 //         TODO: could use floating action for potential share feature?
@@ -244,6 +246,7 @@ class MainActivity : AppCompatActivity() {
             barChart!!.clear()
             findViewById<BarChart>(R.id.barchart).isVisible = false
             findViewById<ImageView>(R.id.goworkout).isVisible = true
+            calories!!.isVisible = false
         }
         barChart!!.animateX(1500, Easing.EaseInExpo)
 
@@ -321,7 +324,7 @@ class MainActivity : AppCompatActivity() {
 
         userName = findViewById(R.id.username_text)
         if(UserInfo.getUsername() == null || UserInfo.getUsername() == "Guest") {
-            userName!!.text = userName!!.text.toString() + "Guest!"
+            userName!!.text = "Welcome Guest!"
             UserInfo.setUsername("Guest")
         }
         if(!user.equals("guest") || UserInfo.getUsername() != "Guest")
