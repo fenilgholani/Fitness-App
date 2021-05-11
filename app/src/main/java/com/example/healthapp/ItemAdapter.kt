@@ -155,7 +155,7 @@ class ItemAdapter(
                     drawable = R.drawable.bicep_curl
                     description = context.resources.getString(R.string.bicep_curl)
                 }
-                "Incline press" -> {
+                "Incline Press" -> {
                     drawable = R.drawable.incline_press
                     description = context.resources.getString(R.string.incline_press)
                 }

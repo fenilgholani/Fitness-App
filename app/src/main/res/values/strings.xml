@@ -66,14 +66,10 @@
 
     <!--  Exercise Strings  -->
     <!--  https://musclewiki.com/Bodyweight/  -->
-    <string name="plank">
-        1. Plant hands directly under shoulders (slightly wider than shoulder width) like you’re about to do a push-up.\n
-
-2. Ground toes into the floor and squeeze glutes to stabilize your body. Your legs should be working, too — be careful not to lock or hyperextend your knees.\n
-
-3. Neutralize your neck and spine by looking at a spot on the floor about a foot beyond your hands. Your head should be in line with your back.\n
-
-4. Hold the position for 20 seconds. As you get more comfortable with the move, hold your plank for as long as possible without compromising your form or breath.\n
+    <string name="plank">1. Plant hands directly under shoulders (slightly wider than shoulder width) like you’re about to do a push-up.\n
+        2. Ground toes into the floor and squeeze glutes to stabilize your body. Your legs should be working, too — be careful not to lock or hyperextend your knees.\n
+        3. Neutralize your neck and spine by looking at a spot on the floor about a foot beyond your hands. Your head should be in line with your back.\n
+        4. Hold the position for 20 seconds. As you get more comfortable with the move, hold your plank for as long as possible without compromising your form or breath.\n
 <!--        1. Begin in the plank position, face down with your forearms and toes on the floor. Your elbows are directly under your shoulders and your forearms are facing forward. Your head is relaxed and you should be looking at the floor.\n-->
 <!--        2. Engage your abdominal muscles. Keep your torso straight and rigid and your body in a straight line from ears to toes with no sagging or bending. Ensure your shoulders are down and your heels should be over the balls of your feet.\n-->
 <!--        3. Hold this position then release to the floor.-->
@@ -138,7 +134,6 @@
         3. Lower the weights in a controlled manner to the starting position and repeat.</string>
     <!--   Barbell -->
     <string name="bicep_curl">1. Curl the weights forward while contracting the biceps as you breathe out.\n
-
         2. Hold the contracted position for a second and squeeze the biceps hard.\n
         3. Slowly bring the weight back down to the starting position.</string>
     <!--  Dumbbell  -->
