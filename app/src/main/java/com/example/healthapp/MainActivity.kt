@@ -324,11 +324,11 @@ class MainActivity : AppCompatActivity() {
 
         userName = findViewById(R.id.username_text)
         if(UserInfo.getUsername() == null || UserInfo.getUsername() == "Guest") {
-            userName!!.text = "Welcome Guest!"
+            userName!!.text = "Welcome, Guest!"
             UserInfo.setUsername("Guest")
         }
         if(!user.equals("guest") || UserInfo.getUsername() != "Guest")
-            userName!!.text = "${userName!!.text}${UserInfo.getUsername()}!"
+            userName!!.text = "Welcome, ${UserInfo.getUsername()}!"
 
 
 
