@@ -32,6 +32,7 @@ class SettingActivity: AppCompatActivity() {
     private var avatar1 : CircleImageView? = null
     private var avatar2 : CircleImageView? = null
     private var avatar3 : CircleImageView? = null
+    private var avatarSelection : Int? = null
     private var bottomNavigationView: BottomNavigationView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,6 +61,7 @@ class SettingActivity: AppCompatActivity() {
             weightUnit!!.text = "KG"
         }
 
+
         avatar1!!.setOnClickListener {
             avatar1!!.circleBackgroundColor = getColor(R.color.main_green)
             avatar2!!.circleBackgroundColor = getColor(R.color.white)
@@ -70,6 +72,7 @@ class SettingActivity: AppCompatActivity() {
                 Toast.LENGTH_LONG
             ).show()
             UserInfo.setAvatar(avatar1!!)
+            avatarSelection = R.drawable.avatar_kettlebell
         }
 
         avatar2!!.setOnClickListener {
@@ -82,6 +85,7 @@ class SettingActivity: AppCompatActivity() {
                 Toast.LENGTH_LONG
             ).show()
             UserInfo.setAvatar(avatar2!!)
+            avatarSelection = R.drawable.avatar_heart
         }
 
         avatar3!!.setOnClickListener {
@@ -94,6 +98,7 @@ class SettingActivity: AppCompatActivity() {
                 Toast.LENGTH_LONG
             ).show()
             UserInfo.setAvatar(avatar3!!)
+            avatarSelection = R.drawable.avatar_weights
         }
 
 //        Think about the date
@@ -150,8 +155,8 @@ class SettingActivity: AppCompatActivity() {
 
             if (verifyFields()) {
                 val intent = Intent(this@SettingActivity, MainActivity::class.java)
-                var bitmap: Bitmap? = BitmapFactory.decodeResource(resources, UserInfo.getAvatar()!!.id)
-                Log.i("BITMAP", bitmap.toString())
+                var bitmap: Bitmap? =
+                    avatarSelection?.let { it1 -> BitmapFactory.decodeResource(resources, it1) }
                 val bs = ByteArrayOutputStream()
                 bitmap!!.compress(Bitmap.CompressFormat.PNG, 50, bs)
                 intent.putExtra("byteArray", bs.toByteArray())

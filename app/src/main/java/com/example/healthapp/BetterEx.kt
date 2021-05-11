@@ -130,7 +130,7 @@ class BetterEx : AppCompatActivity()  {
               "Romanian Deadlift" ,
               "Front Raise"  ,
               "Bicep Curl"  ,
-              "Incline press"  ,
+              "Incline Press"  ,
               "Side Raise"  ,
               "Hand Grippers"  ,
               "Shoulder Press"  ,

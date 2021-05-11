@@ -65,12 +65,14 @@ class MainActivity : AppCompatActivity() {
 //            SettingActivity()
 
 //        }
+
         if (intent.hasExtra("byteArray")) {
             val bitmap = BitmapFactory.decodeByteArray(
                 intent.getByteArrayExtra("byteArray"),
                 0,
                 intent.getByteArrayExtra("byteArray")!!.size
             )
+            profile!!.setBackgroundResource(android.R.color.transparent)
             profile!!.setImageBitmap(bitmap)
         }
 
