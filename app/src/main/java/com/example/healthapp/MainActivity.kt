@@ -320,12 +320,14 @@ class MainActivity : AppCompatActivity() {
         val user = intent.getStringExtra("user")
 
         userName = findViewById(R.id.username_text)
-        if(UserInfo.getUsername() == null || UserInfo.getUsername() == "Guest")
-            userName!!.text = userName!!.text.toString() +  "Guest!"
-        if(!user.equals("guest") && UserInfo.getUsername() != "Guest")
+        if(UserInfo.getUsername() == null || UserInfo.getUsername() == "Guest") {
+            userName!!.text = userName!!.text.toString() + "Guest!"
+            UserInfo.setUsername("Guest")
+        }
+        if(!user.equals("guest") || UserInfo.getUsername() != "Guest")
             userName!!.text = "${userName!!.text}${UserInfo.getUsername()}!"
 
-        UserInfo.setUsername("Guest")
+
 
 
         bottomNavigationView = findViewById(R.id.bottom_navigation_main)
