@@ -44,45 +44,78 @@ class TodayExerciseActivity : AppCompatActivity() {
 
         finishWorkout.setOnClickListener{
             finished = true
-            adapter!!.notifyDataSetChanged()
 
-            for(b in adapter.getCompleteButton()!!.iterator()){
-                b.performClick()
+            if(Exercise.getExerciseData() != null) {
+
+
+                adapter!!.notifyDataSetChanged()
+
+                for (b in adapter.getCompleteButton()!!.iterator()) {
+                    b.performClick()
+                }
+                if (month > 9)
+                    if (day > 9)
+                        Exercise.setExerciseData(
+                            adapter.getexerciseData(),
+                            "${month + 1}.$day.$year"
+                        )
+                    else
+                        Exercise.setExerciseData(
+                            adapter.getexerciseData(),
+                            "${month + 1}.0$day.$year"
+                        )
+                else
+                    if (day > 9)
+                        Exercise.setExerciseData(
+                            adapter.getexerciseData(),
+                            "0${month + 1}.$day.$year"
+                        )
+                    else
+                        Exercise.setExerciseData(
+                            adapter.getexerciseData(),
+                            "0${month + 1}.0$day.$year"
+                        )
+
+
+                // Setting the exercise for the day
+                var dateExercise = HashMap<String, HashMap<String, HashMap<Int, ArrayList<Int>>>>()
+
+                if (month > 9)
+                    if (day > 9)
+                        dateExercise["${month + 1}.$day.$year"] = Exercise.getExerciseData()
+                    else
+                        dateExercise["${month + 1}.0$day.$year"] = Exercise.getExerciseData()
+                else
+                    if (day > 9)
+                        dateExercise["0${month + 1}.$day.$year"] = Exercise.getExerciseData()
+                    else
+                        dateExercise["0${month + 1}.0$day.$year"] = Exercise.getExerciseData()
+
+                DateExercise.setExerciseData(dateExercise)
+
+                Log.i("Date Exercise", DateExercise.getExerciseData().toString())
+
+                // in1.putExtra("exerciseData", adapter.getexerciseData())
+                // startActivity(in1)
+                var intent = Intent(this@TodayExerciseActivity, CalendarActivity::class.java)
+                startActivity(intent)
+            } else {
+                val dialogBuilder = AlertDialog.Builder(this)
+
+                dialogBuilder.setMessage("There's no data for an exercise. Are you sure you're done?")
+                    .setCancelable(false)
+                    .setPositiveButton("Proceed", DialogInterface.OnClickListener {
+                            _,_->
+                        val intent = Intent(this@TodayExerciseActivity, CalendarActivity::class.java)
+                        startActivity(intent)
+                    })
+                    .setNegativeButton("Cancel", DialogInterface.OnClickListener {
+                            dialog, _ -> dialog.cancel()
+                    })
+                val alert = dialogBuilder.create()
+                alert.setTitle("Finished Workout?")
+                alert.show()
             }
-            if(month > 9)
-                if(day > 9)
-                    Exercise.setExerciseData(adapter.getexerciseData(),"${month+1}.$day.$year")
-                else
-                    Exercise.setExerciseData(adapter.getexerciseData(),"${month+1}.0$day.$year")
-            else
-                if(day > 9)
-                    Exercise.setExerciseData(adapter.getexerciseData(),"0${month+1}.$day.$year")
-                else
-                    Exercise.setExerciseData(adapter.getexerciseData(),"0${month+1}.0$day.$year")
-
-
-            // Setting the exercise for the day
-            var dateExercise = HashMap<String, HashMap<String, HashMap<Int, ArrayList<Int>>>>()
-
-            if(month > 9)
-                if(day > 9)
-                    dateExercise["${month+1}.$day.$year"] = Exercise.getExerciseData()
-                else
-                    dateExercise["${month+1}.0$day.$year"] = Exercise.getExerciseData()
-            else
-                if(day > 9)
-                    dateExercise["0${month+1}.$day.$year"] = Exercise.getExerciseData()
-                else
-                    dateExercise["0${month+1}.0$day.$year"] = Exercise.getExerciseData()
-
-            DateExercise.setExerciseData( dateExercise)
-
-            Log.i("Date Exercise", DateExercise.getExerciseData().toString())
-
-            // in1.putExtra("exerciseData", adapter.getexerciseData())
-            // startActivity(in1)
-            var intent = Intent(this@TodayExerciseActivity, CalendarActivity::class.java)
-            startActivity(intent)
         }
 
         bottomNavigationView = findViewById(R.id.bottom_navigation_today_exercise)
