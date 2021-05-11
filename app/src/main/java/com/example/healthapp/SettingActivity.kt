@@ -52,6 +52,7 @@ class SettingActivity: AppCompatActivity() {
         avatar1 = findViewById(R.id.avatar1)
         avatar2 = findViewById(R.id.avatar2)
         avatar3 = findViewById(R.id.avatar3)
+        avatar3!!.circleBackgroundColor = getColor(R.color.main_green)
 
         lbs!!.setOnClickListener {
             weightUnit!!.text = "LBS"
