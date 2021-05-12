@@ -1,12 +1,13 @@
 package com.example.healthapp
 
+import android.annotation.SuppressLint
 import android.content.DialogInterface
+import android.content.DialogInterface.OnShowListener
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.icu.text.SimpleDateFormat
 import android.os.Bundle
-import android.os.Parcelable
 import android.text.TextUtils
 import android.util.Log
 import android.widget.*
@@ -35,6 +36,7 @@ class SettingActivity: AppCompatActivity() {
     private var avatarSelection : Int? = null
     private var bottomNavigationView: BottomNavigationView? = null
 
+    @SuppressLint("ResourceAsColor")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_setting)
@@ -175,7 +177,7 @@ class SettingActivity: AppCompatActivity() {
 
         var logout:Button = findViewById(R.id.per_logout)
         logout.setOnClickListener{
-            val dialogBuilder = AlertDialog.Builder(this)
+            var dialogBuilder = AlertDialog.Builder(this)
 
             dialogBuilder.setMessage("Do you want to Log Out?")
                 .setCancelable(false)
@@ -186,9 +188,13 @@ class SettingActivity: AppCompatActivity() {
                 .setNegativeButton("Cancel", DialogInterface.OnClickListener { dialog, _ ->
                     dialog.cancel()
                 })
+
             val alert = dialogBuilder.create()
             alert.setTitle("Log Out")
+
             alert.show()
+
+
 
         }
 
