@@ -83,7 +83,7 @@ class ItemAdapter(
             var description: String? = null
 
             when (holder.itemTitle.text) {
-                "Pull up" -> {
+                "Pull Up" -> {
                     drawable = R.drawable.pullup
                     description = context.resources.getString(R.string.pull_up)
                 }
@@ -95,11 +95,11 @@ class ItemAdapter(
                     drawable = R.drawable.squat
                     description = context.resources.getString(R.string.squat)
                 }
-                "Push up" -> {
+                "Push Up" -> {
                     drawable = R.drawable.pushup
                     description = context.resources.getString(R.string.push_up)
                 }
-                "Sit up" -> {
+                "Sit Up" -> {
                     drawable = R.drawable.situp
                     description = context.resources.getString(R.string.sit_up)
                 }
